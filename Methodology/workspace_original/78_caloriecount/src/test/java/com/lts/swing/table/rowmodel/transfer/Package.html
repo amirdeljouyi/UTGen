@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>com.lts.swing.table.transfer</title>
+</head>
+<body>
+
+<H3>Quick Start</H3>
+<UL>
+<LI/>Create a subclass of RowTableTransferHandler
+<UL>
+<LI/>Override the initialize method to call setActions with the classes supported
+actions.
+</UL>
+<LI/>Create an instance of your subclass of RowTableTransferHandler.
+<LI/>Create an instance of RowTableModel for use with your JTable.
+<LI/>Enable drag by calling JTable.setDragEnabled(true) on your JTable.
+<LI/>Set the transfer handler for your table with JTable.setTransferHandler, 
+passing the instance of your subclass to the JTable.
+</UL>
+
+<H3>Description</H3>
+Drag and drop in Java centers around instances of TransferHandler, which go through 
+the following steps:
+<UL>
+<LI/>The user makes a "drag gesture."
+<LI/>TransferHandler.getSourceActions is called on the component that the user started
+the drag gesture on.
+<LI/>The user makes a "drop gesture."
+<LI/>TransferHandler.createTransferable is called to create the data to copy/move/etc.
+<LI/>TransferHandler.canImport is called <I>on the destination TransferHandler</I>
+to determine if it can accept the data.
+<LI>TransferHandler.importData is called <I>on the destination TransferHandler</I>
+to transfer the data.</LI>
+<LI>TransferHandler.exportDone is called <I>on the source TransferHandler</I> to perform 
+any cleanup required.</LI>
+</UL>
+
+
+<H3>Start drag gesture</H3>
+In the case of a JTable, this consists of the user left-clicking on a row and then 
+possibly adding more rows.  Adding rows is usually accomplished by shift-left-clicking to
+add a range, or control-left-clicking to add individual rows.  Next the user left-clicks
+on one of the selected rows, holds down the left button, and then moving the mouse.
+
+<H3>TransferHandler.getSourceActions</H3>
+This is called on the component the user select data from (in our case, a JTable).
+This assumes that JComponent.getDragEnabled returns true.  The TransferHandler returns
+an array of the actions that are supported.  This will be TransferHandler.COPY, 
+TransferHandler.MOVE and/or TransferHandler.COPY_OR_MOVE.
+
+<P>
+In the case of RowTableTransferHandler, MOVE will always be returned.
+</P>
+
+<P>
+For no apparent reason, this method is called over and over again.  I guess they
+are trying to imply that the set of gestures can change over time?
+</P>
+
+<H3>Drop gesture</H3>
+Once the user positions the mouse where they want the data to go, the user releases
+the left mouse button.  This is a drop gesture.
+
+<H3>TransferHandler.createTransferable</H3>
+Now that the user has signified that they want to transfer data, DnD support bundles
+up  the source data by calling createTransferable on the source component.
+
+<P>
+In the case of RowTableTransferHandler, this copies the data from the selected rows.
+</P>
+
+<H3>TransferHandler.canImport</H3>
+This method is called on the destination component to determine whether or not it can
+accept the data to be transfered.  If not, I presume that the importData method is 
+not called.
+
+<P>
+In the case of RowTableTransferHandler, canImport returns true only if supplied 
+DataFlavor is an instance of RowTableDataFlavor and the underlying class of the RowTableModel
+is the same as that of the source.
+</P>
+
+<H3>TransferHandler.importData</H3>
+Assuming that the drop is valid, this method is called on the destinations TransferHandler
+to import the data.
+
+<P>
+In the case of RowTableTransferHandler, this results in adding the rows of the 
+DataTransfer object to the underlying RowModel of the destination JTable.
+</P>
+
+<P>
+In some ways, this is a very strange method.  It takes a JComponent that is the destination
+for the drop.  Given that the DnD framework could simply call JComoponent.getTransferHandler()
+and then call importData on the destination.
+</P>
+
+<P>
+Presumeably, the method is called this way so that state can be preserved after getTransferable
+is called on the source, but this is the destination!
+</P>
+
+<P>
+To make things more annoying, the TransferHandler has to figure out what DataFlavor to use.
+What is the point of doing this when presumeably the destination already responded 
+"true" to some call to canImport?
+</P>
+
+<P>
+Just to be extra-strange, importData is not allowed to throw exceptions, 
+Transferable.getTransferData throws not one, but <I>two</I> different classes 
+of exception: UnsupportedFlavorException and IOException.  Why isn't this method 
+allowed to throw exceptions and then the DnD framework can handle them?
+</P>
+
+<H3>TransferHandler.exportDone</H3>
+This method is called on the source component to "clean up" after the export.  In 
+case of a copy, nothing is done.  In the case of a move or cut, the source data is 
+removed from the source table.
+
+<H3>Transferring Data Inside the Same Table</H3>
+Moving around rows is relatively straight-forward except for the following situation.
+Consider this table:
+
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>  </tr>
+<tr><td>1</td>    <td>Bob</td>    </tr>
+<tr><td>2</td>    <td>Charlie</td></tr>
+<tr><td>3</td>    <td>Dan</td>    </tr>
+<tr><td>4</td>    <td>Edward</td> </tr>
+<tr><td>5</td>    <td>Frank</td>  </tr>
+<tr><td>6</td>    <td>George</td> </tr>
+<tr><td>7</td>    <td>Harry</td>  </tr>
+</table>
+
+<P>
+Suppose Edward, Frank and George are highlighted; and that the user decides to 
+move them to index 1 (Where Bob currently resides).  The result should look like
+this:
+</P>
+
+<P>
+Before:
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>  </tr>
+<tr><td>1</td>    <td>Bob</td>    </tr>
+<tr><td>2</td>    <td>Charlie</td></tr>
+<tr><td>3</td>    <td>Dan</td>    </tr>
+<tr><td>4</td>    <td>Edward</td> </tr>
+<tr><td>5</td>    <td>Frank</td>  </tr>
+<tr><td>6</td>    <td>George</td> </tr>
+<tr><td>7</td>    <td>Harry</td>  </tr>
+</table>
+</P>
+
+<P>
+Select Bob, Dan and Edward:
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>         </tr>
+<tr><td>1</td>    <td><I>Bob</I></td>    </tr>
+<tr><td>2</td>    <td>Charlie</td>       </tr>
+<tr><td>3</td>    <td><I>Dan</I></td>    </tr>
+<tr><td>4</td>    <td><I>Edward</I></td> </tr>
+<tr><td>5</td>    <td>Frank</td>         </tr>
+<tr><td>6</td>    <td>George</td>        </tr>
+<tr><td>7</td>    <td>Harry</td>         </tr>
+</table>
+
+<P>
+Select Geroge as the destination:
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>         </tr>
+<tr><td>1</td>    <td>Bob</td>           </tr>
+<tr><td>2</td>    <td>Charlie</td>       </tr>
+<tr><td>3</td>    <td>Dan</td>           </tr>
+<tr><td>4</td>    <td>Edward</td>        </tr>
+<tr><td>5</td>    <td>Frank</td>         </tr>
+<tr><td>6</td>    <td><I>George</I></td> </tr>
+<tr><td>7</td>    <td>Harry</td>         </tr>
+</table>
+</P>
+
+
+<P>
+Drop step 1: paste the data
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>         </tr>
+<tr><td>1</td>    <td>Bob</td>           </tr>
+<tr><td>2</td>    <td>Charlie</td>       </tr>
+<tr><td>3</td>    <td>Dan</td>           </tr>
+<tr><td>4</td>    <td>Edward</td>        </tr>
+<tr><td>5</td>    <td>Frank</td>         </tr>
+<tr><td>6</td>    <td>Bob</td>           </tr>
+<tr><td>7</td>    <td>Dan</td>           </tr>
+<tr><td>8</td>    <td>Edward</td>        </tr>
+<tr><td>9</td>    <td>George</td>        </tr>
+<tr><td>10</td>   <td>Harry</td>         </tr>
+</table>
+</P>
+
+<P>
+Drop step 2: remove the source row #1
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>         </tr>
+<tr><td>1</td>    <td>Charlie</td>       </tr>
+<tr><td>2</td>    <td>Dan</td>           </tr>
+<tr><td>3</td>    <td>Edward</td>        </tr>
+<tr><td>4</td>    <td>Frank</td>         </tr>
+<tr><td>5</td>    <td>Bob</td>           </tr>
+<tr><td>6</td>    <td>Dan</td>           </tr>
+<tr><td>7</td>    <td>Edward</td>        </tr>
+<tr><td>8</td>    <td>George</td>        </tr>
+<tr><td>9</td>    <td>Harry</td>         </tr>
+</table>
+</P>
+
+<P>
+Remove source row #2
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>         </tr>
+<tr><td>1</td>    <td>Charlie</td>       </tr>
+<tr><td>2</td>    <td>Edward</td>        </tr>
+<tr><td>3</td>    <td>Frank</td>         </tr>
+<tr><td>4</td>    <td>Bob</td>           </tr>
+<tr><td>5</td>    <td>Dan</td>           </tr>
+<tr><td>6</td>    <td>Edward</td>        </tr>
+<tr><td>7</td>    <td>George</td>        </tr>
+<tr><td>8</td>    <td>Harry</td>         </tr>
+</table>
+</P>
+
+<P>
+Remove source row #3
+<table border="1">
+<thead>
+<tr><td>Index</td><td>Data</td></tr>
+</thead>
+
+<tr><td>0</td>    <td>Alice</td>         </tr>
+<tr><td>1</td>    <td>Charlie</td>       </tr>
+<tr><td>2</td>    <td>Frank</td>         </tr>
+<tr><td>3</td>    <td>Bob</td>           </tr>
+<tr><td>4</td>    <td>Dan</td>           </tr>
+<tr><td>5</td>    <td>Edward</td>        </tr>
+<tr><td>6</td>    <td>George</td>        </tr>
+<tr><td>7</td>    <td>Harry</td>         </tr>
+</table>
+</P>
+
+<P>
+The problem is that index of the rows to delete changes.
+</P>
+
+</body>
+</html>

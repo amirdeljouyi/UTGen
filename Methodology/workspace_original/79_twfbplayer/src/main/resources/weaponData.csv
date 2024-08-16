@@ -1,0 +1,41 @@
+102,70,150,0,0,Bogen
+103,100,188,0,0,Präziser Bogen
+100,50,110,0,0,Stein
+101,50,130,0,0,Morscher Bogen
+110,1,256,0,0,Rostige Büchse
+111,1,300,0,0,Büchse
+108,90,190,0,0,Hakenbüchse
+109,112,232,0,0,Präzise Hakenbüchse
+106,120,192,0,0,Präzise Armbrust
+107,80,160,0,0,Rostige Hakenbüchse
+104,75,129,0,0,Morsche Armbrust
+105,90,150,0,0,Armbrust
+119,1,242,0,0,Rostige Schrotflinte
+118,168,268,0,0,Präzise Flinte
+117,135,225,0,0,Flinte
+116,120,192,0,0,Rostige Flinte
+115,126,266,0,0,Präzise Muskete
+114,100,220,0,0,Muskete
+113,83,193,0,0,Rostige Muskete
+112,1,360,0,0,Präzise Büchse
+127,200,296,0,0,Präziser Hinterlader
+126,190,250,0,0,Hinterlader
+125,160,232,0,0,Rostiger Hinterlader
+124,172,292,0,0,Präzises Perkussionsgewehr
+123,150,250,0,0,Perkussionsgewehr
+122,126,226,0,0,Rostiges Perkussionsgewehr
+121,1,444,0,0,Präzise Schrotflinte
+120,1,380,0,0,Schrotflinte
+137,42,158,0,0,Tods Sense
+136,232,348,3,3,Goldenes Gewehr
+139,200,400,0,0,High Wall
+138,400,500,0,0,Geronimos Schrotflinte
+140,100,300,0,0,Sammlergewehr
+129,180,280,0,0,Winchester
+128,160,252,0,0,Rostige Winchester
+131,240,360,0,0,Gatling
+130,200,312,0,0,Präzise Winchester
+133,145,155,0,0,Bowies Vorderlader
+132,0,1,0,0,Bär
+135,1,400,0,0,Elefantengewehr
+134,192,308,0,0,Nachgemachtes Goldenes Gewehr

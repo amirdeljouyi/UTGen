@@ -1,0 +1,56 @@
+#,Group,Remote/In-Person,Java Experience,Testing Experience,Affiliation,Appointment
+1,Academic,In-Person,3,4,PhD Student,"Friday, Feb 16, 2024 3:15 PM - 4:30 PM"
+2,Academic,In-Person,3,2,PhD Student,"Friday, Feb 16, 2024 3:15 PM - 4:30 PM"
+3,Academic,In-Person,5,5,MSc Student,"Monday, Feb 19, 2024 2:00 PM - 3:15 PM"
+4,Academic,In-Person,4,1,PhD Student,"Monday, Feb 19, 2024 2:00 PM - 3:15 PM"
+5,Industry,Remote,7,3,Developer,"Monday, Feb 19, 2024 3:15 PM - 4:30 PM"
+6,Academic,In-Person,5,3,MSc Student,"Monday, Feb 20, 2024 10:15 AM - 11:30 AM"
+7,Academic,In-Person,20,15,Scientific Developer,"Tuesday, Feb 20, 2024 1:30 PM - 3:00 PM"
+8,Academic,In-Person,3,1,PhD Student,"Tuesday, Feb 20, 2024 1:30 PM - 3:00 PM"
+9,Industry,Remote,5,6,Developer,"Wednesday, Feb 21, 2024 10:15 AM - 11:30 AM"
+10,Academic,In-Person,2,2,MSc Student,"Wednesday, Feb 21, 2024 2:00 PM - 3:15 PM"
+11,Academic,In-Person,6,5,PhD Student,"Wednesday, Feb 21, 2024 2:00 PM - 3:15 PM"
+12,Academic,In-Person,8,7,Post-doc,"Thursday, Feb 22, 2024 10:30 AM - 12:00 PM"
+13,Academic,In-Person,2,2,PhD Student,"Tuesday, Feb 22, 2024 10:30 AM - 12:00 PM"
+14,Industry,Remote,5,8,Scientific Developer,"Thursday, Feb 22, 2024 2:00 PM - 3:15 PM"
+15,Academic,Remote,4,2,PhD Student,"Monday, Mar 04, 2024 4:30 PM-6:00 PM"
+16,Academic,In-Person,8,3,PhD Student,"Thursday, Feb 22, 2024 3:30 PM - 5:00 PM"
+17,Industry,In-Person,3,1,Developer,"Friday, Feb 23, 2024 1:00 AM - 2:30 AM"
+18,Industry,Remote,3,3,Developer,"Friday, Feb 23, 2024 2:00 PM - 3:15 PM"
+19,Academic,In-Person,4,3,BSc Student,"Monday, Feb 26, 2024 10:30 AM - 12:00 PM"
+20,Industry,Remote,4,5,Senior Researcher,"Monday, Feb 26, 2024 2:00 PM - 3:15 PM"
+21,Academic,In-Person,2,2,MSc Student,"Monday, Feb 26, 2024 1:30 PM - 3:00 PM"
+22,Academic,In-Person,1,1,MSc Student,"Monday, Feb 26, 2024 1:30 PM - 3:00 PM"
+23,Industry,Remote,4,4,Developer,"Tuesday, Feb 27, 2024 10:00 AM - 11:00 AM"
+24,Academic,Remote,5,3,MSc Student,"Wednesday, Feb 28, 2024 9:00 AM - 10:30 AM"
+25,Industry,In-Person,6,12,Team Lead,"Wednesday, Feb 28, 2024 10:15 AM - 11:30 AM"
+26,Industry,Remote,8,8,Developer,"Wednesday, Feb 28, 2024 2:00 PM - 3:15 PM"
+27,Industry,In-Person,6,15,Senior Researcher,"Wednesday, Feb 28, 2024 3:00 PM - 4:30 PM"
+28,Academic,In-Person,3,3,MSc Student,"Wednesday, Feb 28, 2024 4:30 PM-6:00 PM"
+29,Industry,In-Person,20,15,Team Lead,"Thursday, Feb 29, 2024 1:30 PM - 3:00 PM"
+30,Academic,Remote,1,1,MSc Student,"Monday, Mar 04, 2024 9:00 PM - 10:30 PM"
+31,Academic,Remote,12,3,PhD Student,"Monday, Mar 04, 2024 10:30 AM - 12:00 PM"
+32,Industry,Remote,7,1,Senior Researcher,"Monday, Mar 04, 2024 2:00 PM - 3:15 PM"
+Trial,Trial,,,,,
+1,Trial,In-Person,2,1,PhD Student,"Tuesday, Feb 13, 2024 2:00 PM - 3:15 PM"
+2,Trial,In-Person,4,4,Scientific Developer,"Tuesday, Feb 13, 2024 2:00 PM - 3:15 PM"
+3,Trial,In-Person,3,1,PhD Student,"Wednesday, Feb 14, 2024 2:00 PM - 3:15 PM"
+4,Trial,In-Person,14,10,PhD Student,"Thursday, Feb 22, 2024 3:30 PM - 5:00 PM"
+Analysis,Analysis,,,,,
+,Academia,20,20,0,PhD Student,9
+,Industry,12,12,0,MSc Student,8
+,In-Person,20,,,BSc Student,1
+,Remote,12,,,Post Doc,1
+,,,,,Scientific Developer,1
+,,,,,Scientific Developer - IND,1
+,,,,,Developer,6
+,,,,,Senior Researcher,3
+,,,,,Team Lead,2
+,Academic,0-2,5,9,,
+,,3-6,11,9,,
+,,7-10,2,1,,
+,,10>,2,1,,
+,Industry,0-2,0,2,,
+,,3-6,8,5,,
+,,7-10,3,2,,
+,,10>,1,3,,

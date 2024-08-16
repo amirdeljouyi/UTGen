@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>com.lts.swing.table.rowmodel</title>
+</head>
+<body>
+
+<H2>The RowModel Framework</H2>
+<UL>
+<LI><A href="#quickstart">Quickstart</A></LI>
+<LI><A href="#detailed">Thurough Discussion</A></LI>
+</UL>
+
+<H3><A name="quickstart">Quick Start</A></H3>
+<UL>
+<LI><A href="#define-row-model">Define a class that implements RowModel</A></LI>
+<LI><A href="#define-instance">Define a class that implements RowModelTable</A></LI>
+<LI><A href="#use-classes">Use the new classes to create a SimpleRowModelTable</A></LI>
+</UL>
+
+<H3><A name="define-row-model">Define a RowModel</A></H3>
+<CODE>
+<PRE>
+public class Person
+{
+	public String myName;
+	public int myAge;
+	public String mySSN;
+	
+	public Person (String name, int age, String ssn)
+	{
+		myName = name;
+		myAge = age;
+		mySSN = ssn;
+	}
+}
+
+public class PersonRowModel implements RowModel
+{
+	public static Comparator PERSON_COMPARATOR = new Comparator() {
+		public int compare (Object o1, Object o2)
+		{
+			Person p1 = (Person) o1;
+			Person p2 = (Person) o2;
+			return p1.myName.compareTo(p2.myName);
+		}
+	};
+	
+	
+	public static final String[] COLUMN_NAMES = {
+		"Name", 
+		"SSN",
+		"Age"
+	};
+	
+	
+	public static final int COL_NAME = 0;
+	public static final int COL_SSN = 1;
+	public static final int COL_AGE = 2;
+	
+	public Comparator getComparator()
+	{
+		return PERSON_COMPARATOR;
+	}
+
+	public Class getColumnClass(int column)
+	{
+		return String.class;
+	}
+
+	public int getColumnCount()
+	{
+		return COLUMN_NAMES.length;
+	}
+
+	public String getColumnName(int column)
+	{
+		return COLUMN_NAMES[column];
+	}
+
+	public String[] getColumnNames()
+	{
+		return COLUMN_NAMES;
+	}
+
+	public Object getValueAt(int column, Object row)
+	{
+		Person person = (Person) row;
+		Object value = null;
+		
+		switch (column)
+		{
+			case COL_AGE :
+				value = Integer.toString(person.myAge);
+				break;
+				
+			case COL_NAME :
+				value = person.myName;
+				break;
+				
+			case COL_SSN :
+				value = person.mySSN;
+				break;
+				
+			default :
+				throw new IllegalArgumentException(Integer.toString(column));
+		}
+		
+		return value;
+	}
+
+	public boolean isColumnEditable(int col)
+	{
+		return false;
+	}
+
+	public void setValueAt(Object row, int column, Object value)
+	{
+		Person person = (Person) row;
+		String s = (String) value;
+		
+		switch (column)
+		{
+			case COL_AGE :
+				person.myAge = Integer.parseInt(s);
+				break;
+				
+			case COL_NAME :
+				person.myName = s;
+				break;
+				
+			case COL_SSN :
+				person.mySSN = s;
+				break;
+				
+			default :
+				throw new IllegalArgumentException(Integer.toString(column));
+		}
+	}
+
+	public void update (Object destination, Object source)
+	{
+		Person psource = (Person) source;
+		Person pdest = (Person) destination;
+		
+		pdest.myAge = psource.myAge;
+		pdest.myName = psource.myName;
+	}
+}
+</PRE>
+</CODE>
+
+<H3><A name="define-instance">Define an Instance of SimpleRowTableModel</A></H3>
+Example:
+
+<CODE>
+<PRE>
+
+public class PersonList
+{
+	private Map<String, Person> mySSNToPerson;
+	
+	static private PersonList ourInstance;
+	
+	static public void initClass()
+	{
+		ourInstance = new PersonList();
+	}
+	
+	static public PersonList getInstance()
+	{
+		return ourInstance;
+	}
+	
+	
+	protected PersonList()
+	{
+		mySSNToPerson = new HashMap<String, Person>();
+	}
+	
+	
+	public void addPerson(Person person)
+	{
+		mySSNToPerson.put(person.mySSN, person);
+	}
+	
+	public Person getPerson (String ssn)
+	{
+		return mySSNToPerson.get(ssn);
+	}
+	
+	public boolean deletePerson (String ssn)
+	{
+		Person temp = mySSNToPerson.remove(ssn);
+		return null != temp;
+	}
+
+	public Collection getAllPersons()
+	{
+		return mySSNToPerson.values();
+	}	
+}
+
+public class PersonRowModelTable implements RowModelTable
+{
+	private List<Person> myList;
+	private PersonList myPersonList;
+	private PersonRowModel myRowModel;
+	
+	public PersonRowModelTable (PersonList list)
+	{
+		myPersonList = list;
+		refresh();
+	}
+	
+	public Object getRow(int index)
+	{
+		return myList.get(index);
+	}
+
+	public int getRowCount()
+	{
+		return myList.size();
+	}
+
+	public void insert(int index, Object data)
+	{
+		Person person = (Person) data;
+		Person temp = myPersonList.getPerson(person.mySSN);
+		if (null != temp)
+		{
+			throw new IllegalArgumentException("duplicate person: " + person);
+		}
+		
+		myPersonList.addPerson(person);
+		myList.add(index, person);
+	}
+
+	public void remove(int index)
+	{
+		Person person = myList.get(index);
+		myList.remove(index);
+		myPersonList.deletePerson(person.mySSN);
+	}
+	
+	public void update(int index, Object source)
+	{
+		Person dest = myList.get(index);
+		Person src = (Person) source;
+		
+		myRowModel.update(dest, src);
+	}
+	
+	public void refresh()
+	{
+		Collection col = myPersonList.getAllPersons();
+		myList = new ArrayList<Person>(col);
+		Collections.sort(myList, PersonRowModel.PERSON_COMPARATOR);
+	}
+}
+</PRE>
+</CODE>
+
+<H2><A name="use-classes">Use the new classes to create a SimpleRowModelTable</A></H2>
+
+<CODE>
+<PRE>
+	...
+	JTable table = new JTable();
+	PersonRowModel rowModel = new PersonRowModel();
+	PersonList list = PersonList.getInstance();
+	PersonRowModelTable rowModelTable = new PersonRowModelTable(list);
+	SimpleRowModelTable model = new SimpleRowModelTable(rowModel,rowModelTable);
+	table.setModel(model);
+	...
+</PRE>
+</CODE>
+
+<H3><A name="detailed">
+The RowModel Framework
+</A></H3>
+The RowModel framework allows developers to more quickly create interactive JTables
+that contain data from plain old Java objects (POJOs).  Unlike the standard JTable
+framework, the data (or "model" in the MVC parlance) is able to be truely independent
+of the view.  While the basic MVC paradigm defined with Swing/AWT actually requires 
+that the model have a particular form in order for it to be useable.
+
+<H3>Contents</H3>
+This discussion is broken up into the following sections:
+
+<TABLE border="1">
+<TR><TD><B>Section</B></TD><TD><B>Description</B></TD></TR>
+<TR>
+    <TD><A href="#quickstart">Quickstart</A></TD>
+    <TD>A collection of example code intended for those who already know how to 
+    use the framework and that only need a quick reminder of how to use it.
+    </TD>
+</TR>
+
+<TR>
+    <TD><A href="#introduction">Introduction</A></TD>
+    <TD>
+    A high level description of the RowModel framework.  What are the benefits and
+    the classes involved.  What are the sections in this document?
+    </TD>
+</TR>
+
+<TR>
+    <TD><A href="readonly">Displaying Data that can Change</A></TD>
+    <TD>
+    How to display JTable data from a source that can change due to external
+    events.
+    </TD>
+</TR>
+
+<TR>
+    <TD><A href="read-write">Read/Write</A></TD>
+    <TD>
+    A discussion of how to create a RowModel system that allows users to insert, update
+    and delete rows from a table.
+    </TD>
+</TR>
+
+<TR>
+    <TD><A href="value-channel">Value Channel</A></TD>
+    <TD>
+    How to use the RowModel framework in its most powerful and useful incarnation.  This
+    allows complete data (model) independence from the way the data is displayed.
+    </TD>
+</TR>
+</TABLE>
+
+<A name="introduction">
+<H2>Introduction</H2>
+</A>
+The RowModel framework uses what is known as the Value Channel (VC) approach to separating 
+model, view and controller (MVC) functionality.  The problem with the current MVC implementation
+as it exists in Swing/AWT is that it makes certain requirements on the data if it is 
+going to display it.
+
+<P>
+For example, if a collection of data is be displayed in a JTable, it <I>must</I> be 
+ordered: object 1, object 2, and so on.  That order <I>must</I> not be changed without
+letting the underlying table know.  etc.  This implies that the underlying data needs
+to use a List style of storage for it to work, even if the data is really unordered.
+</P>
+
+<P>
+A typical solution to this problem is to create a class that sits between the 
+TableModel and the actual data.  Continuing the person example from the quickstart:
+</P>
+
+<P>
+<CODE>
+<PRE>
+public class PersonTableModel
+{
+	public Map<Integer, Person> myIndexToPerson;
+	public Map<Person, Integer> myPersonToIndex;
+	public List<Integer> myPersonList;
+	
+	public void addPerson(Person person)
+	{
+		&lt;<I>add person to underlying collection</I>&gt;
+		myPersonList.add(person);
+		int index = myPersonList.size() - 1;
+		myPersonToIndex.put(person, index);
+		myIndexToPerson.put(index, person);
+		firePersonAdded(person, index);
+	}
+	
+	public void updatePerson(int index, Person person)
+	...
+	
+	public void removePerson(int index)
+	...
+	
+	public Person getPerson(int index)
+	...
+}
+</PRE>
+</CODE>
+</P>
+
+<P>
+This is repetative, annoying code that has all the normal problems of being error-prone,
+tedious, etc.   
+</P>
+
+<P>
+Another problem is if there is another view of the persons, it is possible for changes
+to come from that source instead of our view.  In that situation, the classes must 
+subscribe to be listeners of this other data structure and notify the rest of the system
+of such things.
+</P>
+
+<P>
+A final problem is that there is no way to manipulate the underlying collection of 
+objects in a generic way.  For example, suppose new persons needd to be added using 
+a specific method like "addPerson" and there is a possiblility that this method will
+fail?  In that situaiton we cannot update the viewable data until after the add is 
+is a success.
+</P>
+
+<P>
+The solution that the RowModel framework provides is to essentially create generic 
+classes that handle these situations.  The rest of this document discusses the classes
+of the framework in the context of the problem(s) that the classes resolve.
+</P>
+
+<H3><A name="display-pojo">Displaying Data from Arbitrary Classes</A></H3>
+The most basic problem that the RowModel framework solves is the ability to display
+any sort of object as a row of data in a table.  The solution to this problem is 
+the <A href="RowModel.html">RowModel class</A>
+
+<P>
+The recommended approach to using the RowModel framework in this mode, while 
+leaving open the possibility of using one of the more advanced approaches, is this:
+</P>
+
+<UL>
+<LI><A href="#subclass-row-model-adaptor">Subclass RowModelAdaptor</A></LI>
+<LI>Subclass SimpleRowModelTableModel</LI>
+</UL>
+
+<H3>
+<A name="subclass-row-model-adaptor">
+Subclass RowModelAdaptor
+</A>
+</H3>
+<A href="RowModelAdaptor.html">RowModelAdaptor</A> is a class designed to make creating 
+a class that implements the RowModel interface easier.  It uses default values for the 
+various methods that must be defined so that the developer only has to define the 
+minimal set of methods possible.
+
+<H3><A name="readonly">Displaying Data that can Change</A></H3>
+
+
+<H3><A name="read-write">Read/Write RowModel Systems</A></H3>
+
+<H3><A name="value-channel">Value Channel RowModel Systems</A></H3>
+
+
+
+
+
+</body>
+</html>

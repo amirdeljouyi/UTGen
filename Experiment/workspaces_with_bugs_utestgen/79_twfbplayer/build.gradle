@@ -1,0 +1,58 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'java'
+    id 'idea'
+}
+
+group = 'de.outstare.fortbattleplayer'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+compileJava {
+    options.compilerArgs += ['--add-exports', 'java.base/jdk.internal.misc=ALL-UNNAMED']
+    options.compilerArgs += ['--add-exports', 'java.base/jdk.internal.reflect=ALL-UNNAMED']
+    options.compilerArgs += ['--add-exports', 'java.desktop/java.awt.peer=ALL-UNNAMED']
+    options.compilerArgs += ['--add-exports', 'java.xml/com.sun.org.apache.xml.internal.serialize=ALL-UNNAMED']
+}
+
+tasks.register('runJSWeaponData', JavaExec) {
+    dependsOn 'classes'
+    main = 'de.outstare.fortbattleplayer.model.impl.JSWeaponData'
+    classpath = sourceSets.main.runtimeClasspath
+//    args 'mrhaki'
+//    systemProperty 'simple.message', 'Hello '
+}
+
+tasks.register('runMain', JavaExec) {
+    dependsOn 'classes'
+    main = 'de.outstare.fortbattleplayer.Main'
+    classpath = sourceSets.main.runtimeClasspath
+//    args 'mrhaki'
+//    systemProperty 'simple.message', 'Hello '
+}
+
+dependencies {
+    implementation files('lib/json.jar')
+    implementation files('lib/jchart-withoutSVGAndServelt.jar')
+    implementation 'com.sun.activation:javax.activation:1.2.0'
+
+    testImplementation files('lib/test-generator.jar')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testCompileOnly 'junit:junit:4.12'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.8.1'
+}
+
+test {
+    doFirst {
+        jvmArgs = [
+                "--add-opens", "java.desktop/java.awt=ALL-UNNAMED",
+                "--add-opens", "java.base/java.net=ALL-UNNAMED"
+        ]
+    }
+    useJUnitPlatform()
+}

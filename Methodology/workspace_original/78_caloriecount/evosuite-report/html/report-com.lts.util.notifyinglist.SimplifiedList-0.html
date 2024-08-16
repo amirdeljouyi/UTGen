@@ -1,0 +1,789 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+com.lts.util.notifyinglist.SimplifiedList
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: com.lts.util.notifyinglist.SimplifiedList: 98.21%</ul><ul>
+<li>15588 fitness evaluations, 313 generations, 111990 statements, 9896 tests.
+<li>Time: 0:05:04(Search: 0:05:01, minimization: 0:00:03)
+<li>Coverage: 41/42 branches, 26/26 methods, 55/56 total goals
+<li>Mutation score: 62%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Integer&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Integer&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.clear();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(false, otherNotifyingListAdaptor0.isEmpty());
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Integer&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Integer&gt;();
+<span class="nocode"><a name="2">  2: </a></span>ListProxy&lt;Integer&gt; listProxy0 = new ListProxy&lt;Integer&gt;((NotifyingList&lt;Integer&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="3">  3: </a></span>// Undeclared exception!
+<span class="nocode"><a name="4">  4: </a></span>try {
+<span class="nocode"><a name="5">  5: </a></span>  listProxy0.addAll((Collection&lt;? extends Integer&gt;) listProxy0);
+<span class="nocode"><a name="6">  6: </a></span>  fail(&quot;Expecting exception: IndexOutOfBoundsException&quot;);
+<span class="nocode"><a name="7">  7: </a></span>} catch(IndexOutOfBoundsException e) {
+<span class="nocode"><a name="8">  8: </a></span>  /*
+<span class="nocode"><a name="9">  9: </a></span>   * Index: -1
+<span class="nocode"><a name="10"> 10: </a></span>   */
+<span class="nocode"><a name="11"> 11: </a></span>}
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>NotifyingListAdaptor&lt;String&gt; notifyingListAdaptor0 = new NotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>ListProxy&lt;String&gt; listProxy0 = new ListProxy&lt;String&gt;((NotifyingList&lt;String&gt;) notifyingListAdaptor0);
+<span class="nocode"><a name="3">  3: </a></span>Object[] objectArray0 = new Object[1];
+<span class="nocode"><a name="4">  4: </a></span>notifyingListAdaptor0.add(&quot;R4NW)(LtpVR&quot;);
+<span class="nocode"><a name="5">  5: </a></span>listProxy0.add(&quot;R4NW)(LtpVR&quot;);
+<span class="nocode"><a name="6">  6: </a></span>// Undeclared exception!
+<span class="nocode"><a name="7">  7: </a></span>try {
+<span class="nocode"><a name="8">  8: </a></span>  listProxy0.toArray(objectArray0);
+<span class="nocode"><a name="9">  9: </a></span>  fail(&quot;Expecting exception: NotImplementedException&quot;);
+<span class="nocode"><a name="10"> 10: </a></span>} catch(NotImplementedException e) {
+<span class="nocode"><a name="11"> 11: </a></span>}
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="2">  2: </a></span>NotifyingListAdaptor&lt;TableBridge&lt;Object&gt;&gt; notifyingListAdaptor0 = new NotifyingListAdaptor&lt;TableBridge&lt;Object&gt;&gt;((List&lt;TableBridge&lt;Object&gt;&gt;) null);
+<span class="nocode"><a name="3">  3: </a></span>ListProxy&lt;TableBridge&lt;Object&gt;&gt; listProxy0 = new ListProxy&lt;TableBridge&lt;Object&gt;&gt;((NotifyingList&lt;TableBridge&lt;Object&gt;&gt;) notifyingListAdaptor0);
+<span class="nocode"><a name="4">  4: </a></span>EntryRowModel entryRowModel0 = new EntryRowModel();
+<span class="nocode"><a name="5">  5: </a></span>TableBridge&lt;Object&gt; tableBridge0 = new TableBridge&lt;Object&gt;((NotifyingList&lt;Object&gt;) otherNotifyingListAdaptor0, (RowModel) entryRowModel0);
+<span class="nocode"><a name="6">  6: </a></span>// Undeclared exception!
+<span class="nocode"><a name="7">  7: </a></span>try {
+<span class="nocode"><a name="8">  8: </a></span>  listProxy0.set(0, tableBridge0);
+<span class="nocode"><a name="9">  9: </a></span>  fail(&quot;Expecting exception: IndexOutOfBoundsException&quot;);
+<span class="nocode"><a name="10"> 10: </a></span>} catch(IndexOutOfBoundsException e) {
+<span class="nocode"><a name="11"> 11: </a></span>  /*
+<span class="nocode"><a name="12"> 12: </a></span>   * Index: 0, Size: 0
+<span class="nocode"><a name="13"> 13: </a></span>   */
+<span class="nocode"><a name="14"> 14: </a></span>}
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;List&lt;Integer&gt;&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;List&lt;Integer&gt;&gt;();
+<span class="nocode"><a name="2">  2: </a></span>ListProxy&lt;List&lt;Integer&gt;&gt; listProxy0 = new ListProxy&lt;List&lt;Integer&gt;&gt;((NotifyingList&lt;List&lt;Integer&gt;&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="3">  3: </a></span>Vector&lt;Integer&gt; vector0 = new Vector&lt;Integer&gt;();
+<span class="nocode"><a name="4">  4: </a></span>otherNotifyingListAdaptor0.add((List&lt;Integer&gt;) vector0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(true, otherNotifyingListAdaptor0.isEmpty());
+<span class="nocode"><a name="6">  6: </a></span>
+<span class="nocode"><a name="7">  7: </a></span>// Undeclared exception!
+<span class="nocode"><a name="8">  8: </a></span>try {
+<span class="nocode"><a name="9">  9: </a></span>  listProxy0.removeAll((Collection&lt;?&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="10"> 10: </a></span>  fail(&quot;Expecting exception: ConcurrentModificationException&quot;);
+<span class="nocode"><a name="11"> 11: </a></span>} catch(ConcurrentModificationException e) {
+<span class="nocode"><a name="12"> 12: </a></span>}
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>// Undeclared exception!
+<span class="nocode"><a name="3">  3: </a></span>try {
+<span class="nocode"><a name="4">  4: </a></span>  otherNotifyingListAdaptor0.subList(0, 0);
+<span class="nocode"><a name="5">  5: </a></span>  fail(&quot;Expecting exception: NotImplementedException&quot;);
+<span class="nocode"><a name="6">  6: </a></span>} catch(NotImplementedException e) {
+<span class="nocode"><a name="7">  7: </a></span>}
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="2">  2: </a></span>ListIterator&lt;Object&gt; listIterator0 = otherNotifyingListAdaptor0.listIterator();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(-1, listIterator0.previousIndex());
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>ListProxy&lt;String&gt; listProxy0 = new ListProxy&lt;String&gt;((NotifyingList&lt;String&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="3">  3: </a></span>boolean boolean0 = listProxy0.addAll((Collection&lt;? extends String&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(true, boolean0);
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="2">  2: </a></span>NotifyingListAdaptor&lt;Object&gt; notifyingListAdaptor0 = new NotifyingListAdaptor&lt;Object&gt;((List&lt;Object&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="3">  3: </a></span>ListProxy&lt;Object&gt; listProxy0 = new ListProxy&lt;Object&gt;((NotifyingList&lt;Object&gt;) notifyingListAdaptor0);
+<span class="nocode"><a name="4">  4: </a></span>otherNotifyingListAdaptor0.add((Object) &quot;ROW_HEADER&quot;);
+<span class="nocode"><a name="5">  5: </a></span>// Undeclared exception!
+<span class="nocode"><a name="6">  6: </a></span>try {
+<span class="nocode"><a name="7">  7: </a></span>  listProxy0.addAll((Collection&lt;?&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="8">  8: </a></span>  fail(&quot;Expecting exception: ConcurrentModificationException&quot;);
+<span class="nocode"><a name="9">  9: </a></span>} catch(ConcurrentModificationException e) {
+<span class="nocode"><a name="10"> 10: </a></span>}
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add(&quot;&quot;);
+<span class="nocode"><a name="3">  3: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor1 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = otherNotifyingListAdaptor1.addAll(0, (Collection&lt;?&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(1, otherNotifyingListAdaptor0.size());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(true, boolean0);
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add(&quot;&quot;);
+<span class="nocode"><a name="3">  3: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor1 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = otherNotifyingListAdaptor1.containsAll((Collection&lt;?&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(true, otherNotifyingListAdaptor0.isEmpty());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(false, boolean0);
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="2">  2: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor1 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="3">  3: </a></span>otherNotifyingListAdaptor1.add(&quot;$ename&quot;);
+<span class="nocode"><a name="4">  4: </a></span>otherNotifyingListAdaptor0.add((Object) &quot;$ename&quot;);
+<span class="nocode"><a name="5">  5: </a></span>ListProxy&lt;String&gt; listProxy0 = new ListProxy&lt;String&gt;((NotifyingList&lt;String&gt;) otherNotifyingListAdaptor1);
+<span class="nocode"><a name="6">  6: </a></span>boolean boolean0 = listProxy0.containsAll((Collection&lt;?&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(true, otherNotifyingListAdaptor1.isEmpty());
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(true, boolean0);
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;List&lt;Object&gt;&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;List&lt;Object&gt;&gt;();
+<span class="nocode"><a name="2">  2: </a></span>boolean boolean0 = otherNotifyingListAdaptor0.isEmpty();
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(false, boolean0);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add((Object) &quot;$ename&quot;);
+<span class="nocode"><a name="3">  3: </a></span>ListProxy&lt;Object&gt; listProxy0 = new ListProxy&lt;Object&gt;((NotifyingList&lt;Object&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = listProxy0.isEmpty();
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(1, otherNotifyingListAdaptor0.size());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(true, boolean0);
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add(&quot;&quot;);
+<span class="nocode"><a name="3">  3: </a></span>int int0 = otherNotifyingListAdaptor0.lastIndexOf((Object) &quot;&quot;);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(true, otherNotifyingListAdaptor0.isEmpty());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(0, int0);
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add(&quot;&quot;);
+<span class="nocode"><a name="3">  3: </a></span>int int0 = otherNotifyingListAdaptor0.lastIndexOf((Object) &quot;&quot;);
+<span class="nocode"><a name="4">  4: </a></span>assertEquals(true, otherNotifyingListAdaptor0.isEmpty());
+<span class="nocode"><a name="5">  5: </a></span>assertEquals((-1), int0);
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Integer&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Integer&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add((Integer) 2);
+<span class="nocode"><a name="3">  3: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor1 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = otherNotifyingListAdaptor1.removeAll((Collection&lt;?&gt;) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(true, otherNotifyingListAdaptor0.isEmpty());
+<span class="nocode"><a name="6">  6: </a></span>assertEquals(false, boolean0);
+</pre>
+<h3>Test case 18</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>String[] stringArray0 = new String[5];
+<span class="nocode"><a name="3">  3: </a></span>stringArray0[0] = &quot;&quot;;
+<span class="nocode"><a name="4">  4: </a></span>boolean boolean0 = otherNotifyingListAdaptor0.removeAll(stringArray0);
+<span class="nocode"><a name="5">  5: </a></span>assertEquals(false, boolean0);
+</pre>
+<h3>Test case 19</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add(&quot;&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(true, otherNotifyingListAdaptor0.isEmpty());
+<span class="nocode"><a name="4">  4: </a></span>
+<span class="nocode"><a name="5">  5: </a></span>String[] stringArray0 = new String[5];
+<span class="nocode"><a name="6">  6: </a></span>stringArray0[0] = &quot;&quot;;
+<span class="nocode"><a name="7">  7: </a></span>boolean boolean0 = otherNotifyingListAdaptor0.removeAll(stringArray0);
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(true, boolean0);
+</pre>
+<h3>Test case 20</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;Object&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;Object&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add((Object) &quot;572&quot;);
+<span class="nocode"><a name="3">  3: </a></span>assertEquals(true, otherNotifyingListAdaptor0.isEmpty());
+<span class="nocode"><a name="4">  4: </a></span>
+<span class="nocode"><a name="5">  5: </a></span>OtherNotifyingListAdaptor&lt;Integer&gt; otherNotifyingListAdaptor1 = new OtherNotifyingListAdaptor&lt;Integer&gt;();
+<span class="nocode"><a name="6">  6: </a></span>// Undeclared exception!
+<span class="nocode"><a name="7">  7: </a></span>try {
+<span class="nocode"><a name="8">  8: </a></span>  otherNotifyingListAdaptor0.retainAll((Collection&lt;?&gt;) otherNotifyingListAdaptor1);
+<span class="nocode"><a name="9">  9: </a></span>  fail(&quot;Expecting exception: ConcurrentModificationException&quot;);
+<span class="nocode"><a name="10"> 10: </a></span>} catch(ConcurrentModificationException e) {
+<span class="nocode"><a name="11"> 11: </a></span>}
+</pre>
+<h3>Test case 21</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>otherNotifyingListAdaptor0.add(&quot;&quot;);
+<span class="nocode"><a name="3">  3: </a></span>TreeNode treeNode0 = new TreeNode((TreeNode) null);
+<span class="nocode"><a name="4">  4: </a></span>TreeNode treeNode1 = new TreeNode(treeNode0, (Collection) otherNotifyingListAdaptor0);
+<span class="nocode"><a name="5">  5: </a></span>List&lt;Object&gt; list0 = treeNode1.getChildren();
+<span class="nocode"><a name="6">  6: </a></span>boolean boolean0 = otherNotifyingListAdaptor0.retainAll((Collection&lt;?&gt;) list0);
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(1, otherNotifyingListAdaptor0.size());
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(false, boolean0);
+</pre>
+<h3>Test case 22</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>OtherNotifyingListAdaptor&lt;String&gt; otherNotifyingListAdaptor0 = new OtherNotifyingListAdaptor&lt;String&gt;();
+<span class="nocode"><a name="2">  2: </a></span>Object[] objectArray0 = new Object[24];
+<span class="nocode"><a name="3">  3: </a></span>Object[] objectArray1 = otherNotifyingListAdaptor0.toArray(objectArray0);
+<span class="nocode"><a name="4">  4: </a></span>assertSame(objectArray1, objectArray0);
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>package com.lts.util.notifyinglist;
+<span class="nocode"><a name="2">  2: </a></span>
+<span class="nocode"><a name="3">  3: </a></span>import java.util.Collection;
+<span class="nocode"><a name="4">  4: </a></span>import java.util.Iterator;
+<span class="nocode"><a name="5">  5: </a></span>import java.util.List;
+<span class="nocode"><a name="6">  6: </a></span>import java.util.ListIterator;
+<span class="nocode"><a name="7">  7: </a></span>
+<span class="nocode"><a name="8">  8: </a></span>import com.lts.exception.NotImplementedException;
+<span class="nocode"><a name="9">  9: </a></span>
+<span class="nocode"><a name="10"> 10: </a></span>/**
+<span class="nocode"><a name="11"> 11: </a></span> * Define a &quot;kernel&quot; of methods and then implement the List interface using those 
+<span class="nocode"><a name="12"> 12: </a></span> * methods.
+<span class="nocode"><a name="13"> 13: </a></span> * 
+<span class="nocode"><a name="14"> 14: </a></span> * &lt;H2&gt;Abstract Methods&lt;/H2&gt;
+<span class="nocode"><a name="15"> 15: </a></span> * The following are the methods that subclasses must define in order to create a 
+<span class="nocode"><a name="16"> 16: </a></span> * &quot;concrete&quot; implementation of the class:
+<span class="nocode"><a name="17"> 17: </a></span> * 
+<span class="nocode"><a name="18"> 18: </a></span> * &lt;UL&gt;
+<span class="nocode"><a name="19"> 19: </a></span> *     &lt;LI&gt;kernelCreate&lt;/LI&gt;
+<span class="nocode"><a name="20"> 20: </a></span> *     &lt;LI&gt;kernelRead&lt;/LI&gt;
+<span class="nocode"><a name="21"> 21: </a></span> *     &lt;LI&gt;kernelUpdate&lt;/LI&gt;
+<span class="nocode"><a name="22"> 22: </a></span> *     &lt;LI&gt;kernelDelete&lt;/LI&gt;
+<span class="nocode"><a name="23"> 23: </a></span> *     &lt;LI&gt;kernelClear&lt;/LI&gt;
+<span class="nocode"><a name="24"> 24: </a></span> *     &lt;LI&gt;kernelIndexOf &lt;/LI&gt;
+<span class="nocode"><a name="25"> 25: </a></span> *     &lt;LI&gt;kernelSize&lt;/LI&gt;
+<span class="nocode"><a name="26"> 26: </a></span> *     &lt;LI&gt;kernelIterator&lt;/LI&gt;
+<span class="nocode"><a name="27"> 27: </a></span> *     &lt;LI&gt;sublist&lt;/LI&gt;
+<span class="nocode"><a name="28"> 28: </a></span> * &lt;/UL&gt;
+<span class="nocode"><a name="29"> 29: </a></span> *
+<span class="nocode"><a name="30"> 30: </a></span> * &lt;P&gt;
+<span class="nocode"><a name="31"> 31: </a></span> * To create a complete implementation of the List interface, one should implement
+<span class="nocode"><a name="32"> 32: </a></span> * the following:
+<span class="nocode"><a name="33"> 33: </a></span> * 
+<span class="nocode"><a name="34"> 34: </a></span> * &lt;UL&gt;
+<span class="nocode"><a name="35"> 35: </a></span> * &lt;LI&gt;{@link #specializedCaseToArray(Object[])}&lt;/LI&gt;
+<span class="nocode"><a name="36"> 36: </a></span> * &lt;LI&gt;{@link #sublist(int, int)}&lt;/LI&gt;
+<span class="nocode"><a name="37"> 37: </a></span> * &lt;/UL&gt;
+<span class="nocode"><a name="38"> 38: </a></span> *
+<span class="nocode"><a name="39"> 39: </a></span> * &lt;P&gt;
+<span class="nocode"><a name="40"> 40: </a></span> * These two methods were deemed overly complex and the default implementations simply
+<span class="nocode"><a name="41"> 41: </a></span> * throw {@link NotImplementedException}.
+<span class="nocode"><a name="42"> 42: </a></span> * &lt;/P&gt;
+<span class="nocode"><a name="43"> 43: </a></span> * 
+<span class="nocode"><a name="44"> 44: </a></span> * @author cnh
+<span class="nocode"><a name="45"> 45: </a></span> *
+<span class="nocode"><a name="46"> 46: </a></span> * @param &lt;E&gt;
+<span class="nocode"><a name="47"> 47: </a></span> */
+<span class="nocode"><a name="48"> 48: </a></span>abstract public class SimplifiedList&lt;E&gt; implements List&lt;E&gt;
+<span class="nocode"><a name="49"> 49: </a></span>{
+<span class="nocode"><a name="50"> 50: </a></span>	abstract protected boolean kernelCreate(int index, E element);
+<span class="nocode"><a name="51"> 51: </a></span>	abstract protected E kernelRead(int index);
+<span class="nocode"><a name="52"> 52: </a></span>	abstract protected E kernelUpdate(int index, E element);
+<span class="nocode"><a name="53"> 53: </a></span>	abstract protected boolean kernelDelete(int index);	
+<span class="nocode"><a name="54"> 54: </a></span>	abstract protected void kernelClear();	
+<span class="nocode"><a name="55"> 55: </a></span>	abstract protected int kernelIndexOf (Object e);	
+<span class="nocode"><a name="56"> 56: </a></span>	abstract protected int kernelSize();	
+<span class="nocode"><a name="57"> 57: </a></span>	abstract protected ListIterator&lt;E&gt; kernelIterator(int start);
+<span class="nocode"><a name="58"> 58: </a></span>	
+<span class="nocode"><a name="59"> 59: </a></span>	
+<span class="nocode"><a name="60"> 60: </a></span>	@Override
+<span class="nocode"><a name="61"> 61: </a></span>	public boolean add(E e)
+<span class="nocode"><a name="62"> 62: </a></span>	{
+<span class="nocode"><a name="63"> 63: </a></span><span style="background-color: #ffffcc">		int index = size();</span>
+<span class="nocode"><a name="64"> 64: </a></span><span style="background-color: #ffffcc">		add(index, e);</span>
+<span class="nocode"><a name="65"> 65: </a></span><span style="background-color: #ffffcc">		return true;</span>
+<span class="nocode"><a name="66"> 66: </a></span>	}
+<span class="nocode"><a name="67"> 67: </a></span>
+<span class="nocode"><a name="68"> 68: </a></span>	@Override
+<span class="nocode"><a name="69"> 69: </a></span>	public void add(int index, E element)
+<span class="nocode"><a name="70"> 70: </a></span>	{
+<span class="nocode"><a name="71"> 71: </a></span><span style="background-color: #ffffcc">		kernelCreate(index, element);</span>
+<span class="nocode"><a name="72"> 72: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="73"> 73: </a></span>
+<span class="nocode"><a name="74"> 74: </a></span>	@Override
+<span class="nocode"><a name="75"> 75: </a></span>	public boolean addAll(Collection&lt;? extends E&gt; c)
+<span class="nocode"><a name="76"> 76: </a></span>	{
+<span class="nocode"><a name="77"> 77: </a></span><span style="background-color: #ffffcc">		for (E e : c)</span>
+<span class="nocode"><a name="78"> 78: </a></span>		{
+<span class="nocode"><a name="79"> 79: </a></span><span style="background-color: #ffffcc">			add(e);</span>
+<span class="nocode"><a name="80"> 80: </a></span>		}
+<span class="nocode"><a name="81"> 81: </a></span><span style="background-color: #ffffcc">		return true;</span>
+<span class="nocode"><a name="82"> 82: </a></span>	}
+<span class="nocode"><a name="83"> 83: </a></span>
+<span class="nocode"><a name="84"> 84: </a></span>	@Override
+<span class="nocode"><a name="85"> 85: </a></span>	public boolean addAll(int index, Collection&lt;? extends E&gt; c)
+<span class="nocode"><a name="86"> 86: </a></span>	{
+<span class="nocode"><a name="87"> 87: </a></span><span style="background-color: #ffffcc">		for (E e : c)</span>
+<span class="nocode"><a name="88"> 88: </a></span>		{
+<span class="nocode"><a name="89"> 89: </a></span><span style="background-color: #ffffcc">			add(index, e);</span>
+<span class="nocode"><a name="90"> 90: </a></span><span style="background-color: #ffffcc">			index++;</span>
+<span class="nocode"><a name="91"> 91: </a></span>		}
+<span class="nocode"><a name="92"> 92: </a></span>		
+<span class="nocode"><a name="93"> 93: </a></span><span style="background-color: #ffffcc">		return true;</span>
+<span class="nocode"><a name="94"> 94: </a></span>	}
+<span class="nocode"><a name="95"> 95: </a></span>
+<span class="nocode"><a name="96"> 96: </a></span>	@Override
+<span class="nocode"><a name="97"> 97: </a></span>	public void clear()
+<span class="nocode"><a name="98"> 98: </a></span>	{
+<span class="nocode"><a name="99"> 99: </a></span><span style="background-color: #ffffcc">		kernelClear();</span>
+<span class="nocode"><a name="100">100: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="101">101: </a></span>
+<span class="nocode"><a name="102">102: </a></span>	@Override
+<span class="nocode"><a name="103">103: </a></span>	public boolean contains(Object o)
+<span class="nocode"><a name="104">104: </a></span>	{
+<span class="nocode"><a name="105">105: </a></span><span style="background-color: #ffffcc">		return -1 != kernelIndexOf(o);</span>
+<span class="nocode"><a name="106">106: </a></span>	}
+<span class="nocode"><a name="107">107: </a></span>
+<span class="nocode"><a name="108">108: </a></span>	@Override
+<span class="nocode"><a name="109">109: </a></span>	public boolean containsAll(Collection&lt;?&gt; c)
+<span class="nocode"><a name="110">110: </a></span>	{
+<span class="nocode"><a name="111">111: </a></span><span style="background-color: #ffffcc">		for (Object o : c)</span>
+<span class="nocode"><a name="112">112: </a></span>		{
+<span class="nocode"><a name="113">113: </a></span><span style="background-color: #ffffcc">			if (!contains(o))</span>
+<span class="nocode"><a name="114">114: </a></span><span style="background-color: #ffffcc">				return false;</span>
+<span class="nocode"><a name="115">115: </a></span>		}
+<span class="nocode"><a name="116">116: </a></span>		
+<span class="nocode"><a name="117">117: </a></span><span style="background-color: #ffffcc">		return true;</span>
+<span class="nocode"><a name="118">118: </a></span>	}
+<span class="nocode"><a name="119">119: </a></span>
+<span class="nocode"><a name="120">120: </a></span>	@Override
+<span class="nocode"><a name="121">121: </a></span>	public E get(int index)
+<span class="nocode"><a name="122">122: </a></span>	{
+<span class="nocode"><a name="123">123: </a></span><span style="background-color: #ffffcc">		return kernelRead(index);</span>
+<span class="nocode"><a name="124">124: </a></span>	}
+<span class="nocode"><a name="125">125: </a></span>
+<span class="nocode"><a name="126">126: </a></span>	@Override
+<span class="nocode"><a name="127">127: </a></span>	public int indexOf(Object o)
+<span class="nocode"><a name="128">128: </a></span>	{
+<span class="nocode"><a name="129">129: </a></span><span style="background-color: #ffffcc">		return kernelIndexOf(o);</span>
+<span class="nocode"><a name="130">130: </a></span>	}
+<span class="nocode"><a name="131">131: </a></span>
+<span class="nocode"><a name="132">132: </a></span>	@Override
+<span class="nocode"><a name="133">133: </a></span>	public boolean isEmpty()
+<span class="nocode"><a name="134">134: </a></span>	{
+<span class="nocode"><a name="135">135: </a></span><span style="background-color: #ffffcc">		return kernelSize() &gt; 0;</span>
+<span class="nocode"><a name="136">136: </a></span>	}
+<span class="nocode"><a name="137">137: </a></span>
+<span class="nocode"><a name="138">138: </a></span>	@Override
+<span class="nocode"><a name="139">139: </a></span>	public Iterator&lt;E&gt; iterator()
+<span class="nocode"><a name="140">140: </a></span>	{
+<span class="nocode"><a name="141">141: </a></span><span style="background-color: #ffffcc">		return kernelIterator(0);</span>
+<span class="nocode"><a name="142">142: </a></span>	}
+<span class="nocode"><a name="143">143: </a></span>
+<span class="nocode"><a name="144">144: </a></span>	@Override
+<span class="nocode"><a name="145">145: </a></span>	public int lastIndexOf(Object o)
+<span class="nocode"><a name="146">146: </a></span>	{
+<span class="nocode"><a name="147">147: </a></span><span style="background-color: #ffffcc">		int index = size() - 1;</span>
+<span class="nocode"><a name="148">148: </a></span><span style="background-color: #ffffcc">		boolean found = false;</span>
+<span class="nocode"><a name="149">149: </a></span>		
+<span class="nocode"><a name="150">150: </a></span><span style="background-color: #ffffcc">		while (!found &amp;&amp; index &gt;= 0)</span>
+<span class="nocode"><a name="151">151: </a></span>		{
+<span class="nocode"><a name="152">152: </a></span><span style="background-color: #ffffcc">			Object current = get(index);</span>
+<span class="nocode"><a name="153">153: </a></span><span style="background-color: #ffffcc">			if (current.equals(o))</span>
+<span class="nocode"><a name="154">154: </a></span><span style="background-color: #ffffcc">				return index;</span>
+<span class="nocode"><a name="155">155: </a></span>			
+<span class="nocode"><a name="156">156: </a></span><span style="background-color: #ffffcc">			index--;</span>
+<span class="nocode"><a name="157">157: </a></span><span style="background-color: #ffffcc">		}</span>
+<span class="nocode"><a name="158">158: </a></span>		
+<span class="nocode"><a name="159">159: </a></span><span style="background-color: #ffffcc">		return -1;</span>
+<span class="nocode"><a name="160">160: </a></span>	}
+<span class="nocode"><a name="161">161: </a></span>
+<span class="nocode"><a name="162">162: </a></span>	@Override
+<span class="nocode"><a name="163">163: </a></span>	public ListIterator&lt;E&gt; listIterator()
+<span class="nocode"><a name="164">164: </a></span>	{
+<span class="nocode"><a name="165">165: </a></span><span style="background-color: #ffffcc">		return kernelIterator(0);</span>
+<span class="nocode"><a name="166">166: </a></span>	}
+<span class="nocode"><a name="167">167: </a></span>
+<span class="nocode"><a name="168">168: </a></span>	@Override
+<span class="nocode"><a name="169">169: </a></span>	public ListIterator&lt;E&gt; listIterator(int index)
+<span class="nocode"><a name="170">170: </a></span>	{
+<span class="nocode"><a name="171">171: </a></span><span style="background-color: #ffffcc">		return kernelIterator(index - 1);</span>
+<span class="nocode"><a name="172">172: </a></span>	}
+<span class="nocode"><a name="173">173: </a></span>
+<span class="nocode"><a name="174">174: </a></span>	@Override
+<span class="nocode"><a name="175">175: </a></span>	public boolean remove(Object o)
+<span class="nocode"><a name="176">176: </a></span>	{
+<span class="nocode"><a name="177">177: </a></span><span style="background-color: #ffffcc">		int index = indexOf(o);</span>
+<span class="nocode"><a name="178">178: </a></span><span style="background-color: #ffffcc">		if (-1 == index)</span>
+<span class="nocode"><a name="179">179: </a></span><span style="background-color: #ffffcc">			return false;</span>
+<span class="nocode"><a name="180">180: </a></span>		else
+<span class="nocode"><a name="181">181: </a></span>		{
+<span class="nocode"><a name="182">182: </a></span><span style="background-color: #ffffcc">			remove(index);</span>
+<span class="nocode"><a name="183">183: </a></span><span style="background-color: #ffffcc">			return true;</span>
+<span class="nocode"><a name="184">184: </a></span>		}
+<span class="nocode"><a name="185">185: </a></span>	}
+<span class="nocode"><a name="186">186: </a></span>
+<span class="nocode"><a name="187">187: </a></span>	@Override
+<span class="nocode"><a name="188">188: </a></span>	public E remove(int index)
+<span class="nocode"><a name="189">189: </a></span>	{
+<span class="nocode"><a name="190">190: </a></span><span style="background-color: #ffffcc">		E e = get(index);</span>
+<span class="nocode"><a name="191">191: </a></span><span style="background-color: #ffffcc">		kernelDelete(index);</span>
+<span class="nocode"><a name="192">192: </a></span><span style="background-color: #ffffcc">		return e;</span>
+<span class="nocode"><a name="193">193: </a></span>	}
+<span class="nocode"><a name="194">194: </a></span>
+<span class="nocode"><a name="195">195: </a></span>	@Override
+<span class="nocode"><a name="196">196: </a></span>	public boolean removeAll(Collection&lt;?&gt; c)
+<span class="nocode"><a name="197">197: </a></span>	{
+<span class="nocode"><a name="198">198: </a></span><span style="background-color: #ffffcc">		boolean modified = false;</span>
+<span class="nocode"><a name="199">199: </a></span>		
+<span class="nocode"><a name="200">200: </a></span><span style="background-color: #ffffcc">		for (Object o : c)</span>
+<span class="nocode"><a name="201">201: </a></span>		{
+<span class="nocode"><a name="202">202: </a></span><span style="background-color: #ffffcc">			if (remove(o))</span>
+<span class="nocode"><a name="203">203: </a></span><span style="background-color: #ffffcc">				modified = true;</span>
+<span class="nocode"><a name="204">204: </a></span>		}
+<span class="nocode"><a name="205">205: </a></span>		
+<span class="nocode"><a name="206">206: </a></span><span style="background-color: #ffffcc">		return modified;</span>
+<span class="nocode"><a name="207">207: </a></span>	}
+<span class="nocode"><a name="208">208: </a></span>	
+<span class="nocode"><a name="209">209: </a></span>	public boolean removeAll(E[] a)
+<span class="nocode"><a name="210">210: </a></span>	{
+<span class="nocode"><a name="211">211: </a></span><span style="background-color: #ffffcc">		boolean modified = false;</span>
+<span class="nocode"><a name="212">212: </a></span>		
+<span class="nocode"><a name="213">213: </a></span><span style="background-color: #ffffcc">		for (E e : a)</span>
+<span class="nocode"><a name="214">214: </a></span>		{
+<span class="nocode"><a name="215">215: </a></span><span style="background-color: #ffffcc">			if (null != e)</span>
+<span class="nocode"><a name="216">216: </a></span>			{
+<span class="nocode"><a name="217">217: </a></span><span style="background-color: #ffffcc">				if (remove(e))</span>
+<span class="nocode"><a name="218">218: </a></span><span style="background-color: #ffffcc">					modified = true;</span>
+<span class="nocode"><a name="219">219: </a></span>			}
+<span class="nocode"><a name="220">220: </a></span>		}
+<span class="nocode"><a name="221">221: </a></span>		
+<span class="nocode"><a name="222">222: </a></span><span style="background-color: #ffffcc">		return modified;</span>
+<span class="nocode"><a name="223">223: </a></span>	}
+<span class="nocode"><a name="224">224: </a></span>	
+<span class="nocode"><a name="225">225: </a></span>
+<span class="nocode"><a name="226">226: </a></span>	@Override
+<span class="nocode"><a name="227">227: </a></span>	public boolean retainAll(Collection&lt;?&gt; c)
+<span class="nocode"><a name="228">228: </a></span>	{
+<span class="nocode"><a name="229">229: </a></span><span style="background-color: #ffffcc">		boolean modified = false;</span>
+<span class="nocode"><a name="230">230: </a></span>		
+<span class="nocode"><a name="231">231: </a></span><span style="background-color: #ffffcc">		for (E e : this)</span>
+<span class="nocode"><a name="232">232: </a></span>		{
+<span class="nocode"><a name="233">233: </a></span><span style="background-color: #ffffcc">			if (!c.contains(e))</span>
+<span class="nocode"><a name="234">234: </a></span>			{
+<span class="nocode"><a name="235">235: </a></span><span style="background-color: #ffffcc">				remove(e);</span>
+<span class="nocode"><a name="236">236: </a></span><span style="background-color: #ffffcc">				modified = true;</span>
+<span class="nocode"><a name="237">237: </a></span>			}
+<span class="nocode"><a name="238">238: </a></span>		}
+<span class="nocode"><a name="239">239: </a></span>		
+<span class="nocode"><a name="240">240: </a></span><span style="background-color: #ffffcc">		return modified;</span>
+<span class="nocode"><a name="241">241: </a></span>	}
+<span class="nocode"><a name="242">242: </a></span>
+<span class="nocode"><a name="243">243: </a></span>	@Override
+<span class="nocode"><a name="244">244: </a></span>	public E set(int index, E element)
+<span class="nocode"><a name="245">245: </a></span>	{
+<span class="nocode"><a name="246">246: </a></span><span style="background-color: #ffffcc">		E old = get(index);</span>
+<span class="nocode"><a name="247">247: </a></span>		kernelUpdate(index, element);
+<span class="nocode"><a name="248">248: </a></span>		return old;
+<span class="nocode"><a name="249">249: </a></span>	}
+<span class="nocode"><a name="250">250: </a></span>
+<span class="nocode"><a name="251">251: </a></span>	@Override
+<span class="nocode"><a name="252">252: </a></span>	public int size()
+<span class="nocode"><a name="253">253: </a></span>	{
+<span class="nocode"><a name="254">254: </a></span><span style="background-color: #ffffcc">		return kernelSize();</span>
+<span class="nocode"><a name="255">255: </a></span>	}
+<span class="nocode"><a name="256">256: </a></span>
+<span class="nocode"><a name="257">257: </a></span>	@Override
+<span class="nocode"><a name="258">258: </a></span>	public Object[] toArray()
+<span class="nocode"><a name="259">259: </a></span>	{
+<span class="nocode"><a name="260">260: </a></span><span style="background-color: #ffffcc">		Object[] a = new Object[size()];</span>
+<span class="nocode"><a name="261">261: </a></span><span style="background-color: #ffffcc">		int index = 0;</span>
+<span class="nocode"><a name="262">262: </a></span><span style="background-color: #ffffcc">		for (E e : this)</span>
+<span class="nocode"><a name="263">263: </a></span>		{
+<span class="nocode"><a name="264">264: </a></span><span style="background-color: #ffffcc">			a[index] = e;</span>
+<span class="nocode"><a name="265">265: </a></span><span style="background-color: #ffffcc">			index++;</span>
+<span class="nocode"><a name="266">266: </a></span>		}
+<span class="nocode"><a name="267">267: </a></span>		
+<span class="nocode"><a name="268">268: </a></span><span style="background-color: #ffffcc">		return toArray(a);</span>
+<span class="nocode"><a name="269">269: </a></span>	}
+<span class="nocode"><a name="270">270: </a></span>
+<span class="nocode"><a name="271">271: </a></span>	@Override
+<span class="nocode"><a name="272">272: </a></span>	public &lt;T&gt; T[] toArray(T[] a)
+<span class="nocode"><a name="273">273: </a></span>	{
+<span class="nocode"><a name="274">274: </a></span><span style="background-color: #ffffcc">		if (a.length &lt; size())</span>
+<span class="nocode"><a name="275">275: </a></span>		{
+<span class="nocode"><a name="276">276: </a></span><span style="background-color: #ffffcc">			return (T[]) specializedCaseToArray(a);</span>
+<span class="nocode"><a name="277">277: </a></span>		}
+<span class="nocode"><a name="278">278: </a></span>		
+<span class="nocode"><a name="279">279: </a></span><span style="background-color: #ffffcc">		int count = size();</span>
+<span class="nocode"><a name="280">280: </a></span><span style="background-color: #ffffcc">		int index = 0;</span>
+<span class="nocode"><a name="281">281: </a></span><span style="background-color: #ffffcc">		for (E e : this)</span>
+<span class="nocode"><a name="282">282: </a></span>		{
+<span class="nocode"><a name="283">283: </a></span><span style="background-color: #ffffcc">			a[index] = (T) e;</span>
+<span class="nocode"><a name="284">284: </a></span><span style="background-color: #ffffcc">			index++;</span>
+<span class="nocode"><a name="285">285: </a></span>		}
+<span class="nocode"><a name="286">286: </a></span>		
+<span class="nocode"><a name="287">287: </a></span><span style="background-color: #ffffcc">		if (a.length &gt; count)</span>
+<span class="nocode"><a name="288">288: </a></span>		{
+<span class="nocode"><a name="289">289: </a></span><span style="background-color: #ffffcc">			a[count] = null;</span>
+<span class="nocode"><a name="290">290: </a></span>		}
+<span class="nocode"><a name="291">291: </a></span>		
+<span class="nocode"><a name="292">292: </a></span><span style="background-color: #ffffcc">		return a;</span>
+<span class="nocode"><a name="293">293: </a></span>	}
+<span class="nocode"><a name="294">294: </a></span>	
+<span class="nocode"><a name="295">295: </a></span>	
+<span class="nocode"><a name="296">296: </a></span>	protected &lt;T&gt; T[] specializedCaseToArray(T[] a)
+<span class="nocode"><a name="297">297: </a></span>	{
+<span class="nocode"><a name="298">298: </a></span><span style="background-color: #ffffcc">		throw new NotImplementedException();</span>
+<span class="nocode"><a name="299">299: </a></span>	}
+<span class="nocode"><a name="300">300: </a></span>	
+<span class="nocode"><a name="301">301: </a></span>	
+<span class="nocode"><a name="302">302: </a></span>	public List&lt;E&gt; subList(int from, int to)
+<span class="nocode"><a name="303">303: </a></span>	{
+<span class="nocode"><a name="304">304: </a></span><span style="background-color: #ffffcc">		throw new NotImplementedException();</span>
+<span class="nocode"><a name="305">305: </a></span>	}
+<span class="nocode"><a name="306">306: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 18795
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: com
+<li>TARGET_CLASS: com.lts.util.notifyinglist.SimplifiedList
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/jlfgr-1_0.jar:lib/swingx-0.9.2.jar:lib/swingx.jar:caloriecount.jar
+<li>search_budget: 300
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

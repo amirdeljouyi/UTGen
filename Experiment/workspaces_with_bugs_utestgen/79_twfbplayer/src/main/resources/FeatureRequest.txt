@@ -1,0 +1,11 @@
+    * create all graphics (nicht ausgebaute Gebäude fehlen noch)
+    * Schattenwurf beim mouseover (von Keel)
+    * Liste aller Spieler (Angreifer und Verteidiger getrennt, Tote unten und mit Totenkopfsymbol) babba110
+    (* Stufe, max Leben und aktuelles Leben im Mouseover_
+    * Ev. eine Summe Runden online über alle Spieler oder pro Spieler
+
+    Wünsche:
+* Critliste: Wer durch einen Crit gestorben ist
+
+
+- Zugreihenfolge anhand der Logreihenfolge anzeigen!

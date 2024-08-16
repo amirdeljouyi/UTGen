@@ -1,0 +1,259 @@
+<BODY>
+Application data storage.
+
+<H2>Contents</H2>
+
+<UL>
+	<LI><A href="#quickstart">Quick Start</A> - How to create an application
+	repository
+
+	<LI><A href="#introduction">Introduction</A> - An overview of application
+	repositories
+
+	<LI><A href="#abstract_application_repository">
+		AbstractApplicationRepository</A>
+	- a request dispatcher
+
+	<LI><A href="#ard">Application Repository Datastores</A> - Virtual File
+	Systems.
+
+	<LI><A href="#application_data">ApplicationData</A> - Application specific
+	data.
+</UL>
+
+<H2><A name="quickstart">Quick Start</A></H2>
+<UL>
+	<LI><A href="#qs_example">An Example</A>
+	<LI><A href="#qs_ApplicationData">Subclass ApplicationData</A>
+	<UL>
+		<LI><A href="#qs_ad_clear">implement clear</A>
+		<LI><A href="#qs_ad_store">implement store</A>
+		<LI><A href="#qs_ad_load">implement load</A>
+	</UL>
+
+	<LI><A href="#qs_AbstractApplicationRepository">Subclass
+		AbstractApplicationRepository</A>
+	<UL>
+		<LI><A href="#qs_aar_getRepsitoryDatastore">implement
+			getRepositoryDatastore</A>
+		<LI><A href="#qs_aar_getApplicationData">implement
+			getApplicationData</A>
+	</UL>
+
+	<LI><A href="#qs_accessors">(Optional) accessors</A>
+	<LI><A href="#qs_listeners">(Optional) listeners</A>
+</UL>
+
+
+<H3><A name="qs_example">An Example</A></H3>
+To illustrate how the various steps are performed an example will be used
+throughout this section.  Assume that you have an application that needs to
+store multiple binary image files as well as text that describes those images.
+
+<P>
+The images are stored in separate files in a subdirectory called "images" while
+the objects that describe them are in a the directory above in a file called
+"objects".  
+
+
+<H3><A name="qs_ApplicationData">Subclass ApplicationData</A></H3>
+The first step to creating an application repository is to define a class that
+implements the ApplicationData interface.  An instance of this interface knows
+how to serialize itself to an instance of ApplicationDatastore.  The rest of the
+system signals when this should happen by using the following methods:
+
+<UL>
+	<LI>load
+	<LI>store
+	<LI>clear
+</UL>
+
+<B>Image Gallery</B><BR/>
+A new subclass is created called ImageGalleryData.  Here is the relevant code:
+
+<CODE>
+<PRE>
+public class ImageObject
+{
+	private byte[] imageData;
+	private String summary;
+	private String description;
+}
+
+public class ImageGalleryData implements ApplicationData
+{
+	// a list of ImageObjects
+	private List imageList;
+}
+</PRE>
+</CODE>
+
+<P>
+<B><A name="qs_ad_clear">ApplicationData.clear()</A></B>
+<BR/>
+This method should simply reset the object in such a way that it appears to be a
+newly created (empty) object.  The object should still be loadable and
+storeable, but the application should appear to be new.
+
+<P>
+<B>ImageGalleryData.clear()</B>
+<BR/>
+This method should simply reset the list of image objects to an empty list.
+
+<CODE>
+<PRE>
+public void clear()
+{
+	imageList = new ArrayList();
+}
+</PRE>
+</CODE>
+
+<P>
+<B><A name="qs_ad_store">ApplicationData.store(ApplicationDatastore)</A></B>
+<BR/>
+This method should obtain output streams from the ApplicationDatastore and use
+them to store whatever data the application has.
+
+<P>
+<B>ImageGalleryData.store(ApplicationDatastore)</B>
+<BR/>
+This method needs to store the image files and then store the rest of the
+objects in a separate "file."  Here is an implementation:
+
+<P>
+<CODE>
+<PRE>
+public void store (ApplicationDatastore datastore) throws ApplicationException
+{
+	OutputStream ostream = null;
+	try
+	{
+		// store the image files
+		for (int i = 0; i &lt; getImageList().size(); i++)
+		{
+			ImageObject image = (ImageObject) getImageList().get(i);
+			String filename = "images/image" + i;
+
+			ostream = datastore.getOutputStream(filename);
+			ostream.write(image.getImage());
+			ostream.close();
+			image.setImage(null);
+		}
+
+		// store the objects
+		ostream = datastore.getOutputStream("objects");
+		ObjectOutputStream oos = new ObjectOutputStream(ostream);
+		oos.write(getImageList());
+		oos.close();
+	}
+	catch (Exception e)
+	{
+		int code = ApplicationErrors.CODE_ERROR_WRITING_APPLICATION_DATA;
+		throw new ApplicationException (code, null);
+	}
+	finally
+	{
+		IOUtilities.close(ostream);
+	}
+}
+</PRE>
+</CODE>
+
+<P>
+<B><A name="qs_ad_load">ApplicationData.load(ApplicationDatastore)</A></B>
+<BR/>
+This method should reconstitute the application data from the underlying
+repository file.  This is accomplished by obtaining input streams from the
+datastore and initializing application objects from those streams.
+
+<P>
+<B>ImageGalleryData.load(ApplicationDatasource)</B>
+<BR/>
+Here is an example implementation:
+
+<CODE>
+<PRE>
+public void load (ApplicationDatasource datasource) throws ApplicationException 
+{
+	InputStream istream = null;
+	try
+	{
+		// get the image data
+		String[] ifiles = datasource.list("images");
+		List imageDatas = new ArrayList();
+		for (int i = 0; i &lt; ifiles.length; i++)
+		{
+			DatasourceEntry entry = datasource.getEntry(ifiles[i]);
+			byte[] buf = new byte[entry.getSize()];
+			istream = datasource.getInputStream(ifiles[i]);
+			istream.read(buf);
+			istream.close();
+
+			imageDatas.add(buf);
+		}
+
+		// read the object list
+		istream = datasource.getInputStream("objects");
+		ObjectInputStream ois = new ObjectInputStream(istream);
+		List images = (List) ois.readObject();
+
+		// match up the images to the objects
+		for (int i = 0; i &lt; images.size(); i++)
+		{
+			ImageObject image = (ImageObject) images.get(i);
+			byte[] data = (byte[]) imageDatas.get(i);
+			image.setImage(data);
+		}
+
+		setImageList(images);
+	}
+	catch (Exception e)
+	{
+		int code = ApplicationErrors.CODE_ERROR_READING_REPOSITORY;
+		Object[] data = new Object[] { e };
+		throw new ApplicationException(code, data);
+	}
+	finally
+	{
+		IOUtilities.close(istream);
+	}
+}
+</PRE>
+</CODE>
+
+
+<H2><A name="introduction">Introduction</A></H2>
+The objectives of the application repository framework are to provide a simple
+framework for data management.  Specifically, it allows applications to 
+
+<UL>
+	<LI>Have multiple logical files while presenting the user with one physical
+	file.
+
+	<LI>
+multiple data files and whatnot contain
+to provide a simple way of allowing applications to load, store,
+and back-out changes to data.  Developers can write code that focuses on loading
+and storing data without having to worry about issues like whether how to
+determine when the user wants to save the data, multiple documents, etc.  
+
+<P>
+This idea is realized by creating an interface called ApplicationRepository that
+provides the basic methods that the rest of the application framework can use to
+signal events like load, store, backup, etc. without having to worry about the
+various application-specific data that the application uses to represent the
+data.
+
+<P>
+Another common issue is that of multiple data files.  Application data is often
+logically separated into different sections, but creating multiple datafiles is
+a "messy" way to implement this.  The framework approach to this problem is the
+notion that a repository presents a "virtual file system" interface to the
+application.  To the Operating system and the user, however, repositories can
+look different --- as a ZIP file or a directory, for example.
+
+
+
+</BODY>
+

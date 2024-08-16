@@ -1,0 +1,75 @@
+<H2>Command Line Properties</H2>
+In the context of com.lts.application, command line arguments are processed by 
+setting properties that the rest of the application can obtain the value of by 
+simply using getProperty.  
+
+<P>
+This package supports the following types of properties:
+<UL>
+<LI>boolean
+<LI>string
+<LI>parameter
+</UL>
+
+<H3>boolean</H3>
+The BooleanProperty class is used for processesing these types of parameters.
+
+<P>
+Such parameters function as true/false style switches: they are on or off.  For
+example, a switch that tells a program to be "verbose" or not could have the 
+form:
+
+<CODE>
+<PRE>
+foo -v
+</PRE>
+</CODE>
+
+<P>
+Would indicate verbose mode.  The absence of the parameter would indicate non-verbose 
+mode.  
+
+<P>
+These parameters are accessed via a property name that has a string value of 
+"true" or "false".  One value is the default value that is set if the parameter 
+is absent from the command line.  The other value is used when the property is 
+present on the command line.
+
+<P>
+Boolean, switch-style properties can be set in one of two ways: using a short 
+form, like the "-v" option shown above, or a "long form" where the switch is 
+introduced via the "--" sequence.  For example: "--verbose".
+
+<P>
+When using the short form, several switches can be set at once.  For example,
+
+<CODE>
+<PRE>
+foo -xv
+</PRE>
+</CODE>
+
+<P>
+Sets the x and v switches at the same time.  When using the long form, only one 
+switch can be set at a time.
+
+<H3>String Properties</H3>
+These properties use the class StringProperty to contain their information.
+
+<P>
+These parameters are 
+
+<P>
+For example, some compilers allow you to specify the name of an output file 
+on the command line via a sequence like "-o &lt;output file&gt;"
+
+<H3>parameter</H3>
+Command line options that do not use any kind of "introduction" For example,
+
+<CODE>
+<PRE>
+javac one.java two.java
+</PRE>
+</CODE>
+
+Considers "one.java" and "two.java" to be parameters.

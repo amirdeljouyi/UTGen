@@ -1,0 +1,603 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+de.outstare.fortbattleplayer.gui.GuiPlayer
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: de.outstare.fortbattleplayer.gui.GuiPlayer: 2,50%</ul><ul>
+<li>2270 fitness evaluations, 47 generations, 6185 statements, 1691 tests.
+<li>Time: 0:05:01(Search: 0:05:01, minimization: 0:00:00)
+<li>Coverage: 0/30 branches, 2/17 methods, 1/40 total goals
+<li>Mutation score: 0%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>HashMap&lt;CombatantSide, Set&lt;Combatant&gt;&gt; hashMap0 = new HashMap&lt;CombatantSide, Set&lt;Combatant&gt;&gt;();
+<span class="nocode"><a name="2">  2: </a></span>Fortbattle fortbattle0 = new Fortbattle(&quot;&quot;, (Map&lt;CombatantSide, Set&lt;Combatant&gt;&gt;) hashMap0, (Battlefield) null, (Battleplan) null, (AllStatistics) null, (Image) null);
+<span class="nocode"><a name="3">  3: </a></span>GuiPlayer guiPlayer0 = null;
+<span class="nocode"><a name="4">  4: </a></span>try {
+<span class="nocode"><a name="5">  5: </a></span>  guiPlayer0 = new GuiPlayer(fortbattle0, &quot;&quot;);
+<span class="nocode"><a name="6">  6: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="7">  7: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="8">  8: </a></span>}
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>package de.outstare.fortbattleplayer.gui;
+<span class="nocode"><a name="2">  2: </a></span>
+<span class="nocode"><a name="3">  3: </a></span>/*
+<span class="nocode"><a name="4">  4: </a></span> Copyright (c) 2010 Daniel Raap
+<span class="nocode"><a name="5">  5: </a></span>
+<span class="nocode"><a name="6">  6: </a></span> Permission is hereby granted, free of charge, to any person obtaining a copy
+<span class="nocode"><a name="7">  7: </a></span> of this software and associated documentation files (the &quot;Software&quot;), to deal
+<span class="nocode"><a name="8">  8: </a></span> in the Software without restriction, including without limitation the rights
+<span class="nocode"><a name="9">  9: </a></span> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+<span class="nocode"><a name="10"> 10: </a></span> copies of the Software, and to permit persons to whom the Software is
+<span class="nocode"><a name="11"> 11: </a></span> furnished to do so, subject to the following conditions:
+<span class="nocode"><a name="12"> 12: </a></span>
+<span class="nocode"><a name="13"> 13: </a></span> The above copyright notice and this permission notice shall be included in
+<span class="nocode"><a name="14"> 14: </a></span> all copies or substantial portions of the Software.
+<span class="nocode"><a name="15"> 15: </a></span>
+<span class="nocode"><a name="16"> 16: </a></span> THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+<span class="nocode"><a name="17"> 17: </a></span> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+<span class="nocode"><a name="18"> 18: </a></span> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+<span class="nocode"><a name="19"> 19: </a></span> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+<span class="nocode"><a name="20"> 20: </a></span> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+<span class="nocode"><a name="21"> 21: </a></span> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+<span class="nocode"><a name="22"> 22: </a></span> THE SOFTWARE.
+<span class="nocode"><a name="23"> 23: </a></span> */
+<span class="nocode"><a name="24"> 24: </a></span>
+<span class="nocode"><a name="25"> 25: </a></span>import java.awt.BorderLayout;
+<span class="nocode"><a name="26"> 26: </a></span>import java.awt.Component;
+<span class="nocode"><a name="27"> 27: </a></span>import java.awt.GridLayout;
+<span class="nocode"><a name="28"> 28: </a></span>import java.awt.LayoutManager;
+<span class="nocode"><a name="29"> 29: </a></span>import java.awt.event.ActionEvent;
+<span class="nocode"><a name="30"> 30: </a></span>import java.awt.event.ActionListener;
+<span class="nocode"><a name="31"> 31: </a></span>import java.util.HashSet;
+<span class="nocode"><a name="32"> 32: </a></span>import java.util.Locale;
+<span class="nocode"><a name="33"> 33: </a></span>import java.util.Set;
+<span class="nocode"><a name="34"> 34: </a></span>import java.util.logging.Logger;
+<span class="nocode"><a name="35"> 35: </a></span>
+<span class="nocode"><a name="36"> 36: </a></span>import javax.swing.JButton;
+<span class="nocode"><a name="37"> 37: </a></span>import javax.swing.JComponent;
+<span class="nocode"><a name="38"> 38: </a></span>import javax.swing.JFrame;
+<span class="nocode"><a name="39"> 39: </a></span>import javax.swing.JInternalFrame;
+<span class="nocode"><a name="40"> 40: </a></span>import javax.swing.JPanel;
+<span class="nocode"><a name="41"> 41: </a></span>
+<span class="nocode"><a name="42"> 42: </a></span>import org.json.JSONException;
+<span class="nocode"><a name="43"> 43: </a></span>
+<span class="nocode"><a name="44"> 44: </a></span>import de.outstare.fortbattleplayer.gui.battlefield.BattlefieldDrawing;
+<span class="nocode"><a name="45"> 45: </a></span>import de.outstare.fortbattleplayer.gui.battlefield.PlayerDrawing;
+<span class="nocode"><a name="46"> 46: </a></span>import de.outstare.fortbattleplayer.gui.battlefield.PlayerDrawingDB;
+<span class="nocode"><a name="47"> 47: </a></span>import de.outstare.fortbattleplayer.gui.search.SearchPanel;
+<span class="nocode"><a name="48"> 48: </a></span>import de.outstare.fortbattleplayer.gui.statistics.DataPanel;
+<span class="nocode"><a name="49"> 49: </a></span>import de.outstare.fortbattleplayer.gui.statistics.StatisticsPanel;
+<span class="nocode"><a name="50"> 50: </a></span>import de.outstare.fortbattleplayer.model.Battlefield;
+<span class="nocode"><a name="51"> 51: </a></span>import de.outstare.fortbattleplayer.model.Combatant;
+<span class="nocode"><a name="52"> 52: </a></span>import de.outstare.fortbattleplayer.model.Fortbattle;
+<span class="nocode"><a name="53"> 53: </a></span>import de.outstare.fortbattleplayer.player.Battleplan;
+<span class="nocode"><a name="54"> 54: </a></span>import de.outstare.fortbattleplayer.player.Battleplayer;
+<span class="nocode"><a name="55"> 55: </a></span>import de.outstare.fortbattleplayer.player.CombatantEventDispatcher;
+<span class="nocode"><a name="56"> 56: </a></span>import de.outstare.fortbattleplayer.statistics.AllStatistics;
+<span class="nocode"><a name="57"> 57: </a></span>
+<span class="nocode"><a name="58"> 58: </a></span>/**
+<span class="nocode"><a name="59"> 59: </a></span> * A GuiPlayer shows a FortBattle. During execution the player visualizes the
+<span class="nocode"><a name="60"> 60: </a></span> * battle. Meaning all events have to be handled to the gui.
+<span class="nocode"><a name="61"> 61: </a></span> * 
+<span class="nocode"><a name="62"> 62: </a></span> * @author daniel
+<span class="nocode"><a name="63"> 63: </a></span> */
+<span class="nocode"><a name="64"> 64: </a></span>public class GuiPlayer extends JInternalFrame implements PlayerDrawingDB {
+<span class="nocode"><a name="65"> 65: </a></span>	/**
+<span class="nocode"><a name="66"> 66: </a></span>	 * shows either only the Center of the given panel or all parts
+<span class="nocode"><a name="67"> 67: </a></span>	 * 
+<span class="nocode"><a name="68"> 68: </a></span>	 * @author daniel
+<span class="nocode"><a name="69"> 69: </a></span>	 */
+<span class="nocode"><a name="70"> 70: </a></span>	private static class FullscreenSwitcher implements ActionListener {
+<span class="nocode"><a name="71"> 71: </a></span>		private final JPanel _panel;
+<span class="nocode"><a name="72"> 72: </a></span>		private final JButton _fsButton;
+<span class="nocode"><a name="73"> 73: </a></span>
+<span class="nocode"><a name="74"> 74: </a></span>		/**
+<span class="nocode"><a name="75"> 75: </a></span>		 * @param panel
+<span class="nocode"><a name="76"> 76: </a></span>		 *            with {@link BorderLayout}
+<span class="nocode"><a name="77"> 77: </a></span>		 * @param fsButton
+<span class="nocode"><a name="78"> 78: </a></span>		 */
+<span class="nocode"><a name="79"> 79: </a></span>		FullscreenSwitcher(final JPanel panel, final JButton fsButton) {
+<span class="nocode"><a name="80"> 80: </a></span>			_panel = panel;
+<span class="nocode"><a name="81"> 81: </a></span>			_fsButton = fsButton;
+<span class="nocode"><a name="82"> 82: </a></span>		}
+<span class="nocode"><a name="83"> 83: </a></span>
+<span class="nocode"><a name="84"> 84: </a></span>		public void actionPerformed(final ActionEvent e) {
+<span class="nocode"><a name="85"> 85: </a></span>			boolean othersVisible;
+<span class="nocode"><a name="86"> 86: </a></span>			if (Messages.getString(&quot;GuiPlayer.fullscreen&quot;).equals(_fsButton.getText())) { //$NON-NLS-1$
+<span class="nocode"><a name="87"> 87: </a></span>				othersVisible = false;
+<span class="nocode"><a name="88"> 88: </a></span>				_fsButton.setText(Messages.getString(&quot;GuiPlayer.showAll&quot;)); //$NON-NLS-1$
+<span class="nocode"><a name="89"> 89: </a></span>			} else {
+<span class="nocode"><a name="90"> 90: </a></span>				othersVisible = true;
+<span class="nocode"><a name="91"> 91: </a></span>				_fsButton.setText(Messages.getString(&quot;GuiPlayer.fullscreen&quot;)); //$NON-NLS-1$
+<span class="nocode"><a name="92"> 92: </a></span>			}
+<span class="nocode"><a name="93"> 93: </a></span>			final LayoutManager mainLayout = _panel.getLayout();
+<span class="nocode"><a name="94"> 94: </a></span>			if (mainLayout instanceof BorderLayout) {
+<span class="nocode"><a name="95"> 95: </a></span>				final BorderLayout layout = (BorderLayout) mainLayout;
+<span class="nocode"><a name="96"> 96: </a></span>				final String[] directions = new String[] { BorderLayout.NORTH, BorderLayout.LINE_START,
+<span class="nocode"><a name="97"> 97: </a></span>				        BorderLayout.LINE_END, BorderLayout.SOUTH };
+<span class="nocode"><a name="98"> 98: </a></span>				for (final String direction : directions) {
+<span class="nocode"><a name="99"> 99: </a></span>					final Component comp = layout.getLayoutComponent(direction);
+<span class="nocode"><a name="100">100: </a></span>					setVisible(comp, othersVisible);
+<span class="nocode"><a name="101">101: </a></span>				}
+<span class="nocode"><a name="102">102: </a></span>			}
+<span class="nocode"><a name="103">103: </a></span>		}
+<span class="nocode"><a name="104">104: </a></span>
+<span class="nocode"><a name="105">105: </a></span>		/**
+<span class="nocode"><a name="106">106: </a></span>		 * checks if comp may be &lt;code&gt;null&lt;/code&gt;
+<span class="nocode"><a name="107">107: </a></span>		 * 
+<span class="nocode"><a name="108">108: </a></span>		 * @param comp
+<span class="nocode"><a name="109">109: </a></span>		 * @param isVisible
+<span class="nocode"><a name="110">110: </a></span>		 */
+<span class="nocode"><a name="111">111: </a></span>		private void setVisible(final Component comp, final boolean isVisible) {
+<span class="nocode"><a name="112">112: </a></span>			if (comp != null) {
+<span class="nocode"><a name="113">113: </a></span>				comp.setVisible(isVisible);
+<span class="nocode"><a name="114">114: </a></span>			}
+<span class="nocode"><a name="115">115: </a></span>		}
+<span class="nocode"><a name="116">116: </a></span>	}
+<span class="nocode"><a name="117">117: </a></span>
+<span class="nocode"><a name="118">118: </a></span>	private static final long serialVersionUID = -3770016315108490794L;
+<span class="nocode"><a name="119">119: </a></span>	private static final transient Logger LOG = Logger.getLogger(GuiPlayer.class.getName());
+<span class="nocode"><a name="120">120: </a></span>	private final Battleplayer controller;
+<span class="nocode"><a name="121">121: </a></span><span style="background-color: #ffffcc">	private final Set&lt;PlayerDrawing&gt; players = new HashSet&lt;PlayerDrawing&gt;();</span>
+<span class="nocode"><a name="122">122: </a></span>
+<span class="nocode"><a name="123">123: </a></span>	/**
+<span class="nocode"><a name="124">124: </a></span>	 * creates a new player for the given data
+<span class="nocode"><a name="125">125: </a></span>	 * 
+<span class="nocode"><a name="126">126: </a></span>	 * @param battle
+<span class="nocode"><a name="127">127: </a></span>	 * @param version
+<span class="nocode"><a name="128">128: </a></span>	 *            to show to the user
+<span class="nocode"><a name="129">129: </a></span>	 * @throws JSONException
+<span class="nocode"><a name="130">130: </a></span>	 */
+<span class="nocode"><a name="131">131: </a></span>	public GuiPlayer(final Fortbattle battle, final String version) {
+<span class="nocode"><a name="132">132: </a></span>		super(Messages.getString(&quot;GuiPlayer.title&quot;) + battle.getFortname() + &quot; - v&quot; + version); //$NON-NLS-1$ //$NON-NLS-2$
+<span class="nocode"><a name="133">133: </a></span><span style="background-color: #ffffcc">		final Battlefield battlefield = battle.getBattlefield();</span>
+<span class="nocode"><a name="134">134: </a></span><span style="background-color: #ffffcc">		final Set&lt;Combatant&gt; combatants = loadCombatants(battle);</span>
+<span class="nocode"><a name="135">135: </a></span>		final Battleplan plan = battle.getActions();
+<span class="nocode"><a name="136">136: </a></span>		final CombatantEventDispatcher combatantEvents = new CombatantEventDispatcher(combatants);
+<span class="nocode"><a name="137">137: </a></span>
+<span class="nocode"><a name="138">138: </a></span>		final AllStatistics stats = battle.getStatistic();
+<span class="nocode"><a name="139">139: </a></span>		final StatisticsPanel statsPanel = new StatisticsPanel(stats);
+<span class="nocode"><a name="140">140: </a></span>		final DataPanel dataPanel = new DataPanel(stats);
+<span class="nocode"><a name="141">141: </a></span>
+<span class="nocode"><a name="142">142: </a></span>		controller = new Battleplayer(plan);
+<span class="nocode"><a name="143">143: </a></span>		final JPanel statusPanel = createStatusPanel(combatants, combatantEvents);
+<span class="nocode"><a name="144">144: </a></span>		final BattlefieldDrawing gui = new BattlefieldDrawing(battlefield, battle.getMapImage(), controller.config,
+<span class="nocode"><a name="145">145: </a></span>		        stats.battle.getFieldStatistics());
+<span class="nocode"><a name="146">146: </a></span>		final JPanel log = new LogPanel(controller, combatantEvents);
+<span class="nocode"><a name="147">147: </a></span>		createCombatantDrawings(combatants, gui);
+<span class="nocode"><a name="148">148: </a></span>
+<span class="nocode"><a name="149">149: </a></span>		controller.addRoundListener(gui);
+<span class="nocode"><a name="150">150: </a></span>
+<span class="nocode"><a name="151">151: </a></span>		initFrame(gui, statusPanel, log, statsPanel, dataPanel);
+<span class="nocode"><a name="152">152: </a></span>	}
+<span class="nocode"><a name="153">153: </a></span>
+<span class="nocode"><a name="154">154: </a></span>	/**
+<span class="nocode"><a name="155">155: </a></span>	 * @param combatants
+<span class="nocode"><a name="156">156: </a></span>	 * @param combatantEvents
+<span class="nocode"><a name="157">157: </a></span>	 * @return
+<span class="nocode"><a name="158">158: </a></span>	 */
+<span class="nocode"><a name="159">159: </a></span>	private JPanel createStatusPanel(final Set&lt;Combatant&gt; combatants, final CombatantEventDispatcher combatantEvents) {
+<span class="nocode"><a name="160">160: </a></span>		int countAttacker = 0;
+<span class="nocode"><a name="161">161: </a></span>		int countDefenders = 0;
+<span class="nocode"><a name="162">162: </a></span>		int hpAttackers = 0;
+<span class="nocode"><a name="163">163: </a></span>		int hpDefenders = 0;
+<span class="nocode"><a name="164">164: </a></span>		for (final Combatant combatant : combatants) {
+<span class="nocode"><a name="165">165: </a></span>			switch (combatant.getSide()) {
+<span class="nocode"><a name="166">166: </a></span>			case ATTACKER:
+<span class="nocode"><a name="167">167: </a></span>				countAttacker++;
+<span class="nocode"><a name="168">168: </a></span>				hpAttackers += combatant._health();
+<span class="nocode"><a name="169">169: </a></span>				break;
+<span class="nocode"><a name="170">170: </a></span>			case DEFENDER:
+<span class="nocode"><a name="171">171: </a></span>				countDefenders++;
+<span class="nocode"><a name="172">172: </a></span>				hpDefenders += combatant._health();
+<span class="nocode"><a name="173">173: </a></span>				break;
+<span class="nocode"><a name="174">174: </a></span>			default:
+<span class="nocode"><a name="175">175: </a></span>				LOG.warning(&quot;unknown combatant side: &quot; + combatant.getSide()); //$NON-NLS-1$
+<span class="nocode"><a name="176">176: </a></span>			}
+<span class="nocode"><a name="177">177: </a></span>		}
+<span class="nocode"><a name="178">178: </a></span>
+<span class="nocode"><a name="179">179: </a></span>		final StatusPanel status = new StatusPanel(countAttacker, countDefenders, hpAttackers, hpDefenders);
+<span class="nocode"><a name="180">180: </a></span>		combatantEvents.addCombatantObserver(status);
+<span class="nocode"><a name="181">181: </a></span>
+<span class="nocode"><a name="182">182: </a></span>		return status;
+<span class="nocode"><a name="183">183: </a></span>	}
+<span class="nocode"><a name="184">184: </a></span>
+<span class="nocode"><a name="185">185: </a></span>	/**
+<span class="nocode"><a name="186">186: </a></span>	 * sets the gui stuff
+<span class="nocode"><a name="187">187: </a></span>	 * 
+<span class="nocode"><a name="188">188: </a></span>	 * @param gui
+<span class="nocode"><a name="189">189: </a></span>	 * @param statusPanel
+<span class="nocode"><a name="190">190: </a></span>	 * @param log2
+<span class="nocode"><a name="191">191: </a></span>	 * @param statsPanel
+<span class="nocode"><a name="192">192: </a></span>	 */
+<span class="nocode"><a name="193">193: </a></span>	private void initFrame(final BattlefieldDrawing gui, final JPanel statusPanel, final JPanel log,
+<span class="nocode"><a name="194">194: </a></span>	        final JComponent statsPanel, final JPanel dataPanel) {
+<span class="nocode"><a name="195">195: </a></span>		final JButton statsButton = new JButton(Messages.getString(&quot;GuiPlayer.statisticButton&quot;)); //$NON-NLS-1$
+<span class="nocode"><a name="196">196: </a></span>		statsButton.addActionListener(new ActionListener() {
+<span class="nocode"><a name="197">197: </a></span>			public void actionPerformed(final ActionEvent e) {
+<span class="nocode"><a name="198">198: </a></span>				final JFrame popup = new PopupWindow(Messages.getString(&quot;GuiPlayer.statisticTitle&quot;), GuiPlayer.this); //$NON-NLS-1$
+<span class="nocode"><a name="199">199: </a></span>				popup.setContentPane(statsPanel);
+<span class="nocode"><a name="200">200: </a></span>				popup.pack();
+<span class="nocode"><a name="201">201: </a></span>				// move to center after resize
+<span class="nocode"><a name="202">202: </a></span>				popup.setLocationRelativeTo(GuiPlayer.this);
+<span class="nocode"><a name="203">203: </a></span>			}
+<span class="nocode"><a name="204">204: </a></span>		});
+<span class="nocode"><a name="205">205: </a></span>		final JPanel rightSide = new JPanel(new GridLayout(2, 1));
+<span class="nocode"><a name="206">206: </a></span>		rightSide.add(statsButton);
+<span class="nocode"><a name="207">207: </a></span>		rightSide.add(dataPanel);
+<span class="nocode"><a name="208">208: </a></span>
+<span class="nocode"><a name="209">209: </a></span>		setClosable(true);
+<span class="nocode"><a name="210">210: </a></span>		setResizable(true);
+<span class="nocode"><a name="211">211: </a></span>		setMaximizable(true);
+<span class="nocode"><a name="212">212: </a></span>		final JPanel leftSide = new JPanel(new BorderLayout());
+<span class="nocode"><a name="213">213: </a></span>		leftSide.add(statusPanel, BorderLayout.NORTH);
+<span class="nocode"><a name="214">214: </a></span>		leftSide.add(new SearchPanel(this), BorderLayout.SOUTH);
+<span class="nocode"><a name="215">215: </a></span>		// the panel is needed for correct repainting of the BattlefieldDrawing
+<span class="nocode"><a name="216">216: </a></span>		final JPanel panel = new JPanel(new BorderLayout());
+<span class="nocode"><a name="217">217: </a></span>		final JPanel center = new JPanel(new BorderLayout());
+<span class="nocode"><a name="218">218: </a></span>		center.add(createFullscreenButton(panel), BorderLayout.NORTH);
+<span class="nocode"><a name="219">219: </a></span>		center.add(gui, BorderLayout.CENTER);
+<span class="nocode"><a name="220">220: </a></span>		panel.add(center, BorderLayout.CENTER);
+<span class="nocode"><a name="221">221: </a></span>		panel.add(new ControlPanel(controller), BorderLayout.NORTH);
+<span class="nocode"><a name="222">222: </a></span>		panel.add(rightSide, BorderLayout.LINE_END);
+<span class="nocode"><a name="223">223: </a></span>		panel.add(leftSide, BorderLayout.LINE_START);
+<span class="nocode"><a name="224">224: </a></span>		panel.add(log, BorderLayout.SOUTH);
+<span class="nocode"><a name="225">225: </a></span>		setContentPane(panel);
+<span class="nocode"><a name="226">226: </a></span>		setSize(600, 450);
+<span class="nocode"><a name="227">227: </a></span>		setVisible(true);
+<span class="nocode"><a name="228">228: </a></span>	}
+<span class="nocode"><a name="229">229: </a></span>
+<span class="nocode"><a name="230">230: </a></span>	/**
+<span class="nocode"><a name="231">231: </a></span>	 * @param panel
+<span class="nocode"><a name="232">232: </a></span>	 *            where only the center or all should be visible
+<span class="nocode"><a name="233">233: </a></span>	 * @return
+<span class="nocode"><a name="234">234: </a></span>	 */
+<span class="nocode"><a name="235">235: </a></span>	private JComponent createFullscreenButton(final JPanel panel) {
+<span class="nocode"><a name="236">236: </a></span>		final JButton fsButton = new JButton(Messages.getString(&quot;GuiPlayer.fullscreen&quot;)); //$NON-NLS-1$
+<span class="nocode"><a name="237">237: </a></span>		fsButton.addActionListener(new FullscreenSwitcher(panel, fsButton));
+<span class="nocode"><a name="238">238: </a></span>		return fsButton;
+<span class="nocode"><a name="239">239: </a></span>	}
+<span class="nocode"><a name="240">240: </a></span>
+<span class="nocode"><a name="241">241: </a></span>	private Set&lt;Combatant&gt; loadCombatants(final Fortbattle battle) {
+<span class="nocode"><a name="242">242: </a></span><span style="background-color: #ffffcc">		final Set&lt;Combatant&gt; allCombatants = new HashSet&lt;Combatant&gt;();</span>
+<span class="nocode"><a name="243">243: </a></span><span style="background-color: #ffffcc">		final Set&lt;Combatant&gt; attackers = battle.getAttackers();</span>
+<span class="nocode"><a name="244">244: </a></span><span style="background-color: #ffffcc">		for (final Combatant attacker : attackers) {</span>
+<span class="nocode"><a name="245">245: </a></span>			allCombatants.add(attacker);
+<span class="nocode"><a name="246">246: </a></span>		}
+<span class="nocode"><a name="247">247: </a></span>		final Set&lt;Combatant&gt; defenders = battle.getDefenders();
+<span class="nocode"><a name="248">248: </a></span>		for (final Combatant defender : defenders) {
+<span class="nocode"><a name="249">249: </a></span>			allCombatants.add(defender);
+<span class="nocode"><a name="250">250: </a></span>		}
+<span class="nocode"><a name="251">251: </a></span>		return allCombatants;
+<span class="nocode"><a name="252">252: </a></span>	}
+<span class="nocode"><a name="253">253: </a></span>
+<span class="nocode"><a name="254">254: </a></span>	/**
+<span class="nocode"><a name="255">255: </a></span>	 * @param combatants
+<span class="nocode"><a name="256">256: </a></span>	 * @param battlefield
+<span class="nocode"><a name="257">257: </a></span>	 * @throws JSONException
+<span class="nocode"><a name="258">258: </a></span>	 */
+<span class="nocode"><a name="259">259: </a></span>	private void createCombatantDrawings(final Set&lt;Combatant&gt; combatants, final BattlefieldDrawing battlefield) {
+<span class="nocode"><a name="260">260: </a></span>		PlayerDrawing drawing = null;
+<span class="nocode"><a name="261">261: </a></span>		for (final Combatant combatant : combatants) {
+<span class="nocode"><a name="262">262: </a></span>			// the instance binds itself to the battlefield
+<span class="nocode"><a name="263">263: </a></span>			drawing = new PlayerDrawing(combatant, battlefield);
+<span class="nocode"><a name="264">264: </a></span>			addPlayer(drawing);
+<span class="nocode"><a name="265">265: </a></span>		}
+<span class="nocode"><a name="266">266: </a></span>	}
+<span class="nocode"><a name="267">267: </a></span>
+<span class="nocode"><a name="268">268: </a></span>	/**
+<span class="nocode"><a name="269">269: </a></span>	 * show the complete battle
+<span class="nocode"><a name="270">270: </a></span>	 */
+<span class="nocode"><a name="271">271: </a></span>	public void play() {
+<span class="nocode"><a name="272">272: </a></span>		controller.play();
+<span class="nocode"><a name="273">273: </a></span>	}
+<span class="nocode"><a name="274">274: </a></span>
+<span class="nocode"><a name="275">275: </a></span>	/**
+<span class="nocode"><a name="276">276: </a></span>	 * stop the animation
+<span class="nocode"><a name="277">277: </a></span>	 */
+<span class="nocode"><a name="278">278: </a></span>	public void stop() {
+<span class="nocode"><a name="279">279: </a></span>		controller.stop();
+<span class="nocode"><a name="280">280: </a></span>	}
+<span class="nocode"><a name="281">281: </a></span>
+<span class="nocode"><a name="282">282: </a></span>	/**
+<span class="nocode"><a name="283">283: </a></span>	 * @see javax.swing.JInternalFrame#dispose()
+<span class="nocode"><a name="284">284: </a></span>	 */
+<span class="nocode"><a name="285">285: </a></span>	@Override
+<span class="nocode"><a name="286">286: </a></span>	public void dispose() {
+<span class="nocode"><a name="287">287: </a></span>		stop();
+<span class="nocode"><a name="288">288: </a></span>		super.dispose();
+<span class="nocode"><a name="289">289: </a></span>	}
+<span class="nocode"><a name="290">290: </a></span>
+<span class="nocode"><a name="291">291: </a></span>	/**
+<span class="nocode"><a name="292">292: </a></span>	 * @see de.outstare.fortbattleplayer.gui.battlefield.PlayerDrawingDB#addPlayer(de.outstare.fortbattleplayer.gui.battlefield.PlayerDrawing)
+<span class="nocode"><a name="293">293: </a></span>	 */
+<span class="nocode"><a name="294">294: </a></span>	public void addPlayer(final PlayerDrawing drawing) {
+<span class="nocode"><a name="295">295: </a></span>		players.add(drawing);
+<span class="nocode"><a name="296">296: </a></span>	}
+<span class="nocode"><a name="297">297: </a></span>
+<span class="nocode"><a name="298">298: </a></span>	/**
+<span class="nocode"><a name="299">299: </a></span>	 * @see de.outstare.fortbattleplayer.gui.battlefield.PlayerDrawingDB#findUsers(java.lang.String)
+<span class="nocode"><a name="300">300: </a></span>	 */
+<span class="nocode"><a name="301">301: </a></span>	public Set&lt;PlayerDrawing&gt; findUsers(final String namePart) {
+<span class="nocode"><a name="302">302: </a></span>		final Set&lt;PlayerDrawing&gt; result = new HashSet&lt;PlayerDrawing&gt;();
+<span class="nocode"><a name="303">303: </a></span>		final Locale locale = Locale.getDefault();
+<span class="nocode"><a name="304">304: </a></span>		final String lowerCaseSearch = namePart.toLowerCase(locale);
+<span class="nocode"><a name="305">305: </a></span>		LOG.info(&quot;searching user with &quot; + lowerCaseSearch);
+<span class="nocode"><a name="306">306: </a></span>		for (final PlayerDrawing drawing : players) {
+<span class="nocode"><a name="307">307: </a></span>			final String lowerCaseName = drawing.getCombatantName().toLowerCase(locale);
+<span class="nocode"><a name="308">308: </a></span>			if (lowerCaseName.contains(lowerCaseSearch)) {
+<span class="nocode"><a name="309">309: </a></span>				result.add(drawing);
+<span class="nocode"><a name="310">310: </a></span>			}
+<span class="nocode"><a name="311">311: </a></span>		}
+<span class="nocode"><a name="312">312: </a></span>		return result;
+<span class="nocode"><a name="313">313: </a></span>	}
+<span class="nocode"><a name="314">314: </a></span>
+<span class="nocode"><a name="315">315: </a></span>	/**
+<span class="nocode"><a name="316">316: </a></span>	 * @see de.outstare.fortbattleplayer.gui.battlefield.PlayerDrawingDB#findUsersWithWeapon(java.lang.String)
+<span class="nocode"><a name="317">317: </a></span>	 */
+<span class="nocode"><a name="318">318: </a></span>	public Set&lt;PlayerDrawing&gt; findUsersWithWeapon(final String namePart) {
+<span class="nocode"><a name="319">319: </a></span>		final Set&lt;PlayerDrawing&gt; result = new HashSet&lt;PlayerDrawing&gt;();
+<span class="nocode"><a name="320">320: </a></span>		final Locale locale = Locale.getDefault();
+<span class="nocode"><a name="321">321: </a></span>		final String lowerCaseSearch = namePart.toLowerCase(locale);
+<span class="nocode"><a name="322">322: </a></span>		LOG.fine(&quot;searching weapon with &quot; + lowerCaseSearch);
+<span class="nocode"><a name="323">323: </a></span>		for (final PlayerDrawing drawing : players) {
+<span class="nocode"><a name="324">324: </a></span>			final String lowerCaseName = drawing.getGun().name().toLowerCase(locale);
+<span class="nocode"><a name="325">325: </a></span>			if (lowerCaseName.contains(lowerCaseSearch)) {
+<span class="nocode"><a name="326">326: </a></span>				result.add(drawing);
+<span class="nocode"><a name="327">327: </a></span>			}
+<span class="nocode"><a name="328">328: </a></span>		}
+<span class="nocode"><a name="329">329: </a></span>		return result;
+<span class="nocode"><a name="330">330: </a></span>	}
+<span class="nocode"><a name="331">331: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 7764
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: de
+<li>TARGET_CLASS: de.outstare.fortbattleplayer.gui.GuiPlayer
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/jchart-withoutSVGAndServelt.jar:lib/json.jar:twfbplayer.jar
+<li>search_budget: 300
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

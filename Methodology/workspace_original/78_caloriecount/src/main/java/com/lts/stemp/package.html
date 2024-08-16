@@ -1,0 +1,27 @@
+<BODY>
+A very simple text template processing package.
+
+<P/>
+This package is intended to transform a text template file into a text output
+file.  The package it typically used to generate code from a text template.
+
+<P/>
+The system works by first loading a template file:
+
+<CODE>
+<PRE>
+    ...
+    String fname = "some file name";
+    Template template = Template.load(fname);
+
+    ...
+
+    Map data = &lt;method to generate some data&gt;
+    String outfile = "some file name";
+    template.generate(outfile, data);
+</PRE>
+</CODE>
+
+<P/>
+The template class 
+</BODY>

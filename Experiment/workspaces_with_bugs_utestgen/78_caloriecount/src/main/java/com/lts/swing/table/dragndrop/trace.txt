@@ -1,0 +1,291 @@
+835462755 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:105)
+835878648 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:110)
+
+054355660 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:105)
+054662007 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:110)
+
+054885869 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportAsDrag(ProxyTransferHandler.java:58)
+055110796   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:105)
+055331062   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:110)
+056589729   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.createTransferable(ProxyTransferHandler.java:41)
+056837600   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.createTransferable(ProxyTransferHandler.java:46)
+060930026 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportAsDrag(ProxyTransferHandler.java:63)
+
+068994660 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+069260331   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+069502985   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+069735526 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+074028753 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+074300459   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+074696124   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+074988128 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+078785840 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+079063376   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+079265912   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+079459597 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+082900712 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+083107376   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+083310586   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+083503943 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+087361511 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+087572541   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+087782962   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+087977368 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+118318785 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+118530236   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+118732417   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+118942524 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+126743914 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+126953686   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+127156683   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+127349703 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+150252053 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+150461782   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+150663251   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+150858810 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+158287048 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+158497103   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+158699031   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+158892447 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+166280686 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+166500871   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+166704350   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+166902137 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+174412264 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+174622537   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+174823660   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+175022640 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+182305344 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+182601440   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+182798072   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+182987321 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+190296254 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+190507427   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+190704332   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+190893621 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+198306318 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+198509734   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+198708240   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+198896674 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+206301301 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+206511622   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+206710144   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+206904728 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+214292097 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+214499791   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+219356566   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+220093154 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+224220859 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+224437148   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+224648476   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+224838403 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+230290169 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+230496768   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+230693352   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+230882853 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+238548520 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+238758349   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+238955638   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+239157360 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+262259285 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+262471523   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+262669310   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+262863599 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+278298209 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+278503342   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+278700748   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+278890372 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+286279556 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+286483378   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+286679712   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+286877870 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+294284527 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+294494617   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+294698652   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+294888790 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+302290026 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+302518377   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+302716981   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+302906174 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+326399860 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+326604441   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+326800820   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+326996093 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+334278240 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+334487524   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+334684216   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+334885344 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+358247770 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+358485288   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+358681035   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+358869940 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+382276757 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+382484872   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+382686461   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+382875582 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+390290144 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+390538808   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+390735148   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+390971070 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+406357568 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+406629933   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+406826683   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+407024227 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+414283580 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+414491593   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+414687004   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+414881478 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+422272175 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+422479195   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+422682363   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+422871028 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+430270690 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+430490324   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+430685828   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+430877001 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+446298421 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+446502453   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+446699915   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+446888439 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+462281651 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+462485696   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+462689124   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+462877165 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+486302069 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+486505112   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+486702302   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+486889912 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+526268595 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+526471583   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+526667488   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+526855784 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+542435853 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+542760744   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+543079379   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+543369346 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+550629130 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+550831912   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+551028308   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+551215491 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+558262947 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+558473040   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+558670456   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+558857995 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+582346039 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+582553184   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+582752347   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+582948901 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+641837039 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+642047345   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+642248072   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+642444736 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+703400373 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+703604887   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+703804576   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+704000922 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+766200693 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+766411828   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+766612926   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+766804217 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+829340394 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+829546266   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+829745073   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+829941673 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+890859917 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+891064659   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+891263924   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+891461258 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+953399126 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+953603442   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+953802207   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+954012608 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+969387406 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:28)
+969604469   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:15)
+969797657   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:20)
+970040519 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.canImport(ProxyTransferHandler.java:33)
+
+970365077 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:147)
+970903938   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:134)
+971100101   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:139)
+971280377 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:152)
+
+972483292 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportDone(ProxyTransferHandler.java:75)
+972617767 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportDone(ProxyTransferHandler.java:80)
+
+571346088 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportToClipboard(ProxyTransferHandler.java:92)
+571573822   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:105)
+571789589   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:110)
+572013997   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.createTransferable(ProxyTransferHandler.java:41)
+572251223   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.createTransferable(ProxyTransferHandler.java:46)
+573199622   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportDone(ProxyTransferHandler.java:75)
+573418449   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportDone(ProxyTransferHandler.java:80)
+573619685 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportToClipboard(ProxyTransferHandler.java:97)
+
+681211958 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:147)
+681431371   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:134)
+681644705   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:139)
+681846113 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:152)
+
+249142192 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportToClipboard(ProxyTransferHandler.java:92)
+249363581   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:105)
+249578977   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.getSourceActions(ProxyTransferHandler.java:110)
+249796200   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.createTransferable(ProxyTransferHandler.java:41)
+250102331   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.createTransferable(ProxyTransferHandler.java:46)
+250392371   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportDone(ProxyTransferHandler.java:75)
+250600664   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportDone(ProxyTransferHandler.java:80)
+250814020 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.exportToClipboard(ProxyTransferHandler.java:97)
+
+513206389 } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:147)
+513449333   } com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:134)
+513773382   { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:139)
+513973262 { com.lts.swing.table.dragndrop.test.ProxyTransferHandler.importData(ProxyTransferHandler.java:152)
+
+
+

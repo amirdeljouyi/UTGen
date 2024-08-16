@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Application Serialization</title>
+</head>
+<body>
+<H2>Introduction</H2>
+<H3>Java Serialization</H3>
+Java serialization implicitly assumes that the data will be stored in a single, binary
+file stream.  This approach is fine for many applications, but is generally very 
+difficult if you want to be able to read the serialized state of the object during 
+debugging.  
+
+<P>
+Furthermore, if you want to partition an object up into multiple files so that, for 
+example, you can skip aspects of the object that no longer apply since the last 
+serialization, instances do not have to know about the pervious makeup of the class
+unless there is a name conflict.
+</P>
+
+<H3>Virtual File System</H3>
+The com.lts.application (CLA) framework uses a virtual system of directories rather
+than a binary output stream.  This allows classes much more flexibility in deciding 
+how they will be stored.  For example:
+
+<UL>
+<LI>A class can simply use the default serialization mechanism.</LI>
+<LI>A class could opt to store each field as a separate file.</LI>
+<LI>A class can store its state using XML</LI>
+</UL>
+
+<P>
+This generally results in a much easier to debug system as the contents 
+of the repository are much more human-friendly than what you would expect from
+the default mechanism.
+</P>
+
+<H2>The CLA Architecture</H2>
+The two basic interfaces/classes in CLA serialization are ApplicationData and
+ApplicationRepository.  ApplicationRepository presents an abstract file system 
+(system of directories) where data can be stored.  
+
+<P>
+Application data can be stored as an actual system of directories or as a single
+ZIP file simply by changing the implementor of ApplicationRepository.  The 
+Repository class also handles the mechnics of load/store/commit/rollback for the 
+application for multiple virtual files.
+</P>
+
+<P>
+The ApplicationData class is concerned with how the state of the data is represented
+in a virtual file system.  This class might decide, for example, to divide the state
+of the object between two virtual files.  This class also decides how to handle 
+the situation where the underlying representation has changed in a manner that not 
+all of the object's state is initialized by deserialization.
+</P>
+
+</body>
+</html>

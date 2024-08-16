@@ -1,0 +1,152 @@
+<HTML>
+
+<H1>The Forward and Listen Pattern</H1>
+Rather than modifying application data directly, the UI works with a virtual object that 
+presents the same interface that the underlying data would and forwards requests onto 
+the underlying data.  The UI then listens for changes just at it would if some other 
+agent were instigating the change instead of itself.
+ 
+<H2>Motivation</H2>
+While in theory the Model-View-Controller (MVC) pattern should allow the application data
+(the model) and the representation of that data (the view) to be independent, in practice
+Java does not allow this to be the case.  The Forward and Listen (FAL) pattern makes this
+more of a reality.
+
+<H3>The Missing Control Component</H3>
+If there are two views of the model (the application data), MVC assumes that both are
+notified of a change to that data.  Unfortunately, Java provides no such mechanism for
+lists of data.  
+
+
+<P>
+This pattern provides an approach to supply the need to keep the model and the view in
+sync through an interface called NotifyList and it's associated classes.
+</P>
+
+<H2>What FAL Provides</H2>
+The FAL pattern consists of the following basic classes:
+
+<UL>
+	<LI>NotifyingList - a list that tells subscribers about creates, updates and
+	deletes.</LI>
+
+	<LI>ListEvent - an event from a NotifyingList.</LI>
+	<LI>NotifyingListListener - an objects capable of receiving ListEvents.</LI>
+</UL>
+
+<P>
+FAL also supplies the following derived and support classes:
+</P>
+
+<UL>
+	<LI></LI>
+	<LI>ListProxy - a NotifyingList that forwards requests for basic CRUD operations onto
+	another NotifyingList.</LI>
+
+	<LI>NotifyingListHelper - a class that can manage notifications for a
+	NotifyingList.</LI>
+
+	<LI>SublistProxy - a ListProxy that incorporates that filters some of the underlying
+	elements.</LI>
+
+	<LI>SublistInclusionTest - an interface that defines the include method used with
+	SublistProxy.</LI>
+
+	<LI>TableListBridge - a RowModelTableAdaptor that translates events from a
+	NotifyingList to TableModelEvents.</LI>
+
+	<LI>SortedListProxy - a ListProxy that sorts its members without changing the
+	underlying ordering.
+</UL>
+
+<P>
+While the actual classes and interfaces are not always that complex, they can be combined
+to form very complex and useful structures.  For example, suppose you have a list of
+events.  Suppose further that you want to display only some of them and in an order other
+than that they occurred.  This can be accomplished by using SublistProxy to filter only
+those events that occurr in a particular time range, and SortedListProxy to then sort the
+remaining elements.  
+</P>
+
+<P>
+As it turns out, this is much simpler than trying to implement both filtering and sorting
+in one class.  Add to that the problems with converting a list into a TableModel, and the
+power of this framework becomes clearer.
+</P>
+
+<!--
+<P>
+When creating a UI, the Model-View-Controller (MVC) approach is often times used.  What 
+happens if the Model is not shared by several views?  The idea behind MVC is that this can 
+be done, but in practice this introduces an application dependency between the UI and the 
+application data when using typed languages like Java.
+</P>
+
+<P>
+For example, given the classes:
+</P>
+
+<P>
+<CODE>
+<PRE>
+	class ModelDataPerson
+	{
+		public String getName();
+		public String getSSN();
+		public int getAge();
+	}
+	
+	public class ApplicationData
+	{
+		public List getPersons();
+	}
+</PRE>
+</CODE>
+</P>
+
+<P>
+How is the UI to deal with a List?  Lists do not notify objects when they change.  Furthermore,
+they are not inherently synchronized.
+</P>
+
+<P>
+One solution is to use a system of classes and interfaces like the following:
+</P>
+
+<P>
+<CODE>
+<PRE>
+	public interface ListListener
+	{
+		public void listEvent(ListEvent event);
+	}
+	
+	public class ListEvent
+	{
+		public enum ListEvents
+		{
+			insert,
+			update,
+			delete,
+			allChanged
+		}
+		
+		public int index;
+		public ListEvents event;
+	}
+	
+	public interface ListEventSource
+	{
+		public void addListener (ListListener listener);
+		public void removeListener (ListListener listener);
+	}
+	
+	public interface NotifyingList extends List implements ListEventSource
+	{}
+</PRE>
+</CODE>
+</P>
+-->
+
+
+</HTML>

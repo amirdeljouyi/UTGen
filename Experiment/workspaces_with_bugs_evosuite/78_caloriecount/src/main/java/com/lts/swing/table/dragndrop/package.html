@@ -1,0 +1,149 @@
+<HTML>
+<A href="#description">Description</A>
+<H2>Quickstart</H2>
+<UL>
+<LI><A href="#SimpleTransferHandler">Subclass SimpleTransferHandler</A></LI>
+	<UL>
+	<LI>Define retrieveAndRemoveRow</LI>
+	<LI>Define insertRow</LI>
+	</UL>
+<LI>
+<A href="#OtherActions">Use the new transfer handler</A></LI>
+	<UL>
+	<LI>Create the JTable</LI>
+	<LI>Call setDragEnabled to true.</LI>
+	<LI>Call setTransferHandler</LI>
+	</UL>
+</UL>
+
+<A name="SimpleTransferHandler">
+<H3>Subclass SimpleTransferHandler</H3>
+Note that the code for this example is in the example sub-package.
+</A>
+<CODE>
+<PRE>
+public class ExampleTransferHandler extends SimpleTransferHandler
+{
+	protected Object retrieveAndRemoveRow (TableModel tableModel, int index)
+	{
+		ExampleModel model = (ExampleModel) tableModel;
+		return model.removeRow(index);
+	}
+	
+	protected void insertRow (TableModel tableModel, Object rowData, int index)
+	{
+		ExampleModel model = (ExampleModel) tableModel;
+		String s = (String) rowData;
+		model.insertString(index, s);
+	}
+}
+</PRE>
+</CODE>
+
+<A name="OtherActions">
+<H3>Other actions</H3>
+The other steps are summarized here
+</A>
+<CODE>
+<PRE>
+...
+JTable table = new JTable();
+table.setDragEnabled(true);
+ExampleTransferHandler eth = new ExampleTransferHandler();
+table.setTransferHandler(eth);
+...
+</PRE>
+</CODE>
+
+<A name="#description">
+<H2>Description</H2>
+</A>
+This package implements "drag and drop" moves in JTables.  That is, using select, 
+drag, and release, the user can move around rows in the same table.  This is a 
+very limited subset of the full drag and drop implementation: you cannot copy,
+paste, etc.  
+
+<UL>
+<LI><A href="#jtable">JTable in Drag and Drop</A></LI>
+<LI><A href="#DiscussSimpleTransferHandler">SimpleTransferHandler</A></LI>
+</UL>
+
+<A name="jtable">
+<H3>JTable in Drag and Drop</H3>
+</A>
+The following sequence of method calls seem to be made against the JTable's 
+TransferHandler.  I don't understand everything that is going on here, so some of 
+the method calls seem to occur for no reason:
+
+<UL>
+<LI>getSourceActions</LI>
+<LI>exportAsDrag</LI>
+<LI>getSourceActions</LI>
+<LI>createTransferable</LI>
+<LI>canImport</LI>
+
+<LI>When the drop gesture occurs, importData is called</LI>
+<LI>exportDone</LI>
+</UL>
+
+<H3>getSourceActions</H3>
+Before doing anything else, this method is called <I>twice</I>.  No idea why its twice 
+instead of once, but I guess that's why I don't get paid the big bucks...
+
+<H3>exportAsDrag</H3>
+This method call would make sense if it were not for the fact that the method is not 
+allowed to return anything.  In drag and drop land, this is a sort of "get ready to
+export" method.  Rather odd.
+
+<H3>getSourceActions</H3>
+This just makes no sense to me.  Do they expect the available operations to change 
+after making the call to exportData?  Who knows.
+
+<H3>createTransferable</H3>
+This call makes a sort of sense, but why use exportAsDrag and then createTransferable?
+Why not just make one call that exports the data and creates a transferable?  Whatever. 
+
+<H3>canImport</H3>
+The idea here is to figure out if the destination component can accept the data being 
+dragged.  It seems that every time the mouse moves, this method is called again, which 
+makes sense since the mouse may be over a different component.
+
+<H3>importData</H3>
+Once the "drag gesture" is made, this method is called.  In Windows, this is releasing 
+the left button.  It is important to do the move here because at this point, the 
+selected row for the JTable is set to the destination.  Before and after this, it 
+is set to the last row in the selection.
+
+<H3>exportDone</H3>
+The idea is that, if this were a drop from one component to another, this would be 
+the time to remove the data from the source.
+
+<A name="DiscussSimpleTransferHandler">
+<H3>SimpleTransferHandler</H3>
+</A>
+This class was created to simply implementing the special case that this package 
+addresses: moving rows via drag and drop.  Subclasses need only implement the following
+methods:
+
+<UL>
+<LI>retrieveAndRemoveRow - get a row of data to be moved.</LI>
+<LI>insertRow - put a row of data</LI>
+</UL>
+
+<PRE>
+
+getSourceActions
+getSourceActions
+exportAsDrag
+getSourceActions
+createTransferable
+canImport
+canImport
+...
+canImport
+importData 0
+exportDone 2
+</PRE>
+
+
+</HTML>

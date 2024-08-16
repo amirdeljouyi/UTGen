@@ -1,0 +1,181 @@
+<H2>Command Line Procressing</H2>
+<UL>
+<LI><A href="#quickstart">Quick Start</A>
+<LI><A href="#overview">Overview</A>
+</UL>
+
+<A name="quickstart">
+<H3>Quick Start</H3>
+</A>
+<UL>
+<LI>Create a new interface...
+	<UL>
+	<LI>Defines the command line property names
+	<LI>Defines the command line "specification"
+	</UL>
+	
+<LI>Define Application.getCommandLineProcessor
+<LI>Reference command line properties from System.getProperty
+</UL>
+
+<A name="overview">
+<H3>Overview</H3>
+</A>
+The com.lts.cmdline package treats command line parameters like system properties.
+Switches like "quiet" or "verbose" are transformed into a name/value pair 
+that is set to "true" or "false" depending on the meaning of the switch.  
+Value-oriented options like "class path" or "output directory" become properties
+whose value is either defined (i.e., it was provided on the command line) or 
+null (i.e., not on the command line).
+
+<P>
+Parameters that are not introduced by a switch can be identified by the order 
+that they appear in.  They can also result in a "list" of properties.
+
+<A name="command_line_processor">
+<H3>CommandLineProcessor</H3>
+</A>
+
+The first class of interest for this package is the CommandLineProcessor class.
+This class defines one method, processCommandLine, that in turn maps the command
+line into properties.
+
+<A name="creating">
+<H3>BasicCommandLineProcessor</H3>
+</A>
+
+This class uses a number of conventions in its approach to processing command 
+lines.  Specifically:
+
+<P>
+<UL>
+<LI>options have a "short form" that is introduced introduced with the "-"
+character.
+<LI>options have a "long form" that is introduced with two "-" characters.
+<LI>options may "consume" more than one element from the command line.
+</UL>
+
+<P>
+The "short form" is the classic command line switch.  For example, "ls -l" 
+displays directory details in Unix.  The "-l" in this situation is a switch.
+
+<P>
+Short options can be chained together.  For example: "ls -lt" sets the "l" 
+option and the "t" option.  It is equivalent to "ls -l -t".
+
+<P>
+The "long form" uses "--" to introduce the option.  For example: "--help".
+
+<P>
+The long form is also the method for specifying arguments to the command.  For 
+example: "ls foo" passes the string "foo" as an argument to the ls command.
+
+Classes that extend com.lts.application.Application have the built-in capability 
+to process command lines.  This is performed when the startApplication(String[] argv) 
+method is called.  That method calls getCommandLineProcessor, and then calls 
+processCommandLine on the returned object.
+
+<A name="specification">
+<H3>String Specifications</H3>
+</A>
+
+This package comes with the <A href="FormalParameterFactory.html">
+FormalParameterFactory</A> class that is typically used to create the formal 
+parameters for a program.  The class takes a two dimensional string array and 
+creates instances of FormalParameter from each "row."
+
+<P>
+Such specifications have the following form:
+
+<P>
+<CODE>
+<PRE>
+public static final String[][] spec = {
+	{ <I>name</I>, <I>mandatory</I>, <I>type</I>, <I>short</I>, <I>long</I>[, <I>position</I>] },
+	...
+};
+</PRE>
+</CODE>
+
+<P>
+"type" is the style of parameter being created.  Options are "switch", 
+"argument" and "required-argument".  switch formals set the corresponding property
+to true or false based on the presence of the switch on the command line.  If the
+switch is present, the value is set to true, otherwise it is set to false.
+
+<P>
+Type "optional" indicates an optional argument.  "required" means that the formal
+must be supplied.
+
+<P>
+"name" is the name of the property to be set if the formal parameter matches.
+
+<P>
+"short" is the single character short form for the parameter.  For example 
+the "-l" in the command "ls -l" would have a value of "l" for this field.
+
+<P>
+Argument formal parameters can use null as the value for short, which means that 
+the argument is never introduced with a switch.
+
+<P>
+"long" is string that the parameter must match if it is passed as "--<I>option</I>"
+For example, if the command accepts "--help" then this field would be the 
+string "help".
+
+<P>
+Argument formal parameters can use null as the value for long.  Doing so indicates
+that the formal is never introduced with a "--" style option.
+
+<P>
+If this field is not supplied at all, it means that the formal never accepts 
+arguments.  Supplying a value of null or the string "none" has the same effect.
+A value of "required" means that an argument <I>must</I> be supplied or the 
+formal will generate an exception.  A value of "optional" means that the formal
+can accept a parameter if one is supplied.
+
+<P>
+If a value of "optional" or "required" is supplied for the argument field, 
+a value for the "position" field may also be specified.  The position field
+means that an argument is accepted once and only once for the formal parameter,
+and then only at the location indicated.
+
+<P>
+For example, suppose that you are specifying a new command command that compares
+the contents of two files.  Here are the details of the command line:
+
+<P>
+<UL>
+<LI>file1 --- one of the files to compare.
+<LI>file2 --- the other file to use in the compare.
+<LI>-q, --quiet --- quiet mode.
+<LI>-d &lt;directory&gt;, --base-dir &lt;directory&gt; --- the base directory that 
+the file names are relative to.
+</UL>
+
+
+The command requires two arguments that are the files
+to be compared.  The files are referred to as "file1" and "file2."  The command 
+can also operate in "quiet" mode, where it signals the results through a return
+code.  Quiet can be specified via the "-q" option or by "--quiet".
+
+<P>
+Here is a specification that defines this command:
+
+<P>
+<CODE>
+<PRE>
+public static final String[][] spec = {
+        { "file1",   "required", null, null, "1" },
+        { "file2",   "required", null, null, "2" },
+        { "quiet",   "switch",   "q",  "quiet" },
+        { "baseDir", "optional", "d",  "base-directory" },
+        
+        { "argument", "file1", null, null, "required", "1" },
+        { "argument", "file2", null, null, "required", "2" },
+        { "switch", "quiet", "q", "quiet" },
+        { "argument", "baseDir", "d", "base-directory", "required" },
+};
+</PRE>
+</CODE>
+

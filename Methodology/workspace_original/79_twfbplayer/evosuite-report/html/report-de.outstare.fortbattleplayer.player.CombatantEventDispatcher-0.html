@@ -1,0 +1,561 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+de.outstare.fortbattleplayer.player.CombatantEventDispatcher
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: de.outstare.fortbattleplayer.player.CombatantEventDispatcher: 90.48%</ul><ul>
+<li>2830 fitness evaluations, 58 generations, 18784 statements, 1981 tests.
+<li>Time: 0:05:10(Search: 0:05:01, minimization: 0:00:08)
+<li>Coverage: 18/20 branches, 11/11 methods, 19/21 total goals
+<li>Mutation score: 5%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>linkedList0.add((Combatant) null);
+<span class="nocode"><a name="3">  3: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = null;
+<span class="nocode"><a name="4">  4: </a></span>try {
+<span class="nocode"><a name="5">  5: </a></span>  combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="6">  6: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="7">  7: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="8">  8: </a></span>}
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.aimsAt((Combatant) null, (Combatant) null);
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.addCombatantObserver((CombatantObserver) combatantEventDispatcher0);
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  combatantEventDispatcher0.aimsAt((Combatant) null, (Combatant) null);
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: StackOverflowError&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(StackOverflowError e) {
+<span class="nocode"><a name="9">  9: </a></span>}
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>CharacterClass characterClass0 = CharacterClass.WORKER;
+<span class="nocode"><a name="4">  4: </a></span>SimpleSector simpleSector0 = new SimpleSector(467, true, true, 467, 50, true, 467, characterClass0);
+<span class="nocode"><a name="5">  5: </a></span>SimpleArea simpleArea0 = new SimpleArea(1231, 760, (Sector) simpleSector0);
+<span class="nocode"><a name="6">  6: </a></span>combatantEventDispatcher0.hasMoved((Combatant) null, (Area) simpleArea0);
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(false, simpleArea0.isOccupied());
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.addCombatantObserver((CombatantObserver) combatantEventDispatcher0);
+<span class="nocode"><a name="4">  4: </a></span>CharacterClass characterClass0 = CharacterClass.WORKER;
+<span class="nocode"><a name="5">  5: </a></span>SimpleSector simpleSector0 = new SimpleSector(467, true, true, 467, 50, true, 467, characterClass0);
+<span class="nocode"><a name="6">  6: </a></span>SimpleArea simpleArea0 = new SimpleArea(1231, 760, (Sector) simpleSector0);
+<span class="nocode"><a name="7">  7: </a></span>combatantEventDispatcher0.hasMoved((Combatant) null, (Area) simpleArea0);
+</pre>
+<h3>Test case 6</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.isDead((Combatant) null);
+</pre>
+<h3>Test case 7</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.addCombatantObserver((CombatantObserver) combatantEventDispatcher0);
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  combatantEventDispatcher0.isDead((Combatant) null);
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: StackOverflowError&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(StackOverflowError e) {
+<span class="nocode"><a name="9">  9: </a></span>}
+</pre>
+<h3>Test case 8</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.isHit((Combatant) null, (-1891), 0);
+</pre>
+<h3>Test case 9</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.isAlive((Combatant) null);
+</pre>
+<h3>Test case 10</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.addCombatantObserver((CombatantObserver) combatantEventDispatcher0);
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  combatantEventDispatcher0.isAlive((Combatant) null);
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: StackOverflowError&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(StackOverflowError e) {
+<span class="nocode"><a name="9">  9: </a></span>}
+</pre>
+<h3>Test case 11</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>CharacterClass characterClass0 = CharacterClass.WORKER;
+<span class="nocode"><a name="4">  4: </a></span>SimpleSector simpleSector0 = new SimpleSector(467, true, true, 467, 50, true, 467, characterClass0);
+<span class="nocode"><a name="5">  5: </a></span>SimpleArea simpleArea0 = new SimpleArea(1231, 760, (Sector) simpleSector0);
+<span class="nocode"><a name="6">  6: </a></span>combatantEventDispatcher0.newDestination((Combatant) null, (Area) simpleArea0);
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(&quot;Area 1231/760 [occupied by null]&quot;, simpleArea0.toString());
+</pre>
+<h3>Test case 12</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.addCombatantObserver((CombatantObserver) combatantEventDispatcher0);
+<span class="nocode"><a name="4">  4: </a></span>CharacterClass characterClass0 = CharacterClass.WORKER;
+<span class="nocode"><a name="5">  5: </a></span>SimpleSector simpleSector0 = new SimpleSector(868, true, true, 467, 1231, false, (-1156), characterClass0);
+<span class="nocode"><a name="6">  6: </a></span>SimpleArea simpleArea0 = new SimpleArea(467, 467, (Sector) simpleSector0);
+<span class="nocode"><a name="7">  7: </a></span>combatantEventDispatcher0.newDestination((Combatant) null, (Area) simpleArea0);
+</pre>
+<h3>Test case 13</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedHashSet&lt;Combatant&gt; linkedHashSet0 = new LinkedHashSet&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedHashSet0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.isOnline((Combatant) null, false);
+</pre>
+<h3>Test case 14</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.addCombatantObserver((CombatantObserver) combatantEventDispatcher0);
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  combatantEventDispatcher0.isOnline((Combatant) null, true);
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: StackOverflowError&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(StackOverflowError e) {
+<span class="nocode"><a name="9">  9: </a></span>}
+</pre>
+<h3>Test case 15</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.hasSwappedPosition((Combatant) null, (Combatant) null);
+</pre>
+<h3>Test case 16</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedList&lt;Combatant&gt; linkedList0 = new LinkedList&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedList0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.addCombatantObserver((CombatantObserver) combatantEventDispatcher0);
+<span class="nocode"><a name="4">  4: </a></span>// Undeclared exception!
+<span class="nocode"><a name="5">  5: </a></span>try {
+<span class="nocode"><a name="6">  6: </a></span>  combatantEventDispatcher0.hasSwappedPosition((Combatant) null, (Combatant) null);
+<span class="nocode"><a name="7">  7: </a></span>  fail(&quot;Expecting exception: StackOverflowError&quot;);
+<span class="nocode"><a name="8">  8: </a></span>} catch(StackOverflowError e) {
+<span class="nocode"><a name="9">  9: </a></span>}
+</pre>
+<h3>Test case 17</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>LinkedHashSet&lt;Combatant&gt; linkedHashSet0 = new LinkedHashSet&lt;Combatant&gt;();
+<span class="nocode"><a name="2">  2: </a></span>CombatantEventDispatcher combatantEventDispatcher0 = new CombatantEventDispatcher((Collection&lt;Combatant&gt;) linkedHashSet0);
+<span class="nocode"><a name="3">  3: </a></span>combatantEventDispatcher0.criticalShot((Combatant) null, (Combatant) null, 0);
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>package de.outstare.fortbattleplayer.player;
+<span class="nocode"><a name="2">  2: </a></span>
+<span class="nocode"><a name="3">  3: </a></span>/*
+<span class="nocode"><a name="4">  4: </a></span> Copyright (c) 2010 Daniel Raap
+<span class="nocode"><a name="5">  5: </a></span>
+<span class="nocode"><a name="6">  6: </a></span> Permission is hereby granted, free of charge, to any person obtaining a copy
+<span class="nocode"><a name="7">  7: </a></span> of this software and associated documentation files (the &quot;Software&quot;), to deal
+<span class="nocode"><a name="8">  8: </a></span> in the Software without restriction, including without limitation the rights
+<span class="nocode"><a name="9">  9: </a></span> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+<span class="nocode"><a name="10"> 10: </a></span> copies of the Software, and to permit persons to whom the Software is
+<span class="nocode"><a name="11"> 11: </a></span> furnished to do so, subject to the following conditions:
+<span class="nocode"><a name="12"> 12: </a></span>
+<span class="nocode"><a name="13"> 13: </a></span> The above copyright notice and this permission notice shall be included in
+<span class="nocode"><a name="14"> 14: </a></span> all copies or substantial portions of the Software.
+<span class="nocode"><a name="15"> 15: </a></span>
+<span class="nocode"><a name="16"> 16: </a></span> THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+<span class="nocode"><a name="17"> 17: </a></span> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+<span class="nocode"><a name="18"> 18: </a></span> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+<span class="nocode"><a name="19"> 19: </a></span> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+<span class="nocode"><a name="20"> 20: </a></span> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+<span class="nocode"><a name="21"> 21: </a></span> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+<span class="nocode"><a name="22"> 22: </a></span> THE SOFTWARE.
+<span class="nocode"><a name="23"> 23: </a></span> */
+<span class="nocode"><a name="24"> 24: </a></span>
+<span class="nocode"><a name="25"> 25: </a></span>import java.util.Collection;
+<span class="nocode"><a name="26"> 26: </a></span>import java.util.HashSet;
+<span class="nocode"><a name="27"> 27: </a></span>import java.util.Set;
+<span class="nocode"><a name="28"> 28: </a></span>
+<span class="nocode"><a name="29"> 29: </a></span>import de.outstare.fortbattleplayer.model.Area;
+<span class="nocode"><a name="30"> 30: </a></span>import de.outstare.fortbattleplayer.model.Combatant;
+<span class="nocode"><a name="31"> 31: </a></span>import de.outstare.fortbattleplayer.model.CombatantObserver;
+<span class="nocode"><a name="32"> 32: </a></span>
+<span class="nocode"><a name="33"> 33: </a></span>/**
+<span class="nocode"><a name="34"> 34: </a></span> * A CombatantEventDispatcher collects the events of all combatants, to give it
+<span class="nocode"><a name="35"> 35: </a></span> * to registered listeners. So not every {@link CombatantObserver} has to
+<span class="nocode"><a name="36"> 36: </a></span> * register itself to every {@link Combatant}, but just to this collection of
+<span class="nocode"><a name="37"> 37: </a></span> * all combatants.
+<span class="nocode"><a name="38"> 38: </a></span> * 
+<span class="nocode"><a name="39"> 39: </a></span> * @author daniel
+<span class="nocode"><a name="40"> 40: </a></span> */
+<span class="nocode"><a name="41"> 41: </a></span>public class CombatantEventDispatcher implements CombatantObserver {
+<span class="nocode"><a name="42"> 42: </a></span><span style="background-color: #ffffcc">	private final Set&lt;CombatantObserver&gt; observers = new HashSet&lt;CombatantObserver&gt;();</span>
+<span class="nocode"><a name="43"> 43: </a></span>
+<span class="nocode"><a name="44"> 44: </a></span>	/**
+<span class="nocode"><a name="45"> 45: </a></span>	 * @param combatants
+<span class="nocode"><a name="46"> 46: </a></span>	 *            for which this dispatcher will forward events
+<span class="nocode"><a name="47"> 47: </a></span>	 */
+<span class="nocode"><a name="48"> 48: </a></span>	public CombatantEventDispatcher(final Collection&lt;Combatant&gt; combatants) {
+<span class="nocode"><a name="49"> 49: </a></span><span style="background-color: #ffffcc">		for (final Combatant combatant : combatants) {</span>
+<span class="nocode"><a name="50"> 50: </a></span><span style="background-color: #ffffcc">			combatant.addObserver(this);</span>
+<span class="nocode"><a name="51"> 51: </a></span>		}
+<span class="nocode"><a name="52"> 52: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="53"> 53: </a></span>
+<span class="nocode"><a name="54"> 54: </a></span>	/**
+<span class="nocode"><a name="55"> 55: </a></span>	 * @param observer
+<span class="nocode"><a name="56"> 56: </a></span>	 */
+<span class="nocode"><a name="57"> 57: </a></span>	public void addCombatantObserver(final CombatantObserver observer) {
+<span class="nocode"><a name="58"> 58: </a></span><span style="background-color: #ffffcc">		observers.add(observer);</span>
+<span class="nocode"><a name="59"> 59: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="60"> 60: </a></span>
+<span class="nocode"><a name="61"> 61: </a></span>	/**
+<span class="nocode"><a name="62"> 62: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#aimsAt(de.outstare.fortbattleplayer.model.Combatant,
+<span class="nocode"><a name="63"> 63: </a></span>	 *      de.outstare.fortbattleplayer.model.Combatant)
+<span class="nocode"><a name="64"> 64: </a></span>	 */
+<span class="nocode"><a name="65"> 65: </a></span>	public void aimsAt(final Combatant combatant, final Combatant target) {
+<span class="nocode"><a name="66"> 66: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="67"> 67: </a></span><span style="background-color: #ffffcc">			obs.aimsAt(combatant, target);</span>
+<span class="nocode"><a name="68"> 68: </a></span>		}
+<span class="nocode"><a name="69"> 69: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="70"> 70: </a></span>
+<span class="nocode"><a name="71"> 71: </a></span>	/**
+<span class="nocode"><a name="72"> 72: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#hasMoved(de.outstare.fortbattleplayer.model.Combatant,
+<span class="nocode"><a name="73"> 73: </a></span>	 *      de.outstare.fortbattleplayer.model.Area)
+<span class="nocode"><a name="74"> 74: </a></span>	 */
+<span class="nocode"><a name="75"> 75: </a></span>	public void hasMoved(final Combatant combatant, final Area newPos) {
+<span class="nocode"><a name="76"> 76: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="77"> 77: </a></span><span style="background-color: #ffffcc">			obs.hasMoved(combatant, newPos);</span>
+<span class="nocode"><a name="78"> 78: </a></span>		}
+<span class="nocode"><a name="79"> 79: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="80"> 80: </a></span>
+<span class="nocode"><a name="81"> 81: </a></span>	/**
+<span class="nocode"><a name="82"> 82: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#isDead(de.outstare.fortbattleplayer.model.Combatant)
+<span class="nocode"><a name="83"> 83: </a></span>	 */
+<span class="nocode"><a name="84"> 84: </a></span>	public void isDead(final Combatant combatant) {
+<span class="nocode"><a name="85"> 85: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="86"> 86: </a></span><span style="background-color: #ffffcc">			obs.isDead(combatant);</span>
+<span class="nocode"><a name="87"> 87: </a></span>		}
+<span class="nocode"><a name="88"> 88: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="89"> 89: </a></span>
+<span class="nocode"><a name="90"> 90: </a></span>	/**
+<span class="nocode"><a name="91"> 91: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#isHit(de.outstare.fortbattleplayer.model.Combatant,
+<span class="nocode"><a name="92"> 92: </a></span>	 *      int, int)
+<span class="nocode"><a name="93"> 93: </a></span>	 */
+<span class="nocode"><a name="94"> 94: </a></span>	public void isHit(final Combatant combatant, final int damage, final int oldHealthAmount) {
+<span class="nocode"><a name="95"> 95: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="96"> 96: </a></span>			obs.isHit(combatant, damage, oldHealthAmount);
+<span class="nocode"><a name="97"> 97: </a></span>		}
+<span class="nocode"><a name="98"> 98: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="99"> 99: </a></span>
+<span class="nocode"><a name="100">100: </a></span>	/**
+<span class="nocode"><a name="101">101: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#isAlive(de.outstare.fortbattleplayer.model.Combatant)
+<span class="nocode"><a name="102">102: </a></span>	 */
+<span class="nocode"><a name="103">103: </a></span>	public void isAlive(final Combatant combatant) {
+<span class="nocode"><a name="104">104: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="105">105: </a></span><span style="background-color: #ffffcc">			obs.isAlive(combatant);</span>
+<span class="nocode"><a name="106">106: </a></span>		}
+<span class="nocode"><a name="107">107: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="108">108: </a></span>
+<span class="nocode"><a name="109">109: </a></span>	/**
+<span class="nocode"><a name="110">110: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#newDestination(de.outstare.fortbattleplayer.model.Combatant,
+<span class="nocode"><a name="111">111: </a></span>	 *      de.outstare.fortbattleplayer.model.Area)
+<span class="nocode"><a name="112">112: </a></span>	 */
+<span class="nocode"><a name="113">113: </a></span>	public void newDestination(final Combatant combatant, final Area destination) {
+<span class="nocode"><a name="114">114: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="115">115: </a></span><span style="background-color: #ffffcc">			obs.newDestination(combatant, destination);</span>
+<span class="nocode"><a name="116">116: </a></span>		}
+<span class="nocode"><a name="117">117: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="118">118: </a></span>
+<span class="nocode"><a name="119">119: </a></span>	/**
+<span class="nocode"><a name="120">120: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#isOnline(de.outstare.fortbattleplayer.model.Combatant,
+<span class="nocode"><a name="121">121: </a></span>	 *      boolean)
+<span class="nocode"><a name="122">122: </a></span>	 */
+<span class="nocode"><a name="123">123: </a></span>	public void isOnline(final Combatant combatant, final boolean changed) {
+<span class="nocode"><a name="124">124: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="125">125: </a></span><span style="background-color: #ffffcc">			obs.isOnline(combatant, changed);</span>
+<span class="nocode"><a name="126">126: </a></span>		}
+<span class="nocode"><a name="127">127: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="128">128: </a></span>
+<span class="nocode"><a name="129">129: </a></span>	/**
+<span class="nocode"><a name="130">130: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#hasSwappedPosition(de.outstare.fortbattleplayer.model.Combatant)
+<span class="nocode"><a name="131">131: </a></span>	 */
+<span class="nocode"><a name="132">132: </a></span>	public void hasSwappedPosition(final Combatant combatant, final Combatant swappedWith) {
+<span class="nocode"><a name="133">133: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="134">134: </a></span><span style="background-color: #ffffcc">			obs.hasSwappedPosition(combatant, swappedWith);</span>
+<span class="nocode"><a name="135">135: </a></span>		}
+<span class="nocode"><a name="136">136: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="137">137: </a></span>
+<span class="nocode"><a name="138">138: </a></span>	/**
+<span class="nocode"><a name="139">139: </a></span>	 * @see de.outstare.fortbattleplayer.model.CombatantObserver#criticalShot(de.outstare.fortbattleplayer.model.Combatant,
+<span class="nocode"><a name="140">140: </a></span>	 *      Combatant, int)
+<span class="nocode"><a name="141">141: </a></span>	 */
+<span class="nocode"><a name="142">142: </a></span>	public void criticalShot(final Combatant combatant, final Combatant victim, final int damage) {
+<span class="nocode"><a name="143">143: </a></span><span style="background-color: #ffffcc">		for (final CombatantObserver obs : observers) {</span>
+<span class="nocode"><a name="144">144: </a></span>			obs.criticalShot(combatant, victim, damage);
+<span class="nocode"><a name="145">145: </a></span>		}
+<span class="nocode"><a name="146">146: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="147">147: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 3884
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: de
+<li>TARGET_CLASS: de.outstare.fortbattleplayer.player.CombatantEventDispatcher
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/jchart-withoutSVGAndServelt.jar:lib/json.jar:twfbplayer.jar
+<li>search_budget: 300
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

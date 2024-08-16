@@ -1,0 +1,53 @@
+drag-move
+-----------
+getSourceActions
+
+exportAsDrag
+	getSourceActions
+	createTransferable
+exportAsDrag
+
+canImport (TransferSupport)
+	canImport (JComponent, DataFlavor[])
+canImport
+
+...
+
+canImport (TransferSupport)
+	canImport (JComponent, DataFlavor[])
+canImport
+
+importData (TransferSupport)
+	importData (JComponent, DataFlavor[])
+importData
+
+exportDone
+
+cut-paste
+------------
+exportToClipboard
+	getSourceActions
+	createTransferable
+	exportDone
+exportToClipboard
+
+importData
+	importData
+importData
+
+
+copy-paste
+----------
+exportToClipboard
+	getSourceActions
+	createTransferable
+	exportDone
+exportToClipboard
+
+importData
+	importData
+	importData
+importData
+
+
+

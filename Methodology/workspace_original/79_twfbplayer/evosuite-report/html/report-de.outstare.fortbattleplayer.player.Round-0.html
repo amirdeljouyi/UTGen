@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>
+de.outstare.fortbattleplayer.player.Round
+</title>
+<link href="files/prettify.css" type="text/css" rel="stylesheet" />
+<link href="files/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<script type="text/javascript" src="files/prettify.js"></script>
+<script type="text/javascript" src="files/jquery.js"></script>
+<script type="text/javascript" src="files/foldButton.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('H2#tests').foldButton();
+    $('H2#source').foldButton();
+    $('H2#parameters').foldButton();
+  });</script>
+<link href="files/foldButton.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="prettyPrint()">
+<div id="wrapper">
+<img src="files/evosuite.png" height="40"/>
+<br><br><h2 class=title>Summary</h2>
+<ul><li>Target class: de.outstare.fortbattleplayer.player.Round: 57.14%</ul><ul>
+<li>3032 fitness evaluations, 62 generations, 20233 statements, 2057 tests.
+<li>Time: 0:05:07(Search: 0:05:07, minimization: 0:00:00)
+<li>Coverage: 6/12 branches, 4/4 methods, 8/14 total goals
+<li>Mutation score: 9%
+</ul>
+<div id="page"><div id="page-bgtop"><div id="page-bgbtm"><div id="content"><div id="post"><h2 class=title id=tests>Test suite</h2>
+<div class=tests>
+<h3>Test case 1</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DefaultTableCellRenderer defaultTableCellRenderer0 = new DefaultTableCellRenderer();
+<span class="nocode"><a name="2">  2: </a></span>FontUIResource fontUIResource0 = (FontUIResource)defaultTableCellRenderer0.getFont();
+<span class="nocode"><a name="3">  3: </a></span>Map&lt;TextAttribute, ?&gt; map0 = fontUIResource0.getAttributes();
+<span class="nocode"><a name="4">  4: </a></span>Vector&lt;CombatantTurn&gt; vector0 = new Vector&lt;CombatantTurn&gt;(0);
+<span class="nocode"><a name="5">  5: </a></span>Round round0 = new Round(0, map0, (List&lt;CombatantTurn&gt;) vector0);
+<span class="nocode"><a name="6">  6: </a></span>int int0 = round0.getNo();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(0, int0);
+</pre>
+<h3>Test case 2</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>DefaultTableCellRenderer defaultTableCellRenderer0 = new DefaultTableCellRenderer();
+<span class="nocode"><a name="2">  2: </a></span>FontUIResource fontUIResource0 = (FontUIResource)defaultTableCellRenderer0.getFont();
+<span class="nocode"><a name="3">  3: </a></span>Map&lt;TextAttribute, ?&gt; map0 = fontUIResource0.getAttributes();
+<span class="nocode"><a name="4">  4: </a></span>Vector&lt;CombatantTurn&gt; vector0 = new Vector&lt;CombatantTurn&gt;(0);
+<span class="nocode"><a name="5">  5: </a></span>Round round0 = new Round(0, map0, (List&lt;CombatantTurn&gt;) vector0);
+<span class="nocode"><a name="6">  6: </a></span>PlayerConfiguration playerConfiguration0 = PlayerConfiguration.NO_DELAY;
+<span class="nocode"><a name="7">  7: </a></span>round0.execute(playerConfiguration0);
+<span class="nocode"><a name="8">  8: </a></span>assertEquals(0, round0.getNo());
+</pre>
+<h3>Test case 3</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>BattleStatistics battleStatistics0 = new BattleStatistics(1, 1);
+<span class="nocode"><a name="2">  2: </a></span>Map&lt;CombatantSide, ? extends LabeledData&gt; map0 = battleStatistics0.getShotsPerRound();
+<span class="nocode"><a name="3">  3: </a></span>Round round0 = new Round(1, map0, (List&lt;CombatantTurn&gt;) null);
+<span class="nocode"><a name="4">  4: </a></span>PlayerConfiguration playerConfiguration0 = PlayerConfiguration.NO_DELAY;
+<span class="nocode"><a name="5">  5: </a></span>// Undeclared exception!
+<span class="nocode"><a name="6">  6: </a></span>try {
+<span class="nocode"><a name="7">  7: </a></span>  round0.execute(playerConfiguration0);
+<span class="nocode"><a name="8">  8: </a></span>  fail(&quot;Expecting exception: ClassCastException&quot;);
+<span class="nocode"><a name="9">  9: </a></span>} catch(ClassCastException e) {
+<span class="nocode"><a name="10"> 10: </a></span>  /*
+<span class="nocode"><a name="11"> 11: </a></span>   * de.outstare.fortbattleplayer.model.CombatantSide cannot be cast to de.outstare.fortbattleplayer.model.Combatant
+<span class="nocode"><a name="12"> 12: </a></span>   */
+<span class="nocode"><a name="13"> 13: </a></span>}
+</pre>
+<h3>Test case 4</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Hashtable&lt;Combatant, CombatantState&gt; hashtable0 = new Hashtable&lt;Combatant, CombatantState&gt;();
+<span class="nocode"><a name="2">  2: </a></span>Object[] objectArray0 = new Object[6];
+<span class="nocode"><a name="3">  3: </a></span>SpinnerListModel spinnerListModel0 = new SpinnerListModel(objectArray0);
+<span class="nocode"><a name="4">  4: </a></span>List&lt;?&gt; list0 = spinnerListModel0.getList();
+<span class="nocode"><a name="5">  5: </a></span>Round round0 = new Round(368, (Map&lt;Combatant, CombatantState&gt;) hashtable0, list0);
+<span class="nocode"><a name="6">  6: </a></span>PlayerConfiguration playerConfiguration0 = new PlayerConfiguration();
+<span class="nocode"><a name="7">  7: </a></span>// Undeclared exception!
+<span class="nocode"><a name="8">  8: </a></span>try {
+<span class="nocode"><a name="9">  9: </a></span>  round0.execute(playerConfiguration0);
+<span class="nocode"><a name="10"> 10: </a></span>  fail(&quot;Expecting exception: NullPointerException&quot;);
+<span class="nocode"><a name="11"> 11: </a></span>} catch(NullPointerException e) {
+<span class="nocode"><a name="12"> 12: </a></span>}
+</pre>
+<h3>Test case 5</h3>
+<pre class="prettyprint" style="border: 1px solid #888;padding: 2px">
+<span class="nocode"><a name="1">  1: </a></span>Hashtable&lt;Combatant, CombatantState&gt; hashtable0 = new Hashtable&lt;Combatant, CombatantState&gt;();
+<span class="nocode"><a name="2">  2: </a></span>Object[] objectArray0 = new Object[6];
+<span class="nocode"><a name="3">  3: </a></span>SpinnerListModel spinnerListModel0 = new SpinnerListModel(objectArray0);
+<span class="nocode"><a name="4">  4: </a></span>List&lt;?&gt; list0 = spinnerListModel0.getList();
+<span class="nocode"><a name="5">  5: </a></span>Round round0 = new Round(368, (Map&lt;Combatant, CombatantState&gt;) hashtable0, list0);
+<span class="nocode"><a name="6">  6: </a></span>round0.setInitialState();
+<span class="nocode"><a name="7">  7: </a></span>assertEquals(368, round0.getNo());
+</pre>
+</div></div><div id="post"></div><div id="post"><h2 class=title id=source>Source Code</h2>
+<div class=source><p><pre class="prettyprint" style="border: 1px solid #888;padding: 2px"><span class="nocode"><a name="1">  1: </a></span>package de.outstare.fortbattleplayer.player;
+<span class="nocode"><a name="2">  2: </a></span>
+<span class="nocode"><a name="3">  3: </a></span>/*
+<span class="nocode"><a name="4">  4: </a></span> Copyright (c) 2010 Daniel Raap
+<span class="nocode"><a name="5">  5: </a></span>
+<span class="nocode"><a name="6">  6: </a></span> Permission is hereby granted, free of charge, to any person obtaining a copy
+<span class="nocode"><a name="7">  7: </a></span> of this software and associated documentation files (the &quot;Software&quot;), to deal
+<span class="nocode"><a name="8">  8: </a></span> in the Software without restriction, including without limitation the rights
+<span class="nocode"><a name="9">  9: </a></span> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+<span class="nocode"><a name="10"> 10: </a></span> copies of the Software, and to permit persons to whom the Software is
+<span class="nocode"><a name="11"> 11: </a></span> furnished to do so, subject to the following conditions:
+<span class="nocode"><a name="12"> 12: </a></span>
+<span class="nocode"><a name="13"> 13: </a></span> The above copyright notice and this permission notice shall be included in
+<span class="nocode"><a name="14"> 14: </a></span> all copies or substantial portions of the Software.
+<span class="nocode"><a name="15"> 15: </a></span>
+<span class="nocode"><a name="16"> 16: </a></span> THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+<span class="nocode"><a name="17"> 17: </a></span> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+<span class="nocode"><a name="18"> 18: </a></span> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+<span class="nocode"><a name="19"> 19: </a></span> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+<span class="nocode"><a name="20"> 20: </a></span> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+<span class="nocode"><a name="21"> 21: </a></span> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+<span class="nocode"><a name="22"> 22: </a></span> THE SOFTWARE.
+<span class="nocode"><a name="23"> 23: </a></span> */
+<span class="nocode"><a name="24"> 24: </a></span>
+<span class="nocode"><a name="25"> 25: </a></span>import java.util.List;
+<span class="nocode"><a name="26"> 26: </a></span>import java.util.Map;
+<span class="nocode"><a name="27"> 27: </a></span>import java.util.Map.Entry;
+<span class="nocode"><a name="28"> 28: </a></span>import java.util.logging.Logger;
+<span class="nocode"><a name="29"> 29: </a></span>
+<span class="nocode"><a name="30"> 30: </a></span>import de.outstare.fortbattleplayer.model.Combatant;
+<span class="nocode"><a name="31"> 31: </a></span>import de.outstare.fortbattleplayer.model.CombatantState;
+<span class="nocode"><a name="32"> 32: </a></span>
+<span class="nocode"><a name="33"> 33: </a></span>/**
+<span class="nocode"><a name="34"> 34: </a></span> * A Round combines the actions of all {@link Combatant}s for a given point in
+<span class="nocode"><a name="35"> 35: </a></span> * time. In a Round every player can execute Actions (move and shoot).
+<span class="nocode"><a name="36"> 36: </a></span> * 
+<span class="nocode"><a name="37"> 37: </a></span> * @author daniel
+<span class="nocode"><a name="38"> 38: </a></span> */
+<span class="nocode"><a name="39"> 39: </a></span>public class Round {
+<span class="nocode"><a name="40"> 40: </a></span>	private static final Logger LOG = Logger.getLogger(Round.class.getName());
+<span class="nocode"><a name="41"> 41: </a></span>	private final int roundNo;
+<span class="nocode"><a name="42"> 42: </a></span>	private final Map&lt;Combatant, CombatantState&gt; initialStates;
+<span class="nocode"><a name="43"> 43: </a></span>	private final List&lt;CombatantTurn&gt; players;
+<span class="nocode"><a name="44"> 44: </a></span>
+<span class="nocode"><a name="45"> 45: </a></span>	/**
+<span class="nocode"><a name="46"> 46: </a></span>	 * @param no
+<span class="nocode"><a name="47"> 47: </a></span>	 * @param initalStates
+<span class="nocode"><a name="48"> 48: </a></span>	 * @param actions
+<span class="nocode"><a name="49"> 49: </a></span>	 */
+<span class="nocode"><a name="50"> 50: </a></span>	public Round(final int no, final Map&lt;Combatant, CombatantState&gt; initalStates, final List&lt;CombatantTurn&gt; actions) {
+<span class="nocode"><a name="51"> 51: </a></span><span style="background-color: #ffffcc">		roundNo = no;</span>
+<span class="nocode"><a name="52"> 52: </a></span><span style="background-color: #ffffcc">		players = actions;</span>
+<span class="nocode"><a name="53"> 53: </a></span><span style="background-color: #ffffcc">		initialStates = initalStates;</span>
+<span class="nocode"><a name="54"> 54: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="55"> 55: </a></span>
+<span class="nocode"><a name="56"> 56: </a></span>	/**
+<span class="nocode"><a name="57"> 57: </a></span>	 * @return the number of this round in a sequenze of rounds
+<span class="nocode"><a name="58"> 58: </a></span>	 */
+<span class="nocode"><a name="59"> 59: </a></span>	public int getNo() {
+<span class="nocode"><a name="60"> 60: </a></span><span style="background-color: #ffffcc">		return roundNo;</span>
+<span class="nocode"><a name="61"> 61: </a></span>	}
+<span class="nocode"><a name="62"> 62: </a></span>
+<span class="nocode"><a name="63"> 63: </a></span>	/**
+<span class="nocode"><a name="64"> 64: </a></span>	 * applies the actions of this round
+<span class="nocode"><a name="65"> 65: </a></span>	 * 
+<span class="nocode"><a name="66"> 66: </a></span>	 * @param config
+<span class="nocode"><a name="67"> 67: </a></span>	 */
+<span class="nocode"><a name="68"> 68: </a></span>	public void execute(final PlayerConfiguration config) {
+<span class="nocode"><a name="69"> 69: </a></span><span style="background-color: #ffffcc">		if (roundNo == 1) {</span>
+<span class="nocode"><a name="70"> 70: </a></span><span style="background-color: #ffffcc">			setInitialState();</span>
+<span class="nocode"><a name="71"> 71: </a></span>		}
+<span class="nocode"><a name="72"> 72: </a></span><span style="background-color: #ffffcc">		for (final CombatantTurn combatant : players) {</span>
+<span class="nocode"><a name="73"> 73: </a></span><span style="background-color: #ffffcc">			combatant.execute(config);</span>
+<span class="nocode"><a name="74"> 74: </a></span>			try {
+<span class="nocode"><a name="75"> 75: </a></span>				Thread.sleep(config.PLAYER_DELAY);
+<span class="nocode"><a name="76"> 76: </a></span>			} catch (final InterruptedException e) {
+<span class="nocode"><a name="77"> 77: </a></span>				e.printStackTrace();
+<span class="nocode"><a name="78"> 78: </a></span>			}
+<span class="nocode"><a name="79"> 79: </a></span>		}
+<span class="nocode"><a name="80"> 80: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="81"> 81: </a></span>
+<span class="nocode"><a name="82"> 82: </a></span>	/**
+<span class="nocode"><a name="83"> 83: </a></span>	 * ensures, that the state of the {@link Combatant}s is as defined by this
+<span class="nocode"><a name="84"> 84: </a></span>	 * round.
+<span class="nocode"><a name="85"> 85: </a></span>	 */
+<span class="nocode"><a name="86"> 86: </a></span>	public void setInitialState() {
+<span class="nocode"><a name="87"> 87: </a></span><span style="background-color: #ffffcc">		LOG.fine(&quot;setting initial state of round &quot; + roundNo);</span>
+<span class="nocode"><a name="88"> 88: </a></span><span style="background-color: #ffffcc">		for (final Entry&lt;Combatant, CombatantState&gt; entry : initialStates.entrySet()) {</span>
+<span class="nocode"><a name="89"> 89: </a></span><span style="background-color: #ffffcc">			final Combatant combatant = entry.getKey();</span>
+<span class="nocode"><a name="90"> 90: </a></span>			final CombatantState state = entry.getValue();
+<span class="nocode"><a name="91"> 91: </a></span>			combatant._setState(state);
+<span class="nocode"><a name="92"> 92: </a></span>			assert combatant._health() == state.getHealth() : &quot;health correctly restored&quot;;
+<span class="nocode"><a name="93"> 93: </a></span>		}
+<span class="nocode"><a name="94"> 94: </a></span><span style="background-color: #ffffcc">	}</span>
+<span class="nocode"><a name="95"> 95: </a></span>}
+</pre>
+</p></div>
+</div><div id="post"><h2 id=parameters>EvoSuite Parameters</h2>
+<div class=statistics><ul>
+<li>inheritance_file: evosuite-files/inheritance.xml.gz
+<li>client_on_thread: false
+<li>alternative_fitness_range: 100.0
+<li>starve_by_fitness: true
+<li>dynamic_pool_size: 50
+<li>old_statistics: true
+<li>test_includes: test.includes
+<li>TT_stack: 10
+<li>dynamic_pool: 0.5
+<li>minimization_timeout: 600
+<li>kincompensation: 1.0
+<li>max_generic_depth: 1
+<li>local_search_rate: -1
+<li>target_method: 
+<li>selection_function: RANK
+<li>ctg_schedule: SIMPLE
+<li>assertion_strategy: MUTATION
+<li>tt_scope: ALL
+<li>process_communication_port: 9844
+<li>TT: false
+<li>chromosome_length: 40
+<li>adaptive_local_search_dse: false
+<li>UI_BACKGROUND_COVERAGE_DELAY: -1
+<li>random_perturbation: 0.2
+<li>test_factory: RANDOM
+<li>enable_alternative_fitness_calculation: false
+<li>debug: false
+<li>plot: false
+<li>log_goals: false
+<li>alternative_fitness_calculation_mode: SUM
+<li>inline: true
+<li>crossover_function: SINGLEPOINTRELATIVE
+<li>local_search_budget: 100
+<li>static_hack: false
+<li>OUTPUT_DIR: evosuite-files
+<li>dse_keep_all_tests: false
+<li>junit_extend: 
+<li>junit_prefix: 
+<li>hierarchy_data: hierarchy.xml
+<li>num_tests: 2
+<li>max_size: 100
+<li>statistics_backend: CSV
+<li>max_length: 0
+<li>mutation_generations: 10
+<li>rank_bias: 1.7
+<li>primitive_reuse_probability: 0.5
+<li>num_random_tests: 20
+<li>filter_assertions: true
+<li>global_timeout: 600
+<li>log.level: null
+<li>new_statistics: false
+<li>assertions: true
+<li>object_pool: 0.0
+<li>timeline_interval: 60000
+<li>concolic_timeout: 15000
+<li>crossover_rate: 0.75
+<li>recycle_chromosomes: false
+<li>assertion_timeout: 600
+<li>serialize_result: false
+<li>string_length: 20
+<li>testability_transformation: false
+<li>p_special_type_call: 0.05
+<li>filter_sandbox_tests: false
+<li>connection_data: connection.xml
+<li>dse_budget: 1
+<li>show_progress: true
+<li>ctg_cores: 1
+<li>p_test_delete: 0.3333333333333333
+<li>local_search_references: true
+<li>dse_rate: -1
+<li>primitive_pool: 0.5
+<li>object_reuse_probability: 0.9
+<li>shuffle_goals: true
+<li>use_deprecated: false
+<li>max_coverage_depth: -1
+<li>penalize_overwriting_definitions_flat: false
+<li>max_attempts: 1000
+<li>print_current_goals: false
+<li>PROJECT_PREFIX: de
+<li>TARGET_CLASS: de.outstare.fortbattleplayer.player.Round
+<li>p_test_insertion: 0.1
+<li>make_accessible: false
+<li>population: 50
+<li>check_best_length: true
+<li>seed_types: true
+<li>PROJECT_DIR: null
+<li>skip_covered: true
+<li>check_contracts: false
+<li>write_cfg: false
+<li>minimize: true
+<li>seed_clone: 0.2
+<li>target_method_prefix: 
+<li>mutation_timeouts: 3
+<li>instrument_parent: false
+<li>junit_tests: true
+<li>coverage: true
+<li>sandbox: true
+<li>randomize_difficulty: true
+<li>break_on_exception: true
+<li>html: true
+<li>CP: lib/jchart-withoutSVGAndServelt.jar:lib/json.jar:twfbplayer.jar
+<li>search_budget: 300
+<li>max_replace_mutants: 100
+<li>check_contracts_end: false
+<li>log.target: null
+<li>array_limit: 1000000
+<li>minimize_values: false
+<li>secondary_objectives: totallength
+<li>log_timeout: false
+<li>p_test_change: 0.3333333333333333
+<li>restricted_read: false
+<li>null_probability: 0.1
+<li>configuration_id: null
+<li>save_all_data: true
+<li>branch_eval: false
+<li>remote_testing: false
+<li>dse_adaptive_rate: 2.0
+<li>local_search_budget_type: STATEMENTS
+<li>branch_statement: false
+<li>check_parents_length: false
+<li>dse_constraint_solver_timeout_millis: 0
+<li>elite: 1
+<li>local_search_probes: 10
+<li>enable_asserts_for_sut: true
+<li>output_granularity: MERGED
+<li>criterion: BRANCH
+<li>restrict_pool: false
+<li>shutdown_timeout: 1000
+<li>output_variables: null
+<li>structured_tests: false
+<li>random_tests: 0
+<li>initially_enforced_randomness: 0.4
+<li>selected_junit: null
+<li>p_change_parameter: 0.1
+<li>port: 1044
+<li>defuse_aliases: true
+<li>dse_constraint_length: 100000
+<li>reuse_budget: true
+<li>test_dir: evosuite-tests
+<li>replace_calls: false
+<li>max_initial_tests: 10
+<li>TARGET_CLASS_PREFIX: 
+<li>dse_adaptive_probability: 0.0
+<li>algorithm: STEADYSTATEGA
+<li>report_dir: evosuite-report
+<li>target_method_list: 
+<li>local_search_arrays: true
+<li>dse_constant_probability: 0.5
+<li>max_int: 2048
+<li>error_branches: false
+<li>stopping_condition: MAXTIME
+<li>local_search_primitives: true
+<li>minimize_old: false
+<li>max_mutants_per_method: 700
+<li>adaptive_local_search: OFF
+<li>replacement_function: DEFAULT
+<li>number_of_mutations: 1
+<li>test_comments: true
+<li>defuse_debug_mode: false
+<li>shutdown_hook: true
+<li>bloat_factor: 2
+<li>dse_variable_resets: 2
+<li>test_format: JUNIT4
+<li>penalize_overwriting_definitions_linearly: false
+<li>max_stalled_threads: 10
+<li>insertion_score_object: 1
+<li>instrumentation_skip_debug: false
+<li>sandbox_mode: RECOMMENDED
+<li>call_probability: 0.0
+<li>check_max_length: true
+<li>max_recursion: 10
+<li>usage_rate: 0.5
+<li>max_mutants: 100
+<li>p_statement_insertion: 0.5
+<li>usage_models: 
+<li>test_carving: false
+<li>evosuite_use_uispec: false
+<li>instrument_context: false
+<li>ctg_time: 2
+<li>ctg_memory: 1000
+<li>classpath: 
+<li>max_array: 10
+<li>dse_negate_all_conditions: false
+<li>seed_mutations: 2
+<li>tournament_size: 10
+<li>dse_budget_type: INDIVIDUALS
+<li>dse_rank_branch_conditions: false
+<li>concolic_mutation: 0.0
+<li>stop_zero: true
+<li>parent_check: true
+<li>insertion_score_parameter: 1
+<li>junit_suffix: EvoSuiteTest
+<li>min_initial_tests: 1
+<li>max_delta: 20
+<li>cpu_timeout: false
+<li>dynamic_limit: false
+<li>min_free_mem: 50000000
+<li>test_excludes: test.excludes
+<li>write_pool: false
+<li>epsilon: 0.0010
+<li>enable_asserts_for_evosuite: false
+<li>analysis_criteria: 
+<li>junit_strict: false
+<li>print_to_system: false
+<li>virtual_fs: false
+<li>sandbox_folder: evosuite-sandbox
+<li>strategy: EVOSUITE
+<li>enable_alternative_suite_fitness: false
+<li>max_mutants_per_test: 100
+<li>stopping_port: -1
+<li>insertion_score_uut: 1
+<li>sourcepath: 
+<li>print_covered_goals: false
+<li>extra_timeout: 120
+<li>string_replacement: true
+<li>cluster_recursion: 10
+<li>population_limit: INDIVIDUALS
+<li>p_test_insert: 0.3333333333333333
+<li>constraint_solution_attempts: 3
+<li>timeout: 5000
+</ul></div>
+</div><p><br><a href="../report-generation.html">Back to Overview</a></p>
+</div>
+</body>
+</html>

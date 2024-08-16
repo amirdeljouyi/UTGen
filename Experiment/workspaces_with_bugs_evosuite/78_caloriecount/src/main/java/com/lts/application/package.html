@@ -1,0 +1,269 @@
+<BODY>
+
+A framework for simplifying GUI applications.
+
+<H2>Introduction</H2>
+The application framework simplifies writing programs by providing the following
+services:
+
+<UL>
+	<LI><A href="#quickstart">Quick Start</A>
+	<LI><A href="#application_properties">Application Properties Management</A>
+	<LI><A href="#command_line">Command Line Processing</A>
+	<LI><A href="#repositories">Data Management</A>
+	<LI><A href="#startup_shutdown">Startup and Shutdown Procedures</A>
+</UL>
+
+<H2> <A name="quickstart"> Quick Start </A> </H2>
+
+The com.lts.application framework provides a variety of utility classes for
+developing a "standard" application.  To use the framework, the developer must
+define:
+
+<UL>
+	<LI><A href="#quick_subclass">Subclass BasicApplication</A>
+	<LI><A href="#quick_properties">System Properties</A>
+	<LI><A href="#quick_command_line">Command Line Arguments</A>
+	<LI><A href="#quick_recovery">Crash Recovery</A>
+	<LI><A href="#quick_repository">Application Data</A>
+</UL>
+
+<H3> <A name="quick_subclass">Subclass BasicApplication</A> </H3>
+
+BasicApplication defines default implementations for all the methods that are
+required of an application that uses this framework.  Said methods are declared
+in the com.lts.app.Application class.
+
+<P>
+This new class must define two methods: main and startApplication.  Here is an
+example using the application class name: MyApp:
+
+<CODE>
+<PRE>
+public static void main (String[] args)
+{
+	Application app = new MyApp();
+	app.startApplication(args);
+}
+
+public void startApplication ()
+{
+	// perform whatever application functions we would normally perform
+}
+</PRE>
+</CODE>
+
+<P>
+The rest of this discussion details what other default methods need to be
+overridden.
+
+
+<H3> <A name="quick_properties">System Properties</A> </H3>
+To define properties for your application, do the following:
+
+<P>
+<UL>
+<LI><A href="DefaultApplicationProperties.html">Subclass DefaultApplicationProperties</A>
+<LI>
+	<A href="BasicApplication.html#newApplicationProperties">
+		Override BasicApplication.newApplicationProperties
+	</A>
+</UL>
+
+This section refers properties that a) apply to different sessions, projects,
+etc. and b) cannot easily be represented with name=value style properties.  An
+example might be the coding style that the user can define for Eclipse: it
+applies to the projects developed with Eclipse and is fairly complex.
+
+<P>
+By default, the application framework provides name=value style properties as a
+properties file that is stored in the user's "home" directory.  
+
+The default implementation defines the following system properties:
+
+<UL>
+	<LI>Last application file opened
+	<LI>Last directory visited when opening or saving a file
+</UL>
+
+<P>
+If your application needs more properties than this, then you should create a
+subclass of the DefaultApplicationProperties class that defines the names,
+default values, etc. for your application.  You also need to override the
+BasicApplication.newApplicationProperties method to return an instance of
+your properties class.
+
+<P>
+The previous discussion also assumes that your application's properties can be
+defined with simply name = value style properties.  If you need to store more
+complex data, then you should also subclass the DefaultApplicationProperties
+class so that it "knows" how to load and store the application data.  You will
+also need to override BasicApplication.newApplicationRepository to return an
+instance of this class.
+
+<P> <B>NOTE</B> <BR/>
+
+Application properties data is different from what people would consider
+application data.  For example, a word document is what this framework considers
+"session data," while things like whether to perform spell checking, what should
+appear on the toolbars, etc. is what this framework considers to be "application
+properties."
+
+<P>
+Some aspects of this distinction are:
+
+<UL>
+	<LI>Application properties apply to all documents, sessions, etc.
+	<LI>Session data contains useful data to a user, application properties
+	generally do not.
+</UL>
+
+<P>
+The distinction is not always clear-cut.
+
+<H3> <A name="quick_command_line">command line arguments</A> </H3>
+
+If your application is going to do any command line processing then you will
+need to do the following:
+
+<UL>
+	<LI>Subclass DefaultCommandLinePolicy
+	<LI>Override BasicApplication.getCommandLinePolicy
+</UL>
+
+<P>
+The subclass of DefaultCommandLinePolicy should define what the switches, etc.
+are for the application, what property names they map to, etc.
+
+<P>
+See DefaultCommandLinePolicy for a discussion of what the default properties
+are.  Briefly, one argument tells the application which application properties
+file to use, another tells the application what session data file to use.
+
+<H3> <A name="quick_recovery">Crash Recovery</A> </H3>
+
+If you want your application to be able to recover from crashes, then you will
+need to do the following:
+
+<UL>
+	<LI>Use and existing subclass or define a subclass of RecoveryPolicy
+	<LI>Override BasicApplication.getRecoveryPolicy
+</UL>
+
+<P>
+By default, BasicApplication performs no recovery.  If the system crashes in the
+middle of a user's session, the user loses all their data.  At startup, the
+system does not try to find recovery files.
+
+<P>
+BasicRecoveryPolicy periodically tells the application to "checkpoint" its data.
+On startup, BRP will look for checkpoints and alert the user or application
+regarding the possibility that the system crashed needs to be undergo recovery.
+
+<P>
+You can tune BasicRecoveryPolicy with parameters such as how frequently
+checkpoints should be created, whether they should only include session data or
+application properties as well, etc.  You can also define your own subclass of
+RecoveryPolicy if you wish.
+
+<H3> <A name="quick_repository">Datafiles</A> </H3>
+
+If you want it to, the framework can group similar files together into
+repositories.  The advantage is that the entire group of files can be backed up
+or restored, instead of having to perform the same operation on each file in the
+group.  In addition, the notions of repositories is central to being able to
+utilize the framework's crash recovery capability.
+
+<P>
+The simplest way to use this functionality is to subclass the ZipFileRepository
+class.  Define methods to load and store the data for your application.  This
+may simply be calling "loadObject" and "storeObject" for the various classes
+that your application deals with.
+
+<P>
+For more information, see the section on repositories in this document and the
+javadoc for the ApplicationRepository class.
+
+<H3> <A name="quick_properties">System Properties</A> </H3>
+
+
+
+
+
+
+
+
+<H3>
+	<A name="application_properties">
+		Application Properties Management
+	</A>
+</H3>
+A useful capability for an application is to "remember" aspects of the user's
+last session such as what file they last worked on, what their preferences for
+the application are, etc.  While these are useful to have, they can be annoying
+to program.  
+
+<P>
+The application framework simplifies this problem by doing the following:
+
+<UL>
+	<LI>Providing an API to get, set, save and load properties
+	<LI>Automatically loading properties at startup
+	<LI>Automatically saving properties at shutdown
+</UL>
+
+
+<H3><A name="repositories">Data Management</A></H3>
+
+The application framework makes use of a pattern called repositories.  A
+repository is essentially a collection of files that are subject to operations
+that act on the entire group.  These operations are:
+
+<UL>
+	<LI>create - create a new repository
+	<LI>open - open an existing repository
+	<LI>commit - save the current state of the repository
+	<LI>rollback - cancel any changes made to the repository
+	<LI>checkpoint - protect against a system crash
+	<LI>delete - remove an existing repository and all files contained therein
+</UL>
+
+<P>
+A repository is typically implemented as a ZIP file or a directory.  The name
+of a repository becomes the name of the file where the data is stored.
+
+<H3>
+	<A name="command_line">
+		Command Line Processing
+	</A>
+</H3>
+
+The framework provides a simple way of defining and processing command line
+arguments.  The developer defines the various arguments and switches, and how
+they map to values.  The application then parses the command line and sets the
+system properties according to what was provided on the command line.
+
+
+<H3>
+	<A name="startup_shutdown">
+		Startup and Shutdown Procedures
+	</A>
+</H3>
+
+The framework defines a sequences of steps that it goes through when starting up
+or shutting down.  See the Application class for details but a good example
+would be:
+
+<UL>
+	<LI>Process the command line
+	<LI>Clean up any temporary files
+	<LI>If a checkpoint exists, notify the user
+	<LI>If a previous session exists, try to load that
+	<LI>Create an empty session and start the application
+</UL>
+
+
+
+
+
+</BODY>
