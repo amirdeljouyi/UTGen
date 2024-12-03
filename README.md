@@ -23,6 +23,8 @@ cd LLM-Server
 unzip LLM-server.zip
 ```
 
+or clone the [UTGen-LLM](https://github.com/amirdeljouyi/UTGen-LLM-server) and [UTGen-Client](https://github.com/amirdeljouyi/UTGen-Client) repositories.
+
 ## Setting Up the LLM Server
 
 **1. Install Docker:** Ensure Docker is installed on your machine. Docker installation guides are available [here](https://docs.docker.com/engine/install/ubuntu/)
