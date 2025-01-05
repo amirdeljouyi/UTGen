@@ -1,0 +1,44 @@
+# Theme settings
+doks:
+    baseurl:
+#    color_theme: # Available themes: blue (default), green, purple, red and yellow
+    color_theme: purple
+    header:
+        logo:
+            text: UTGen
+            image:
+        nav:
+            - item_name: Getting Started
+              item_url: '/getting-started'
+            - item_name: Configuration
+              item_url: '/configuration'
+            - item_name: Running UTGen (Docker)
+              item_url: '/docker'
+            - item_name: Resources
+              item_url: '/resources'
+            - item_name: Troubleshooting
+              item_url: '/troubleshooting'
+    footer:
+        content:
+            logo:
+                text: Understandable Unit Test Generation (UTGen)
+                image:
+            copyright:
+        social_list:
+            - network_name: github
+              profile_url: 'https://github.com/amirdeljouyi/UTGen'
+    google_analytics:
+        tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
+    comments:
+        disqus_forum_shortname: # Add your disqus forum shortname to activate comments
+
+# SASS settings
+sass:
+    sass_dir: ./doks-theme/_sass
+    style: :compressed
+
+# Jekyll settings
+layouts_dir: ./doks-theme/_layouts
+includes_dir: ./doks-theme/_includes
+exclude: ['CHANGELOG.md' ]
+permalink: /:title/
