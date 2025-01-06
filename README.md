@@ -25,6 +25,8 @@ unzip LLM-server.zip
 
 or clone the [UTGen-LLM](https://github.com/amirdeljouyi/UTGen-LLM-server) and [UTGen-Client](https://github.com/amirdeljouyi/UTGen-Client) repositories.
 
+The dataset has been used in this research can be found [in this repository](https://github.com/amirdeljouyi/UTGen-replication-package-dataset).
+
 ## Setting Up the LLM Server
 
 **1. Install Docker:** Ensure Docker is installed on your machine. Docker installation guides are available [here](https://docs.docker.com/engine/install/ubuntu/)
@@ -63,4 +65,19 @@ pip install -r requirements.txt
 **4. Run UTGen:**
 ```bash
 ./run-utestgen.sh <DIR-PATH> <JAVA-VERSION: 8 OR 11> <USE-INHERITANCE: true OR false>
+```
+## How to run the experiment with Docker Compose
+
+1.	Start the LLM Server
+Run the following command to start ollama and llm-server service:
+
+```bash
+docker-compose -f docker-compose.yml start ollama llm-server
+```
+
+2.	Start the UTGen Client
+Once the llm-server service is running, and the model is running, you can start the utgen-client service:
+
+```bash
+docker-compose -f docker-compose.yml start utgen-client
 ```
