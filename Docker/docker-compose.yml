@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  ollama:
+    image: ollama/ollama:latest
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_HOST=0.0.0.0
+    ports:
+      - "11434:11434"
+    tty: true
+    container_name: ollama
+    pull_policy: always
+    networks:
+      - ollama-docker
+    volumes:
+      - ./ollama/ollama:/root/.ollama
+
+  llm-server:
+    build:
+      context: .
+      dockerfile: llm-server.cpu.Dockerfile
+    ports:
+      - "8000:8000"   # LLM Server
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    container_name: llm-server
+    depends_on:
+      - ollama
+    networks:
+      - ollama-docker
+    tty: true
+
+  utgen-client:
+    build:
+      context: .
+      dockerfile: client.8.Dockerfile
+    container_name: utgen-client
+#    platform: linux/amd64
+    networks:
+      - ollama-docker
+    depends_on:
+      - llm-server
+
+networks:
+  ollama-docker:
+    driver: bridge
