@@ -2,7 +2,7 @@
 doks:
     baseurl:
 #    color_theme: # Available themes: blue (default), green, purple, red and yellow
-    color_theme: purple
+    color_theme: green
     header:
         logo:
             text: UTGen
