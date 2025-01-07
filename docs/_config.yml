@@ -1,6 +1,6 @@
 # Theme settings
 doks:
-    baseurl:
+    baseurl: https://amirdeljouyi.github.io/UTGen/
 #    color_theme: # Available themes: blue (default), green, purple, red and yellow
     color_theme: green
     header:
