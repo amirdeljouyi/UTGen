@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+<title>Getting Started</title>
+
+	<meta name="description" content="How to get started with using UTGen.">
+
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700,700i|Noto+Sans:400,400i,700,700i|Source+Code+Pro&amp;subset=latin-ext">
+<link rel="stylesheet" href="/doks-theme/assets/css/style.css">
+
+	</head>
+	<body class="green" data-spy="scroll" data-target=".js-scrollspy">
+		
+	<div class="offcanvas visible-xs">
+		<ul class="offcanvas__nav">
+			
+				<li><a href="/getting-started">Getting Started</a></li>
+			
+				<li><a href="/configuration">Configuration</a></li>
+			
+				<li><a href="/docker">Running UTGen (Docker)</a></li>
+			
+				<li><a href="/resources">Resources</a></li>
+			
+				<li><a href="/troubleshooting">Troubleshooting</a></li>
+			
+		</ul><!-- /.offcanvas__nav -->
+	</div><!-- /.offcanvas -->
+
+
+
+	<header class="site-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					
+						<a href="/" class="site-header__logo">UTGen</a>
+					
+					
+						<ul class="site-header__nav hidden-xs">
+							
+								<li><a href="/getting-started">Getting Started</a></li>
+							
+								<li><a href="/configuration">Configuration</a></li>
+							
+								<li><a href="/docker">Running UTGen (Docker)</a></li>
+							
+								<li><a href="/resources">Resources</a></li>
+							
+								<li><a href="/troubleshooting">Troubleshooting</a></li>
+							
+						</ul><!-- /.site-header__nav -->
+						<button class="offcanvas-toggle visible-xs">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button><!-- /.offcanvas-toggle -->
+					
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</header><!-- /.site-header -->
+
+
+		<div class="hero-subheader">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="align-container" data-mh>
+							<div class="align-inner">
+								
+									<h1 class="hero-subheader__title">Getting Started</h1>
+								
+								
+									<p class="hero-subheader__desc">How to get started with using UTGen.</p>
+								
+								
+									
+									
+										<a href="/configuration" class="btn btn--dark btn--rounded btn--w-icon">
+											<i class="icon icon--arrow-right"></i>
+											Next page
+										</a>
+									
+								
+							</div><!-- /.align-inner -->
+						</div><!-- /.align-container -->
+					</div><!-- /.col -->
+					
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.hero-subheader -->
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="content">
+							<h1 id="what-is-utgen">What is UTGen?</h1>
+<p>We’re glad you asked! UTGen is a tool for automatically generating unit tests for Java code.
+It is based on <a href="http://www.evosuite.org/">EvoSuite</a>, a popular tool for generating unit tests for Java code.
+UTGen is a fork of EvoSuite that has been modified to generate tests that are more human-readable and easier to understand.
+It achieves this by generation tests that are more similar to the way that a human would write them, with more descriptive names and comments.
+UTGen uses a Large Language Model (LLM) to generate more understandable
+ (1) test names, (3) variable names, and (3) comments, (4) and test data.</p>
+
+<h1 id="what-does-it-include">What does it include?</h1>
+<p>UTGen includes a server and a client.
+The client is responsible for sending requests to the server and receiving responses.
+The client runs a modified version of EvoSuite that generates tests using the LLM.
+The server is responsible for handling the requests from the client to the model; 
+It handles the responses from the LLM and runs validations on the generated outputs to ensure that they are valid Java code.
+The server additionally check that the model has not modified the code in such a way that it has semantically changed the code.</p>
+
+<h1 id="how-to-install">How to install</h1>
+<p>To get started with UTGen, you will need to install the server and the client.
+UTGen is also available as a Docker image, which makes it easy to get up and running quickly.
+You can find more information on how to install UTGen in the <a href="/docker">Docker Guide</a>.</p>
+
+<h2 id="server">Server</h2>
+<p>To install the server, you will need to clone the <a href="https://github.com/amirdeljouyi/UTGen-LLM-server">UTGen-LLM-Server</a> repository from GitHub.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:amirdeljouyi/UTGen-LLM-server.git
+</code></pre></div></div>
+
+<p>You will also need to install the dependencies for the server.
+To do this, first navigate to the <code class="language-plaintext highlighter-rouge">UTGen-LLM-server</code> directory and then run the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install</span> <span class="nt">-r</span> requirements.txt
+</code></pre></div></div>
+
+<h2 id="client">Client</h2>
+<p>To install the client, you will need to clone the <a href="https://github.com/amirdeljouyi/UTGen-Client">UTGen-Client</a> repository from GitHub.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:amirdeljouyi/UTGen-Client.git
+</code></pre></div></div>
+
+						</div><!-- /.content -->
+					</div><!-- /.col -->
+					<div class="col-md-4 col-md-offset-1">
+						<div class="sections-list-wrapper">
+							<div class="sections-list js-sections js-affix js-scrollspy hidden-xs hidden-sm"></div><!-- /.sections-list -->
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.section -->
+		
+		<div class="js-footer-area">
+			
+				<nav class="page-nav">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">
+								
+								
+									<a href="/configuration" class="page-nav__item page-nav__item--next">
+										Next page
+										<i class="icon icon--arrow-right"></i>
+									</a><!-- /.page-nav__item -->
+								
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.container -->
+				</nav><!-- /.page-nav -->
+			
+			
+				<div class="micro-nav">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<a href="/" class="micro-nav__back">
+					<i class="icon icon--arrow-left"></i>
+					Back to homepage
+				</a><!-- /.micro-nav__back -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</div><!-- /.micro-nav -->
+
+			
+			
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					
+						<a href="/" class="site-footer__logo">Understandable Unit Test Generation (UTGen)</a>
+					
+					
+				</div><!-- /.col -->
+				
+					<div class="col-sm-6 align-right">
+						<ul class="social-list">
+							
+								<li>
+									<a href="https://github.com/amirdeljouyi/UTGen" target="_blank" class="social-list__item social-list__item--github">
+										<i class="icon icon--github"></i>
+									</a>
+								</li>
+							
+						</ul><!-- /.social-list -->
+					</div><!-- /.col -->
+				
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</footer><!-- /.site-footer -->
+
+
+<script src="/doks-theme/assets/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/vendor/bootstrap/affix.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/vendor/bootstrap/scrollspy.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/vendor/matchHeight.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/scripts.min.js"></script>
+
+
+
+
+		</div><!-- /.js-footer-area -->
+	</body>
+</html>

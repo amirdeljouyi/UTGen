@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+<title>Running UTGen (Docker)</title>
+
+	<meta name="description" content="A guide to running UTGen using Docker. (replication of the original paper)">
+
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,700,700i|Noto+Sans:400,400i,700,700i|Source+Code+Pro&amp;subset=latin-ext">
+<link rel="stylesheet" href="/doks-theme/assets/css/style.css">
+
+	</head>
+	<body class="green" data-spy="scroll" data-target=".js-scrollspy">
+		
+	<div class="offcanvas visible-xs">
+		<ul class="offcanvas__nav">
+			
+				<li><a href="/getting-started">Getting Started</a></li>
+			
+				<li><a href="/configuration">Configuration</a></li>
+			
+				<li><a href="/docker">Running UTGen (Docker)</a></li>
+			
+				<li><a href="/resources">Resources</a></li>
+			
+				<li><a href="/troubleshooting">Troubleshooting</a></li>
+			
+		</ul><!-- /.offcanvas__nav -->
+	</div><!-- /.offcanvas -->
+
+
+
+	<header class="site-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					
+						<a href="/" class="site-header__logo">UTGen</a>
+					
+					
+						<ul class="site-header__nav hidden-xs">
+							
+								<li><a href="/getting-started">Getting Started</a></li>
+							
+								<li><a href="/configuration">Configuration</a></li>
+							
+								<li><a href="/docker">Running UTGen (Docker)</a></li>
+							
+								<li><a href="/resources">Resources</a></li>
+							
+								<li><a href="/troubleshooting">Troubleshooting</a></li>
+							
+						</ul><!-- /.site-header__nav -->
+						<button class="offcanvas-toggle visible-xs">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button><!-- /.offcanvas-toggle -->
+					
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</header><!-- /.site-header -->
+
+
+		<div class="hero-subheader">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="align-container" data-mh>
+							<div class="align-inner">
+								
+									<h1 class="hero-subheader__title">Running UTGen (Docker)</h1>
+								
+								
+									<p class="hero-subheader__desc">A guide to running UTGen using Docker. (replication of the original paper)</p>
+								
+								
+									
+										<a href="/configuration" class="btn btn--dark btn--rounded btn--w-icon btn--w-icon-left">
+											<i class="icon icon--arrow-left"></i>
+											Previous page
+										</a>
+									
+									
+										<a href="/resources" class="btn btn--dark btn--rounded btn--w-icon">
+											<i class="icon icon--arrow-right"></i>
+											Next page
+										</a>
+									
+								
+							</div><!-- /.align-inner -->
+						</div><!-- /.align-container -->
+					</div><!-- /.col -->
+					
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.hero-subheader -->
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="content">
+							<h1 id="how-to-use-the-docker-image">How to use the docker image</h1>
+<p>The UTGen Docker files can be found under the <code class="language-plaintext highlighter-rouge">Docker</code> directiory of the UTGen repository. The Docker image is built using the <code class="language-plaintext highlighter-rouge">Dockerfile</code> and the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file is used to run the experiment.</p>
+
+<p>We have multiple variants of the Docker image:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">client.11.Dockerfile</code> - This Dockerfile is used to build the UTGen client image with the version 11 of the OpenJDK.</li>
+  <li><code class="language-plaintext highlighter-rouge">client.8.Dockerfile</code> - This Dockerfile is used to build the UTGen client image with the version 8 of the OpenJDK.</li>
+  <li><code class="language-plaintext highlighter-rouge">llm-server.cpu.Dockerfile</code> - This Dockerfile is used to build the LLM Server image with the CPU compute engine.</li>
+  <li><code class="language-plaintext highlighter-rouge">llm-server.nvidia.Dockerfile</code> - This Dockerfile is used to build the LLM Server image with the Nvidia GPU compute engine.</li>
+  <li><code class="language-plaintext highlighter-rouge">docker-compose.yml</code> - This file is used to run the experiment with the UTGen client and the LLM Server.</li>
+  <li><code class="language-plaintext highlighter-rouge">docker-compose.nvidia.yml</code> - This file is used to run the experiment with the UTGen client and the LLM Server with the Nvidia GPU compute engine.</li>
+</ol>
+
+<h2 id="how-to-build-the-docker-image">How to build the Docker image</h2>
+
+<h3 id="start-the-llm-server">Start the LLM Server</h3>
+
+<p>Run the following command to start the ollama llm-server service:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose <span class="nt">-f</span> docker-compose.yml start ollama llm-server
+</code></pre></div></div>
+
+<h3 id="start-the-utgen-client">Start the UTGen Client</h3>
+
+<p>Once the llm-server service is running, and the model is running, you can start the utgen-client service:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose <span class="nt">-f</span> docker-compose.yml start utgen-client
+</code></pre></div></div>
+
+						</div><!-- /.content -->
+					</div><!-- /.col -->
+					<div class="col-md-4 col-md-offset-1">
+						<div class="sections-list-wrapper">
+							<div class="sections-list js-sections js-affix js-scrollspy hidden-xs hidden-sm"></div><!-- /.sections-list -->
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.section -->
+		
+		<div class="js-footer-area">
+			
+				<nav class="page-nav">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-12">
+								
+									<a href="/configuration" class="page-nav__item page-nav__item--prev">
+										<i class="icon icon--arrow-left"></i>
+										Previous page
+									</a><!-- /.page-nav__item -->
+								
+								
+									<a href="/resources" class="page-nav__item page-nav__item--next">
+										Next page
+										<i class="icon icon--arrow-right"></i>
+									</a><!-- /.page-nav__item -->
+								
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.container -->
+				</nav><!-- /.page-nav -->
+			
+			
+				<div class="micro-nav">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<a href="/" class="micro-nav__back">
+					<i class="icon icon--arrow-left"></i>
+					Back to homepage
+				</a><!-- /.micro-nav__back -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div><!-- /.container -->
+</div><!-- /.micro-nav -->
+
+			
+			
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					
+						<a href="/" class="site-footer__logo">Understandable Unit Test Generation (UTGen)</a>
+					
+					
+				</div><!-- /.col -->
+				
+					<div class="col-sm-6 align-right">
+						<ul class="social-list">
+							
+								<li>
+									<a href="https://github.com/amirdeljouyi/UTGen" target="_blank" class="social-list__item social-list__item--github">
+										<i class="icon icon--github"></i>
+									</a>
+								</li>
+							
+						</ul><!-- /.social-list -->
+					</div><!-- /.col -->
+				
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</footer><!-- /.site-footer -->
+
+
+<script src="/doks-theme/assets/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/vendor/bootstrap/affix.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/vendor/bootstrap/scrollspy.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/vendor/matchHeight.min.js"></script>
+<script type="text/javascript" src="/doks-theme/assets/js/scripts.min.js"></script>
+
+
+
+
+		</div><!-- /.js-footer-area -->
+	</body>
+</html>
