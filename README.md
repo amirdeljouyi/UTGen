@@ -2,7 +2,7 @@
 
 This is the replication package for the research project "Leveraging Large Language Models for Enhancing the Understandability of Generated Unit Tests". This guide will walk you through setting up and using the tools involved in our study, including a LLM server and the UTGen client.
 
-## The Replication Package Directory Structure
+## Directory Structure
 
 #### Experiment
 The `Experiment` directory holds all materials related to the controlled experiment conducted in this research. It includes:
