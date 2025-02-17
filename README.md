@@ -14,7 +14,7 @@ The `Experiment` directory holds all materials related to the controlled experim
 The `Methodology` directory provides a detailed guide on how to select the two projects used for the controlled experiment.
 
 #### Results
-The `Results` directory contains the test cases generated during the study using the DynaMosa dataset. The dataset used can be accessed in the [UTGen replication package dataset repository](https://github.com/amirdeljouyi/UTGen-replication-package-dataset).
+The `Results` directory contains the test cases generated during the study using the DynaMosa dataset. The dataset used can be accessed in the [UTGen replication package dataset repository](https://github.com/amirdeljouyi/UTGen-replication-package-dataset). It includes detailed documentation and experimental outcomes as discussed in the paper. Since the results have already been thoroughly analyzed in the paper, repeating the discussion here would be redundant. For a complete understanding, kindly refer to the paper's Results section.
 
 #### Implementation
 The following directories contain the implementation code and configurations:
