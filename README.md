@@ -77,6 +77,7 @@ pip install -r requirements.txt
 **1. Install Java Versions:** Use [SDKMAN](https://sdkman.io/) to install the required Java versions.
 
 **2. Prepare `classes.csv`:** Ensure the target directory for UTGen contains a `classes.csv` file with `project` and `class` headers.
+You can find an example in the [UTGen-replication-package-dataset repository](https://github.com/amirdeljouyi/UTGen-replication-package-dataset/blob/main/SF110-binary/classes.csv). This example is pre-configured for running SF110.
 
 **3. Project Requirements:** Each project should contain at least the following structure
 
