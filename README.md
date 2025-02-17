@@ -105,5 +105,5 @@ docker-compose -f docker-compose.yml up ollama -d && docker-compose -f docker-co
 Once the llm-server service is running, and the model is running, you can start the utgen-client service:
 
 ```bash
-docker-compose -f docker-compose.yml run utgen-client
+docker-compose -f docker-compose.yml up utgen-client
 ```
