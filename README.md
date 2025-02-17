@@ -98,12 +98,12 @@ Ensure Docker is configured with at least 10GB of RAM to handle the tasks in the
 Run the following command to start ollama and llm-server service:
 
 ```bash
-docker-compose -f docker-compose.yml start ollama llm-server
+docker-compose -f docker-compose.yml run ollama llm-server
 ```
 
 2.	Start the UTGen Client
 Once the llm-server service is running, and the model is running, you can start the utgen-client service:
 
 ```bash
-docker-compose -f docker-compose.yml start utgen-client
+docker-compose -f docker-compose.yml run utgen-client
 ```
