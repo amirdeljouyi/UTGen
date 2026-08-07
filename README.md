@@ -108,3 +108,7 @@ Once the llm-server service is running, and the model is running, you can start 
 ```bash
 docker-compose -f docker-compose.yml up utgen-client
 ```
+
+### Troubleshooting
+
+**Understandable inputs replaced after minimization**: EvoSuite's test suite minimization phase automatically replaces test inputs with smaller equivalent values to reduce suite size. This can override the LLM-generated understandable inputs. To preserve understandable inputs, you can disable minimization in your `evosuite.properties` file (`test_suite_minimization=false`), or apply the LLM enhancement step after the minimization phase completes. For more detailed configuration options, please refer to the main [UTGen-Client](https://github.com/amirdeljouyi/UTGen-Client) repository.
